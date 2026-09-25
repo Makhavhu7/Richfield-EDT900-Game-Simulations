@@ -156,29 +156,23 @@ shadows. The header, footer and favicon use the local EDT900 mark
 (`assets/images/richfield-edt900-mark.svg` and `assets/images/favicon.svg`), so
 the site carries no external logo dependency.
 
-## Publishing this project as its own repository
+## This project's own repository
 
-This folder is already a Git repository with its **own fresh history** (a single
-"Richfield EDT900 game simulations" commit) and it is *not* connected to the
-template's history any more. The template's repository is still reachable
-locally under the remote name `uct-gsb-template`, and it was left untouched.
+The project now has its **own Git history** (the Richfield EDT900 commits) and
+its own remote:
 
-Create an empty repository on GitHub (no README, no .gitignore), then push:
+| Remote | Repository | Purpose |
+| --- | --- | --- |
+| `origin` | `https://github.com/Makhavhu7/Richfield-EDT900-Game-Simulations` | This project |
+| `uct-gsb-template` | `https://github.com/FrankBahle/UCT_GSB` | The original template, left untouched |
 
 ```bash
-# 1. Create the empty repository in the browser, for example
-#    https://github.com/new  →  name: Richfield-EDT900-Game-Simulations
-
-# 2. Point the new remote at it (change the owner if it is not FrankBahle)
-git remote set-url origin https://github.com/FrankBahle/Richfield-EDT900-Game-Simulations.git
-
-# 3. Push the new history as the main branch of the new repository
-git push -u origin richfield-main:main
+git push            # publish new work to this project's own repository
 ```
 
-The old repository (`https://github.com/FrankBahle/UCT_GSB`) is never touched by
-any of these commands - `git push` only goes to `origin`, which is now the new
-repository.
+The template repository is never written to - `git push` only goes to `origin`.
+If you want to keep your own remote name for it, change the URL with
+`git remote set-url origin <your-repository-url>`.
 
 ## Netlify (still supported)
 
