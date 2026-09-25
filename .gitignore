@@ -23,9 +23,7 @@ node_modules/
 
 # Editor worktrees and scratch folders
 .kilo/
-.tmp-http-check-data/
-.tmp-vercel-check/
-.tmp-logout-check/
+.tmp-*/
 
 # Local environment variables and API secrets
 .env
