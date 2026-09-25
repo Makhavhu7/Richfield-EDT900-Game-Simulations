@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Richfield EDT900 score monitor: every registered student, their AfriCOIN and each problem they answered.">
+    <title>Score monitor | Richfield EDT900</title>
+
+    <link rel="icon" type="image/svg+xml"
+        href="assets/images/favicon.svg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+        rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/auth.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
+</head>
+
+<body class="auth-page">
+    <header class="gsb-navbar auth-navbar">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a class="logo-lockup" href="index.html" aria-label="Richfield EDT900 home">
+                <img alt="Richfield EDT900"
+                    src="assets/images/richfield-edt900-mark.svg">
+
+                <span class="logo-text">
+                    RICHFIELD
+                    <span>EDT900</span>
+                </span>
+            </a>
+
+            <div class="account-chip" id="adminChip" hidden>
+                <span class="account-name">
+                    Admin: <span id="adminName">admin</span>
+                </span>
+
+                <button class="account-signout" id="adminSignOut" type="button">
+                    Sign out
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            <p class="db-note" data-db-note hidden></p>
+
+            <section class="auth-card" id="adminLoginCard">
+                <span class="eyebrow eyebrow-dark">Lecturer</span>
+                <h1>Score monitor sign in</h1>
+
+                <p class="auth-lead">
+                    Only the lecturer can see every student, the AfriCOIN each of
+                    them earned and each problem they answered.
+                </p>
+
+                <div class="auth-message" id="loginMessage" role="alert"></div>
+
+                <form id="adminLoginForm" novalidate>
+                    <div class="auth-field">
+                        <label for="username">Admin username</label>
+                        <input type="text" id="username" name="username"
+                            autocomplete="username" placeholder="admin" required>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="password">Admin password</label>
+                        <input type="password" id="password" name="password"
+                            autocomplete="current-password" placeholder="Your admin password"
+                            required>
+                    </div>
+
+                    <div class="auth-check">
+                        <input type="checkbox" id="remember" checked>
+                        <label for="remember">Keep me signed in on this device</label>
+                    </div>
+
+                    <button class="btn btn-gsb-primary btn-lg" id="loginBtn" type="submit">
+                        Open the score monitor
+                        <i class="bi bi-speedometer2" aria-hidden="true"></i>
+                    </button>
+                </form>
+
+                <p class="auth-footnote">
+                    Student? <a href="login.html">Sign in and play here</a>.
+                </p>
+            </section>
+
+            <section id="adminDashboard" hidden>
+                <div class="admin-toolbar">
+                    <div>
+                        <h1>All registered students</h1>
+                        <p id="adminSummaryLine">Loading the student list...</p>
+                    </div>
+
+                    <div class="admin-actions">
+                        <button class="btn btn-outline-gsb" id="refreshBtn" type="button">
+                            <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+                            Refresh
+                        </button>
+
+                        <button class="btn btn-outline-gsb" id="csvSummaryBtn" type="button">
+                            <i class="bi bi-filetype-csv" aria-hidden="true"></i>
+                            Students CSV
+                        </button>
+
+                        <button class="btn btn-outline-gsb" id="csvQuestionsBtn" type="button">
+                            <i class="bi bi-list-check" aria-hidden="true"></i>
+                            Per-problem CSV
+                        </button>
+                    </div>
+                </div>
+
+                <div class="auth-message" id="adminMessage" role="alert"></div>
+                <div class="admin-stats" id="adminStats"></div>
+
+                <div class="admin-panel">
+                    <div class="admin-panel-head">
+                        <div>
+                            <h2>Students</h2>
+                            <small>
+                                Highest total AfriCOIN first. The score kept is the best
+                                AfriCOIN each student reached for every problem.
+                            </small>
+                        </div>
+
+                        <input class="admin-search" id="adminSearch" type="search"
+                            placeholder="Search a name or email address">
+                    </div>
+
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Student</th>
+                                    <th>Email</th>
+                                    <th>Registered</th>
+                                    <th>Last seen</th>
+                                    <th>Sim 0</th>
+                                    <th>Sim 1</th>
+                                    <th>Sim 2</th>
+                                    <th>Total</th>
+                                    <th>Answered</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="adminTableBody">
+                                <tr>
+                                    <td class="empty" colspan="11">
+                                        Loading registered students...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <section class="admin-detail" id="adminDetail" hidden>
+                    <div class="admin-detail-head">
+                        <div>
+                            <h2 id="detailTitle">Student</h2>
+                            <p id="detailSubtitle"></p>
+                        </div>
+
+                        <button class="btn btn-outline-gsb" id="detailCloseBtn" type="button">
+                            Close
+                        </button>
+                    </div>
+
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Simulation</th>
+                                    <th>Problem</th>
+                                    <th>AfriCOIN earned</th>
+                                    <th>AfriCOIN possible</th>
+                                    <th>Correct</th>
+                                    <th>Attempts</th>
+                                    <th>Last attempt</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="detailTableBody"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="admin-detail" id="passwordPanel">
+                    <div class="admin-detail-head">
+                        <div>
+                            <h2>Change the admin password</h2>
+                            <p>
+                                The first admin password comes from the server
+                                configuration. Replace it here once the site is live.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="auth-message" id="passwordMessage" role="alert"></div>
+
+                    <form id="passwordForm" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="auth-field">
+                                    <label for="currentPassword">Current password</label>
+                                    <input type="password" id="currentPassword"
+                                        autocomplete="current-password" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="auth-field">
+                                    <label for="newPassword">New password</label>
+                                    <input type="password" id="newPassword"
+                                        autocomplete="new-password" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="auth-field">
+                                    <label for="confirmNewPassword">Confirm new password</label>
+                                    <input type="password" id="confirmNewPassword"
+                                        autocomplete="new-password" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-gsb-primary" id="passwordBtn" type="submit">
+                            Update admin password
+                        </button>
+                    </form>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <footer class="gsb-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Richfield &middot; EDT900 Game Simulations</p>
+                <p><a class="footer-contact-link" href="index.html">Back to the simulations</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/local-db.js"></script>
+    <script src="assets/js/api-client.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+
+</html>

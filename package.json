@@ -1,0 +1,25 @@
+{
+  "name": "richfield-edt900-game-simulations",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Richfield EDT900 game simulations: three Emerging & Disruptive Technology 900 simulations with student accounts, server-scored AfriCOIN and a lecturer score monitor.",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "npx vercel dev",
+    "test": "node scripts/smoke-test.mjs",
+    "test:http": "node scripts/http-check.mjs",
+    "test:vercel": "node scripts/vercel-check.mjs",
+    "test:local": "node scripts/local-db-check.mjs",
+    "test:ui": "node scripts/ui-check.mjs",
+    "check": "node --check server.mjs && node --check lib/admin-seed.mjs && node --check lib/api-core.mjs && node --check lib/game-catalog.mjs && node --check lib/kv-jsondb.mjs && node --check lib/kv-blobs.mjs && node --check lib/kv-rest.mjs && node --check \"api/[...route].mjs\" && node --check netlify/functions/api.mjs && node --check assets/js/local-db.js && node --check assets/js/api-client.js && node --check assets/js/quiz-games.js && node --check assets/js/admin.js && node --check scripts/smoke-test.mjs && node --check scripts/http-check.mjs && node --check scripts/vercel-check.mjs && node --check scripts/local-db-check.mjs && node --check scripts/ui-check.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

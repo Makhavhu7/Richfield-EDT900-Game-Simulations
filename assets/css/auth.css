@@ -1,0 +1,563 @@
+/*------------------------------------------------------------------
+  Game Testing - GLA
+  Account pages (sign in, register) and the admin score monitor.
+  Builds on the shared tokens in assets/css/style.css.
+------------------------------------------------------------------*/
+
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--gsb-soft);
+}
+
+.auth-navbar {
+    min-height: 76px;
+}
+
+.auth-navbar .navbar-brand {
+    gap: 0.85rem;
+    margin-right: 0;
+}
+
+.auth-brand-text {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--gsb-charcoal);
+}
+
+.auth-navbar .btn {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.auth-main {
+    flex: 1;
+    padding: 3.5rem 0 4.5rem;
+}
+
+.auth-card {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 2.4rem 2.2rem;
+    background: var(--gsb-white);
+    border: 1px solid var(--gsb-border);
+    border-radius: 16px;
+    box-shadow: var(--gsb-shadow);
+}
+
+.auth-card h1 {
+    margin-bottom: 0.6rem;
+    font-size: clamp(1.5rem, 3vw, 1.95rem);
+}
+
+.auth-lead {
+    margin-bottom: 1.6rem;
+    color: var(--gsb-muted);
+    font-size: 0.95rem;
+}
+
+.auth-field {
+    margin-bottom: 1.15rem;
+}
+
+.auth-field label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--gsb-charcoal);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.auth-field input {
+    width: 100%;
+    padding: 0.8rem 0.95rem;
+    border: 1px solid var(--gsb-border);
+    border-radius: 10px;
+    background: var(--gsb-white);
+    color: var(--gsb-text);
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.auth-field input:focus {
+    border-color: var(--gsb-cyan);
+    outline: 3px solid rgba(217, 166, 52, 0.22);
+}
+
+.auth-field small {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--gsb-muted);
+    font-size: 0.78rem;
+}
+
+.auth-check {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1.4rem;
+    color: var(--gsb-muted);
+    font-size: 0.88rem;
+}
+
+.auth-check input {
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--gsb-cyan-dark);
+}
+
+.auth-card .btn {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-weight: 600;
+}
+
+.auth-switch,
+.auth-footnote {
+    margin: 1.2rem 0 0;
+    color: var(--gsb-muted);
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.auth-footnote {
+    margin-top: 0.5rem;
+}
+
+.auth-message {
+    display: none;
+    margin-bottom: 1.3rem;
+    padding: 0.8rem 1rem;
+    border-left: 4px solid var(--gsb-cyan);
+    border-radius: 8px;
+    background: rgba(217, 166, 52, 0.12);
+    color: var(--gsb-navy-deep);
+    font-size: 0.88rem;
+}
+
+.auth-message.show {
+    display: block;
+}
+
+.auth-message.error {
+    border-left-color: #d64545;
+    background: rgba(214, 69, 69, 0.08);
+    color: #8f2626;
+}
+
+.auth-message.success {
+    border-left-color: #2f9e44;
+    background: rgba(47, 158, 68, 0.1);
+    color: #1f6f30;
+}
+
+.auth-points-note {
+    margin: 1.4rem 0 0;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    background: var(--gsb-soft);
+    color: var(--gsb-muted);
+    font-size: 0.84rem;
+}
+
+.auth-points-note strong {
+    color: var(--gsb-charcoal);
+}
+
+/*----------------------- shared brand and account -----------------------*/
+
+.gla-logo {
+    display: block;
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+}
+
+.gla-logo-footer {
+    height: 62px;
+}
+
+.site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0;
+    text-decoration: none;
+}
+
+.site-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.site-brand-title {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--gsb-charcoal);
+}
+
+.site-brand-sub {
+    color: var(--gsb-muted);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.account-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.35rem 0.45rem 0.35rem 1rem;
+    background: var(--gsb-white);
+    border: 1px solid var(--gsb-border);
+    border-radius: 999px;
+}
+
+.account-chip .account-name {
+    color: var(--gsb-charcoal);
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+.account-chip .account-points {
+    color: var(--gsb-navy-deep);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.account-signout {
+    padding: 0.45rem 0.95rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--gsb-charcoal);
+    color: var(--gsb-white);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.account-signout:hover,
+.account-signout:focus {
+    background: var(--gsb-black);
+}
+
+.account-chip[hidden],
+.account-signout[hidden] {
+    display: none;
+}
+
+@media (max-width: 720px) {
+    .gla-logo {
+        height: 40px;
+    }
+
+    .gla-logo-footer {
+        height: 52px;
+    }
+
+    .site-brand-sub {
+        display: none;
+    }
+
+    .site-brand-title {
+        font-size: 0.92rem;
+    }
+
+    .account-chip {
+        padding: 0.3rem 0.35rem 0.3rem 0.75rem;
+    }
+
+    .account-chip .account-name {
+        display: none;
+    }
+}
+
+
+.admin-main {
+    flex: 1;
+    padding: 2.75rem 0 4rem;
+}
+
+.admin-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.6rem;
+}
+
+.admin-toolbar h1 {
+    margin-bottom: 0.35rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.admin-toolbar p {
+    margin: 0;
+    color: var(--gsb-muted);
+    font-size: 0.9rem;
+}
+
+.admin-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.admin-actions .btn {
+    padding: 0.6rem 1.05rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.admin-actions .btn-outline-gsb {
+    color: var(--gsb-navy);
+    background: var(--gsb-white);
+    border: 1px solid var(--gsb-border);
+}
+
+.admin-actions .btn-outline-gsb:hover,
+.admin-actions .btn-outline-gsb:focus {
+    color: var(--gsb-navy-deep);
+    border-color: var(--gsb-cyan);
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0.85rem;
+    margin-bottom: 1.7rem;
+}
+
+.admin-stat {
+    padding: 1.1rem 1.15rem;
+    background: var(--gsb-white);
+    border: 1px solid var(--gsb-border);
+    border-radius: 12px;
+}
+
+.admin-stat span {
+    display: block;
+    color: var(--gsb-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.admin-stat strong {
+    display: block;
+    margin-top: 0.4rem;
+    color: var(--gsb-charcoal);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.55rem;
+}
+
+.admin-stat small {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--gsb-muted);
+    font-size: 0.78rem;
+}
+
+.admin-panel {
+    overflow: hidden;
+    background: var(--gsb-white);
+    border: 1px solid var(--gsb-border);
+    border-radius: 14px;
+    box-shadow: var(--gsb-shadow);
+}
+
+.admin-panel-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    padding: 1.05rem 1.25rem;
+    border-bottom: 1px solid var(--gsb-border);
+}
+
+.admin-panel-head h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.admin-panel-head small {
+    display: block;
+    color: var(--gsb-muted);
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.admin-search {
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--gsb-border);
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    min-width: 220px;
+}
+
+.admin-search:focus {
+    border-color: var(--gsb-cyan);
+    outline: 3px solid rgba(217, 166, 52, 0.2);
+}
+
+.admin-table-wrap {
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.admin-table th {
+    padding: 0.75rem 1rem;
+    background: var(--gsb-soft);
+    border-bottom: 1px solid var(--gsb-border);
+    color: var(--gsb-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #f1f4f6;
+    color: var(--gsb-text);
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+    background: #fafcfd;
+}
+
+.admin-table .strong {
+    color: var(--gsb-charcoal);
+    font-weight: 600;
+}
+
+.admin-table .score {
+    color: var(--gsb-navy-deep);
+    font-weight: 700;
+}
+
+.admin-table .empty {
+    padding: 2.4rem 1.25rem;
+    color: var(--gsb-muted);
+    text-align: center;
+    white-space: normal;
+}
+
+.admin-rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--gsb-soft);
+    color: var(--gsb-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.admin-rank.top {
+    background: rgba(217, 166, 52, 0.18);
+    color: var(--gsb-navy-deep);
+}
+
+.admin-open {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--gsb-border);
+    border-radius: 8px;
+    background: var(--gsb-white);
+    color: var(--gsb-navy);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-open:hover {
+    border-color: var(--gsb-cyan);
+    color: var(--gsb-navy-deep);
+}
+
+.admin-detail {
+    margin-top: 1.7rem;
+    padding: 1.4rem 1.4rem 1.6rem;
+    background: var(--gsb-white);
+    border: 1px solid var(--gsb-border);
+    border-radius: 14px;
+    box-shadow: var(--gsb-shadow);
+}
+
+.admin-detail[hidden] {
+    display: none;
+}
+
+.admin-detail-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.admin-detail-head h2 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.admin-detail-head p {
+    margin: 0.25rem 0 0;
+    color: var(--gsb-muted);
+    font-size: 0.85rem;
+}
+
+.admin-detail .admin-table {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .auth-card {
+        padding: 1.8rem 1.3rem;
+    }
+
+    .auth-brand-text {
+        font-size: 0.9rem;
+    }
+
+    .admin-search {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .admin-panel-head {
+        align-items: stretch;
+    }
+}

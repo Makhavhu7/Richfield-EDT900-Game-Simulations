@@ -1,0 +1,17 @@
+[
+  {
+    "username": "admin",
+    "password": "EDT900@2026",
+    "name": "Richfield EDT900 Administrator",
+    "role": "owner",
+    "createdAt": "2026-09-22T00:00:00.000Z"
+  },
+  {
+    "username": "mbofhenijunior7@gmail.com",
+    "email": "mbofhenijunior7@gmail.com",
+    "password": "GRIT@2026",
+    "name": "Makhavhu MJ",
+    "role": "owner",
+    "createdAt": "2026-09-22T00:00:00.000Z"
+  }
+]

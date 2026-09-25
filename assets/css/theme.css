@@ -1,0 +1,747 @@
+/*------------------------------------------------------------------
+  Richfield EDT900 Game Simulations
+  EDT900 poster theme: cream dotted canvas, gold accents, charcoal
+  type and Montserrat everywhere.
+  Loaded last, so it sets the look for every page.
+------------------------------------------------------------------*/
+
+body {
+    background-color: var(--gla-cream);
+    background-image: radial-gradient(var(--gla-dot) 1px, transparent 1px);
+    background-size: 14px 14px;
+    background-position: -10px -10px;
+    color: var(--gla-ink-soft);
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar,
+.btn,
+.eyebrow,
+.site-brand-title,
+.account-chip {
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+a {
+    color: var(--gla-gold-deep);
+}
+
+a:hover {
+    color: var(--gla-ink);
+}
+
+/*------------------------------ buttons ------------------------------*/
+
+.btn-gsb-primary {
+    color: var(--gla-ink);
+    background: var(--gla-gold);
+    border: 2px solid var(--gla-gold);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.btn-gsb-primary:hover,
+.btn-gsb-primary:focus {
+    color: var(--gla-ink);
+    background: var(--gla-gold-deep);
+    border-color: var(--gla-gold-deep);
+    box-shadow: 0 10px 24px rgba(217, 166, 52, 0.28);
+}
+
+.btn-gsb-outline {
+    color: var(--gla-ink);
+    background: transparent;
+    border: 2px solid var(--gla-ink);
+}
+
+.btn-gsb-outline:hover,
+.btn-gsb-outline:focus {
+    color: var(--gla-ink);
+    background: var(--gla-gold);
+    border-color: var(--gla-gold);
+}
+
+/*------------------------------ surfaces -----------------------------*/
+
+.gsb-navbar {
+    min-height: 84px;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--gla-line);
+    box-shadow: none;
+}
+
+.section-white {
+    background: #ffffff;
+}
+
+.section-soft {
+    background: transparent;
+}
+
+.content-card,
+.quiz-hub-card,
+.admin-panel,
+.admin-stat,
+.admin-detail {
+    border: 1px solid var(--gla-line);
+    box-shadow: var(--gla-card-shadow);
+}
+
+.content-card h3,
+.quiz-hub-card h2 {
+    color: var(--gla-ink);
+    font-weight: 800;
+}
+
+.eyebrow {
+    color: var(--gla-gold-deep);
+    font-weight: 800;
+}
+
+.eyebrow-dark {
+    color: var(--gla-gold-deep);
+}
+
+.heading-line {
+    background: var(--gla-gold);
+    height: 3px;
+    width: 90px;
+}
+
+.page-hero {
+    background: var(--gla-dark);
+    border-bottom: 8px solid var(--gla-gold);
+}
+
+.page-hero::after {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.page-hero h1 {
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.page-hero p {
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.page-meta .meta-chip {
+    color: var(--gla-ink);
+    background: var(--gla-gold);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    border-radius: 3px;
+}
+
+.page-meta span:last-child {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.gsb-footer {
+    background: var(--gla-ink);
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.gsb-footer h2 {
+    border-bottom: 2px solid var(--gla-gold);
+}
+
+.gsb-footer a,
+.footer-contact-link {
+    color: var(--gla-gold);
+}
+
+.gsb-footer a:hover,
+.gsb-footer a:focus,
+.footer-contact-link:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/*--------------------------- brand and account -----------------------*/
+
+.site-brand-title {
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.site-brand-sub {
+    color: var(--gla-gold-deep);
+    font-weight: 800;
+}
+
+.gla-logo {
+    height: 48px;
+}
+
+.account-chip {
+    background: #ffffff;
+    border: 1px solid var(--gla-line);
+    box-shadow: var(--gla-card-shadow);
+}
+
+.account-chip .account-points {
+    color: var(--gla-gold-deep);
+    font-weight: 900;
+}
+
+.account-signout {
+    background: var(--gla-ink);
+    font-weight: 800;
+}
+
+.account-signout:hover,
+.account-signout:focus {
+    background: var(--gla-gold);
+    color: var(--gla-ink);
+}
+
+/*-------------------------- landing poster ---------------------------*/
+
+.landing {
+    padding: 44px 0 64px;
+}
+
+.poster {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 30px 35px 35px;
+    overflow: hidden;
+}
+
+.poster-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 0;
+    margin-bottom: 20px;
+}
+
+.logo-lockup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-lockup img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: var(--gla-ink);
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.5px;
+}
+
+.logo-text span {
+    display: block;
+    color: var(--gla-gold-deep);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.poster-divider {
+    width: 2px;
+    height: 55px;
+    margin: 0 18px;
+    background: var(--gla-gold);
+}
+
+.calling {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: var(--gla-ink);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.edt900-badge {
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: var(--gla-gold);
+    color: var(--gla-ink);
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 800;
+}
+
+.poster-title {
+    margin: 0;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -1px;
+}
+
+.poster-title .line {
+    display: block;
+    color: var(--gla-ink);
+    font-size: clamp(2.4rem, 9vw, 58px);
+}
+
+.poster-title .line.gold {
+    color: var(--gla-gold);
+}
+
+.poster-tagline {
+    margin-top: 10px;
+    color: var(--gla-ink);
+    font-size: clamp(1.05rem, 4vw, 20px);
+    font-weight: 600;
+}
+
+.poster-tagline .accent {
+    color: var(--gla-gold);
+}
+
+.gold-rule {
+    width: 90px;
+    height: 3px;
+    margin: 14px 0;
+    background: var(--gla-gold);
+}
+
+.poster-desc {
+    max-width: 390px;
+    margin-bottom: 20px;
+    color: var(--gla-ink-soft);
+    font-size: 13.5px;
+    line-height: 1.55;
+}
+
+.poster-desc b {
+    color: var(--gla-ink);
+    font-weight: 700;
+}
+
+.poster-desc .goldb {
+    color: var(--gla-gold-deep);
+    font-weight: 800;
+}
+
+.poster-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    max-width: 430px;
+    margin-bottom: 24px;
+}
+
+.session-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 18px 14px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.session-card-dark {
+    min-height: 178px;
+    background: var(--gla-dark);
+    border: 1px solid var(--gla-gold);
+    color: #ffffff;
+}
+
+.session-card-light {
+    min-height: 158px;
+    background: #f7f4ec;
+    border: 1px solid var(--gla-gold);
+    color: var(--gla-ink);
+}
+
+.session-card .trophy {
+    font-size: 30px;
+}
+
+.session-card-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.session-card-light .session-card-title {
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.session-card-sub {
+    color: #cfcfcf;
+    font-size: 10.5px;
+    line-height: 1.5;
+}
+
+.session-card-light .session-card-sub {
+    color: #444444;
+}
+
+.session-box {
+    margin-bottom: 18px;
+    padding: 18px 20px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: var(--gla-card-shadow);
+}
+
+.session-btn {
+    display: block;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 4px;
+    background: var(--gla-gold);
+    color: var(--gla-ink);
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.session-btn:hover,
+.session-btn:focus {
+    background: var(--gla-gold-deep);
+    color: var(--gla-ink);
+}
+
+.session-box-sub {
+    text-align: center;
+    color: var(--gla-ink-soft);
+    font-size: 12px;
+}
+
+.session-link {
+    display: block;
+    margin: 4px 0 12px;
+    color: var(--gla-gold-deep);
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+    word-break: break-all;
+}
+
+.qr-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.qr-wrap img {
+    width: 130px;
+    height: 130px;
+    background: #ffffff;
+}
+
+.details-box {
+    padding: 14px 18px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: var(--gla-card-shadow);
+}
+
+.detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--gla-line);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border: 2px solid var(--gla-gold);
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.detail-text {
+    font-size: 13px;
+}
+
+.detail-text .label {
+    margin-right: 6px;
+    color: var(--gla-ink);
+    font-weight: 800;
+}
+
+.detail-text .value {
+    color: var(--gla-ink-soft);
+}
+
+/*------------------------ accounts and score monitor -----------------*/
+
+.auth-page {
+    background: transparent;
+}
+
+.auth-navbar {
+    background: rgba(255, 255, 255, 0.97);
+}
+
+.auth-card {
+    border: 1px solid var(--gla-line);
+    border-top: 4px solid var(--gla-gold);
+    box-shadow: var(--gla-card-shadow);
+}
+
+.auth-card h1 {
+    font-weight: 900;
+    letter-spacing: -0.01em;
+}
+
+.auth-field label {
+    color: var(--gla-ink);
+    font-weight: 800;
+}
+
+.auth-field input {
+    background: #fdfcf9;
+    border: 1px solid var(--gla-line);
+}
+
+.auth-message {
+    border-left: 4px solid var(--gla-gold);
+    background: rgba(217, 166, 52, 0.12);
+    color: var(--gla-ink);
+}
+
+.auth-points-note {
+    background: #faf8f2;
+    border: 1px dashed var(--gla-line);
+    color: var(--gla-ink-soft);
+}
+
+.auth-points-note strong {
+    color: var(--gla-gold-deep);
+}
+
+.admin-toolbar h1 {
+    font-weight: 900;
+}
+
+.admin-stat strong {
+    color: var(--gla-gold-deep);
+    font-weight: 900;
+}
+
+.admin-stat span {
+    color: var(--gla-ink);
+}
+
+.admin-panel-head {
+    border-bottom: 1px solid var(--gla-line);
+}
+
+.admin-panel-head h2,
+.admin-detail-head h2 {
+    font-weight: 800;
+}
+
+.admin-table th {
+    background: #faf8f2;
+    color: var(--gla-ink);
+    border-bottom: 1px solid var(--gla-line);
+}
+
+.admin-table td {
+    border-bottom: 1px solid #f4f0e6;
+}
+
+.admin-table .strong {
+    color: var(--gla-ink);
+    font-weight: 800;
+}
+
+.admin-table .score {
+    color: var(--gla-gold-deep);
+    font-weight: 900;
+}
+
+.admin-rank {
+    background: #faf8f2;
+    color: var(--gla-grey);
+}
+
+.admin-rank.top {
+    background: var(--gla-gold);
+    color: var(--gla-ink);
+}
+
+.admin-open,
+.btn-outline-gsb {
+    color: var(--gla-ink);
+    background: #ffffff;
+    border: 1px solid var(--gla-line);
+}
+
+.admin-open:hover,
+.btn-outline-gsb:hover,
+.admin-open:focus,
+.btn-outline-gsb:focus {
+    color: var(--gla-ink);
+    border-color: var(--gla-gold);
+    background: #fdfaf1;
+}
+
+.admin-search {
+    border: 1px solid var(--gla-line);
+    background: #fdfcf9;
+}
+
+/*------------------- game surfaces on the poster palette ------------------*/
+
+.quiz-hub-status.upcoming {
+    background: #efeadd;
+    color: var(--gla-grey);
+}
+
+.quiz-hub-card.upcoming .quiz-hub-icon {
+    background: #b9ac8c;
+}
+
+.game-progress-track {
+    background: #e3ddcd;
+}
+
+.game-grounding {
+    background: #faf8f2;
+}
+
+.game-choice:hover {
+    background: #fdfaf1;
+}
+
+.game-feedback-block.teaching {
+    background: #fff7e2;
+}
+
+.game-feedback-block.fun {
+    background: #faf8f2;
+}
+
+.game-pill {
+    background: var(--gla-gold);
+    color: var(--gla-ink);
+}
+
+/*----------------------------- play panel -----------------------------*/
+
+.play-box {
+    max-width: 640px;
+    margin: 26px auto 0;
+    padding: 24px 26px;
+}
+
+.play-box h2 {
+    margin-bottom: 0.6rem;
+    color: var(--gla-ink);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+.play-copy {
+    margin-bottom: 1.2rem;
+    color: var(--gla-ink-soft);
+    font-size: 0.92rem;
+}
+
+.play-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.play-actions .btn {
+    font-weight: 800;
+}
+
+/*----------------------------- database note ---------------------------*/
+
+.db-note {
+    width: min(980px, calc(100% - 2rem));
+    margin: 1rem auto;
+    padding: 0.8rem 1rem;
+    border-left: 4px solid var(--gla-gold);
+    border-radius: 8px;
+    background: #fff7e2;
+    color: var(--gla-ink);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.db-note[hidden] {
+    display: none;
+}
+
+/*------------------------------ responsive ----------------------------*/
+
+@media (max-width: 720px) {
+    .poster {
+        padding: 22px 20px 28px;
+    }
+
+    .poster-divider {
+        display: none;
+    }
+
+    .calling {
+        font-size: 15px;
+    }
+
+    .edt900-badge {
+        font-size: 15px;
+    }
+
+    .poster-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .session-card {
+        min-height: 150px;
+    }
+
+    .session-btn {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .poster-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-text {
+        font-size: 17px;
+    }
+}

@@ -1,0 +1,763 @@
+{
+  "simulation_id": "EDT900_SIM0_AI_DETECTIVE",
+  "title": "AI Detective",
+  "subtitle": "AI, Generative AI, Automation, Analytics, or Neither?",
+  "module": "Emerging & Disruptive Technology 900",
+  "audience": "MBA Students",
+  "format": "Three-stage game simulation",
+  "formal_weighting_percent": 0,
+  "scoring_currency": "AfriCOIN",
+  "maximum_africoin": 300,
+  "classification_codes": {
+    "A": "Artificial Intelligence / Machine Learning",
+    "B": "Generative AI",
+    "C": "Automation / Rule-Based System",
+    "D": "Analytics",
+    "E": "Neither"
+  },
+  "student_note": "All names, organisations, events and decisions in this simulation are fictionalised for teaching purposes. First names and professional contexts are used to create familiarity, while surnames and organisations are altered.",
+  "game_rules": {
+    "objective": "Identify what the technology is actually doing, then make increasingly difficult business, ethical and governance decisions.",
+    "progression": [
+      "Stage 1 focuses on recognising the underlying technology.",
+      "Stage 2 introduces mixed systems, ambiguity, business value and ethical trade-offs.",
+      "Stage 3 moves into executive decision-making, governance, SDGs, risk, implementation and impact."
+    ],
+    "answer_mode": "Single-best-answer multiple choice",
+    "feedback_mode": "Immediate detailed feedback after each answer",
+    "badges": "A stage badge is unlocked by answering at least 4 of 5 problems correctly in that stage.",
+    "scoring": {
+      "stage_1_per_problem": 10,
+      "stage_2_per_problem": 20,
+      "stage_3_per_problem": 30
+    }
+  },
+  "stages": [
+    {
+      "stage_id": "STAGE_1",
+      "stage_name": "Tech Scout",
+      "emoji": "🕵🏾",
+      "difficulty": "Foundation",
+      "problems": 5,
+      "africoin_per_problem": 10,
+      "stage_max_africoin": 50,
+      "badge": {
+        "name": "Signal Spotter",
+        "emoji": "🏅",
+        "unlock_condition": "At least 4 correct answers out of 5",
+        "tagline": "You can now smell fake AI marketing from across the boardroom."
+      },
+      "problems_list": [
+        {
+          "problem_id": "S1P1",
+          "title": "Monday Morning Mayhem",
+          "location": "Midrand, Gauteng",
+          "character": {
+            "name": "Mbalenhle Dlamini",
+            "role": "EUC Field Support Technician",
+            "organisation": "BCX"
+          },
+          "scenario": "It is 08:07 on Monday morning. Mbalenhle has 237 new support tickets. The helpdesk checks each ticket subject. If it contains 'password reset', it sends reset instructions. If it contains 'printer offline', it routes the ticket to desktop support. If it contains 'VPN', it sends the ticket to the network team. If it contains 'new laptop', it starts an equipment-request workflow. Every rule was written by the IT team. The system does not learn from old tickets.",
+          "question": "Mbalenhle's manager proudly calls this 'our new AI'. What technology is actually being used?",
+          "options": {
+            "A": "Artificial Intelligence / Machine Learning",
+            "B": "Generative AI",
+            "C": "Automation / Rule-Based System",
+            "D": "Analytics",
+            "E": "Neither"
+          },
+          "correct_answer": "C",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The system follows predefined IF-THEN rules. It does not learn patterns, make predictions or generate new content. This is automation, specifically a rule-based workflow.",
+            "A": "Incorrect. No learning from historical data is taking place.",
+            "B": "Incorrect. The system is not generating new text, images, code or other novel content.",
+            "D": "Incorrect. The system is not mainly summarising or interpreting data.",
+            "E": "Incorrect. It clearly uses automation."
+          },
+          "plot_twist": {
+            "scenario": "The team now feeds the system three years of resolved tickets. It learns how users describe problems and predicts the support team most likely to resolve each new ticket.",
+            "question": "What is the system now?",
+            "correct_answer": "A",
+            "answer_text": "Artificial Intelligence / Machine Learning"
+          },
+          "teaching_point": "Digital does not mean AI. Automated does not mean AI.",
+          "sdg": {
+            "primary": "SDG 9",
+            "name": "Industry, Innovation and Infrastructure"
+          },
+          "ethics_flash": "What if historical data causes poorly written tickets to be given lower priority? Efficiency can reproduce historical unfairness.",
+          "facilitator_tip": "Ask students to identify the exact sentence proving that the first system is not AI.",
+          "fun_line": "Clever-looking software can still be gloriously ordinary automation."
+        },
+        {
+          "problem_id": "S1P2",
+          "title": "The Dashboard That Wanted to Be AI",
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "Durand Jesse Govender",
+            "role": "Manager: Operations Analysis",
+            "organisation": "Absa"
+          },
+          "scenario": "Durand opens a dashboard showing yesterday's transaction volumes, average processing time, failed transactions, customer complaints and month-on-month changes. The dashboard refreshes automatically every morning. It makes no predictions and learns nothing from past data.",
+          "question": "What is the best classification?",
+          "options": {
+            "A": "Artificial Intelligence / Machine Learning",
+            "B": "Generative AI",
+            "C": "Automation / Rule-Based System",
+            "D": "Analytics",
+            "E": "Neither"
+          },
+          "correct_answer": "D",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The dashboard is describing and summarising existing data. That is analytics, not automatically AI.",
+            "A": "Incorrect. No predictive or learning model is described.",
+            "B": "Incorrect. No new content is being generated.",
+            "C": "Not the best answer. The refresh may be automated, but the main business function described is analytics.",
+            "E": "Incorrect. Analytics clearly applies."
+          },
+          "plot_twist": {
+            "scenario": "A new model studies several years of operations data and predicts which transaction processes are likely to fail abnormally tomorrow.",
+            "question": "What is that new capability?",
+            "correct_answer": "A",
+            "answer_text": "Artificial Intelligence / Machine Learning"
+          },
+          "teaching_point": "A dashboard is not automatically AI, even when it looks impressive.",
+          "sdg": {
+            "primary": "SDG 9",
+            "name": "Industry, Innovation and Infrastructure"
+          },
+          "ethics_flash": "If a predictive model causes teams to deprioritise customers from branches with historically high failure rates, could operational analytics become unfair?",
+          "facilitator_tip": "Emphasise the difference between descriptive analytics and predictive AI.",
+          "fun_line": "Charts do not become AI just because someone adds a dark theme."
+        },
+        {
+          "problem_id": "S1P3",
+          "title": "The Mine Before Sunrise",
+          "location": "Rustenburg, North West",
+          "character": {
+            "name": "Jaquesco Botha",
+            "role": "Seismic Technologist",
+            "organisation": "Sibanye-Stillwater"
+          },
+          "scenario": "Jaquesco monitors thousands of historical seismic events, including magnitude, depth, geology, mining activity and whether dangerous ground conditions followed. A model learns from these events and estimates an 81% probability of dangerous seismic activity in a particular underground section during the next shift.",
+          "question": "What technology is being used?",
+          "options": {
+            "A": "Artificial Intelligence / Machine Learning",
+            "B": "Generative AI",
+            "C": "Automation / Rule-Based System",
+            "D": "Analytics only",
+            "E": "Neither"
+          },
+          "correct_answer": "A",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The system learns patterns from historical examples and predicts future risk. That is predictive machine learning.",
+            "B": "Incorrect. It is predicting risk, not generating novel content.",
+            "C": "Incorrect. The prediction is not based only on fixed IF-THEN rules.",
+            "D": "Too narrow. Analytics is involved, but the learned predictive model makes AI / ML the better answer.",
+            "E": "Incorrect. The scenario clearly describes machine learning."
+          },
+          "plot_twist": {
+            "scenario": "The mine manager says, 'The model says only 4% risk in another area. Send the workers in.'",
+            "question": "Should the model alone make the final safety decision?",
+            "correct_answer": "No",
+            "answer_text": "No. High-stakes worker-safety decisions require governance and human oversight."
+          },
+          "teaching_point": "Prediction supports decisions; it does not erase accountability.",
+          "sdg": {
+            "primary": "SDG 8",
+            "name": "Decent Work and Economic Growth",
+            "secondary": "SDG 9"
+          },
+          "ethics_flash": "False negatives in safety systems can have severe human consequences.",
+          "facilitator_tip": "Use this case to introduce human-in-the-loop governance.",
+          "fun_line": "An 81% probability is not a permission slip."
+        },
+        {
+          "problem_id": "S1P4",
+          "title": "The Supplier Countdown",
+          "location": "Sandton, Gauteng",
+          "character": {
+            "name": "Estenia Mokoena",
+            "role": "Sourcing Manager",
+            "organisation": "Nedbank"
+          },
+          "scenario": "Every night, Estenia's procurement system checks supplier compliance-certificate expiry dates. If a certificate will expire within 30 days, it automatically emails the supplier and procurement officer. If it expires, another predefined workflow starts.",
+          "question": "What is the best classification?",
+          "options": {
+            "A": "Artificial Intelligence / Machine Learning",
+            "B": "Generative AI",
+            "C": "Automation / Rule-Based System",
+            "D": "Analytics",
+            "E": "Neither"
+          },
+          "correct_answer": "C",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. Date condition met, predefined action triggered. This is classic workflow automation.",
+            "A": "Incorrect. The system is not learning or predicting.",
+            "B": "Incorrect. It is not generating novel content in the sense tested here.",
+            "D": "Incorrect. Its main role is action, not analysis.",
+            "E": "Incorrect. Automation clearly applies."
+          },
+          "plot_twist": {
+            "scenario": "The organisation adds years of supplier delivery failures, disputes, pricing changes and service-level data. A model predicts which suppliers are most likely to fail a critical contract in the next six months.",
+            "question": "What is the new capability?",
+            "correct_answer": "A",
+            "answer_text": "Artificial Intelligence / Machine Learning"
+          },
+          "teaching_point": "AI and automation can exist in the same business process.",
+          "sdg": {
+            "primary": "SDG 9",
+            "name": "Industry, Innovation and Infrastructure"
+          },
+          "ethics_flash": "A supplier-risk model can disadvantage small or newer suppliers if historical size and track record dominate the scoring.",
+          "facilitator_tip": "Ask students which part is automation and which part becomes AI.",
+          "fun_line": "A countdown timer is useful. It is still not sentient."
+        },
+        {
+          "problem_id": "S1P5",
+          "title": "Teacher vs The Very Confident Robot",
+          "location": "Pretoria, Gauteng",
+          "character": {
+            "name": "Amogelang Molefe",
+            "role": "Teacher",
+            "organisation": "Curro"
+          },
+          "scenario": "Amogelang asks a system to create a CAPS-aligned Grade 8 lesson on photosynthesis, a classroom experiment, ten questions, model answers and simplified explanations for struggling learners. The system generates all of it within seconds.",
+          "question": "What is the best classification?",
+          "options": {
+            "A": "Artificial Intelligence / Machine Learning",
+            "B": "Generative AI",
+            "C": "Automation / Rule-Based System",
+            "D": "Analytics",
+            "E": "Neither"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The system is creating new text and educational material in response to a prompt. That is Generative AI.",
+            "A": "Broadly AI, but B is the more specific and therefore better answer.",
+            "C": "Incorrect. The output is not simply a fixed predefined workflow.",
+            "D": "Incorrect. The primary task is content generation, not analysis.",
+            "E": "Incorrect. This is a clear Generative AI use case."
+          },
+          "plot_twist": {
+            "scenario": "One generated explanation is scientifically wrong, but written fluently and confidently.",
+            "question": "What risk does this illustrate?",
+            "correct_answer": "Hallucination",
+            "answer_text": "Generative AI can produce plausible but false information."
+          },
+          "teaching_point": "Fluency is not the same thing as truth.",
+          "sdg": {
+            "primary": "SDG 4",
+            "name": "Quality Education"
+          },
+          "ethics_flash": "Professional accountability remains with the human educator and institution.",
+          "facilitator_tip": "Ask whether a polished answer should ever be trusted without verification.",
+          "fun_line": "Confidence is not a citation."
+        }
+      ]
+    },
+    {
+      "stage_id": "STAGE_2",
+      "stage_name": "Disruption Ranger",
+      "emoji": "🧠",
+      "difficulty": "Intermediate",
+      "problems": 5,
+      "africoin_per_problem": 20,
+      "stage_max_africoin": 100,
+      "badge": {
+        "name": "Pattern Hunter",
+        "emoji": "🎖️",
+        "unlock_condition": "At least 4 correct answers out of 5",
+        "tagline": "You see the hidden technology stack, not just the shiny interface."
+      },
+      "problems_list": [
+        {
+          "problem_id": "S2P1",
+          "title": "One System, Four Technologies",
+          "location": "Pretoria, Gauteng",
+          "character": {
+            "name": "Motlatsi Martha Maseko",
+            "role": "Senior Manager: ICT",
+            "organisation": "Council on Higher Education"
+          },
+          "scenario": "A new enquiry platform does four things: it shows management dashboards of enquiry volumes; it reads incoming text and infers the user's intent; it writes a personalised draft response; and it automatically sends simple low-risk replies.",
+          "question": "What is the most accurate description of the overall system?",
+          "options": {
+            "A": "It is only Analytics",
+            "B": "It is only Generative AI",
+            "C": "It combines Analytics, AI, Generative AI and Automation",
+            "D": "It is only Automation",
+            "E": "It is not an emerging-technology system"
+          },
+          "correct_answer": "C",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Real enterprise systems often combine several technologies. The dashboard is analytics, intent classification is AI, response drafting is Generative AI, and automatic sending is workflow automation.",
+            "A": "Incorrect. Analytics is only one component.",
+            "B": "Incorrect. Generative AI is only one component.",
+            "D": "Incorrect. Automation is only one layer.",
+            "E": "Incorrect. The system clearly includes emerging AI capabilities."
+          },
+          "plot_twist": {
+            "scenario": "A student receives a confidently written but incorrect qualification ruling.",
+            "question": "Which control is most important before high-impact replies are sent?",
+            "correct_answer": "Human review for high-impact cases",
+            "answer_text": "Use risk-based human oversight rather than treating all messages equally."
+          },
+          "teaching_point": "Stop asking 'Is the whole system AI?' Ask which component does what.",
+          "sdg": {
+            "primary": "SDG 16",
+            "name": "Peace, Justice and Strong Institutions"
+          },
+          "ethics_flash": "Incorrect automated advice can have real consequences for education and careers.",
+          "facilitator_tip": "Have students map each function to a technology layer.",
+          "fun_line": "Enterprise technology is often a potjie, not a single ingredient."
+        },
+        {
+          "problem_id": "S2P2",
+          "title": "The Durban Route Puzzle",
+          "location": "Durban to Mpumalanga",
+          "character": {
+            "name": "Shiraz Pillay",
+            "role": "Senior Logistics Leader",
+            "organisation": "Siemens Energy"
+          },
+          "scenario": "Shiraz must move oversized energy equipment from the Port of Durban to Mpumalanga. A route-planning system considers road distance, bridge heights, axle-load restrictions, vehicle dimensions and approved heavy-load routes. It mathematically finds a feasible route but has never learned from previous trips.",
+          "question": "Which answer is best?",
+          "options": {
+            "A": "AI, because any algorithm is AI",
+            "B": "Generative AI, because it generates a route",
+            "C": "Automation, because computers are involved",
+            "D": "Optimisation algorithm, but not necessarily AI",
+            "E": "Analytics dashboard"
+          },
+          "correct_answer": "D",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Mathematical optimisation can solve complex problems without machine learning. An algorithm is not automatically AI.",
+            "A": "Incorrect. Algorithms existed long before modern AI and many do not learn.",
+            "B": "Incorrect. Producing an optimised route is not Generative AI in the sense tested here.",
+            "C": "Incomplete. The defining capability is optimisation, not simply workflow automation.",
+            "E": "Incorrect. This is not primarily a reporting dashboard."
+          },
+          "plot_twist": {
+            "scenario": "The system now learns from five years of congestion, weather, breakdowns and closures, and predicts delay probabilities for candidate routes.",
+            "question": "What has been added?",
+            "correct_answer": "Machine Learning",
+            "answer_text": "A learned predictive capability has been added to the optimisation process."
+          },
+          "teaching_point": "Optimisation and machine learning can work together, but they are not the same thing.",
+          "sdg": {
+            "primary": "SDG 9",
+            "name": "Industry, Innovation and Infrastructure",
+            "secondary": "SDG 7"
+          },
+          "ethics_flash": "Route optimisation can shift noise, congestion or environmental burdens onto particular communities.",
+          "facilitator_tip": "Challenge the assumption that 'complex = AI'.",
+          "fun_line": "A clever route is not automatically a thinking route."
+        },
+        {
+          "problem_id": "S2P3",
+          "title": "02:47 in Sandton",
+          "location": "Sandton, Gauteng",
+          "character": {
+            "name": "Lubabalo Mthembu",
+            "role": "IT Security Technician",
+            "organisation": "Hollard Insurance"
+          },
+          "scenario": "A security model has learned that an employee normally works during business hours, accesses around 20 files per day and rarely downloads bulk customer information. At 02:47, the account downloads 14,000 records. The system assigns a risk score of 96/100.",
+          "question": "What is the strongest immediate response?",
+          "options": {
+            "A": "Permanently terminate the employee immediately",
+            "B": "Temporarily contain the account and escalate to incident response",
+            "C": "Ignore the alert until the employee returns to work",
+            "D": "Delete the employee's records",
+            "E": "Publish the incident internally so everyone knows"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. A high-risk anomaly justifies containment and investigation, but not an irreversible punishment based only on an algorithmic score.",
+            "A": "Too extreme. A model score is evidence for investigation, not proof of guilt.",
+            "C": "Too passive. The potential data breach is time-sensitive.",
+            "D": "Incorrect and potentially destructive.",
+            "E": "Incorrect. Broad disclosure may create privacy and legal problems."
+          },
+          "plot_twist": {
+            "scenario": "The employee was actually responding to an authorised emergency recovery task.",
+            "question": "What does this reveal?",
+            "correct_answer": "False Positive",
+            "answer_text": "Unusual behaviour is not automatically malicious behaviour."
+          },
+          "teaching_point": "AI can identify risk; governance decides what happens next.",
+          "sdg": {
+            "primary": "SDG 16",
+            "name": "Peace, Justice and Strong Institutions"
+          },
+          "ethics_flash": "Monitoring employees creates tensions between security, privacy and due process.",
+          "facilitator_tip": "Ask why '96/100' can psychologically feel more certain than it really is.",
+          "fun_line": "A risk score is a smoke alarm, not a court judgment."
+        },
+        {
+          "problem_id": "S2P4",
+          "title": "The Factory Rejects Everything",
+          "location": "Germiston, Gauteng",
+          "character": {
+            "name": "Gloria Thandiwe Molefe",
+            "role": "Manufacturing Executive",
+            "organisation": "Tiger Brands"
+          },
+          "scenario": "A computer-vision system trained on labelled product images rejects 12% more items than experienced human inspectors. A manager announces: 'Excellent! The AI is clearly more accurate because it catches more defects.'",
+          "question": "What is the best MBA response?",
+          "options": {
+            "A": "Agree. More rejections automatically mean higher accuracy",
+            "B": "Switch off human inspection immediately",
+            "C": "Validate true defects, false positives, waste, costs and disagreement cases before concluding",
+            "D": "Use the AI only because AI is more objective than humans",
+            "E": "Increase the rejection threshold until almost everything passes"
+          },
+          "correct_answer": "C",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. More alerts do not prove better performance. Management must evaluate precision, false positives, false negatives, operational cost and product-waste consequences.",
+            "A": "Incorrect. Higher rejection volume can reflect over-sensitivity.",
+            "B": "Premature. Human expertise may still be important.",
+            "D": "Incorrect. AI can inherit bias or flaws from data and design.",
+            "E": "Arbitrary threshold changes can hide rather than solve the problem."
+          },
+          "plot_twist": {
+            "scenario": "Most extra rejections are actually acceptable products.",
+            "question": "What type of error is dominating?",
+            "correct_answer": "False Positives",
+            "answer_text": "The system is incorrectly classifying acceptable products as defective."
+          },
+          "teaching_point": "A metric must connect to business value, not just model activity.",
+          "sdg": {
+            "primary": "SDG 12",
+            "name": "Responsible Consumption and Production",
+            "secondary": "SDG 9"
+          },
+          "ethics_flash": "Poorly validated automation can increase waste while being marketed as efficiency.",
+          "facilitator_tip": "Use this to introduce confusion-matrix thinking without turning the MBA into a statistics class.",
+          "fun_line": "An AI that rejects everything achieves spectacular defect detection and terrible business results."
+        },
+        {
+          "problem_id": "S2P5",
+          "title": "The Dropout Predictor",
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "Douglas Mighty Nkuna",
+            "role": "Senior Data Analyst",
+            "organisation": "Curro Holdings"
+          },
+          "scenario": "Douglas builds a model that predicts which learners are at high risk of dropping out. Inputs include attendance, marks, school location, household-income band and travel distance. Management wants every learner labelled 'high risk' automatically moved into an intervention programme.",
+          "question": "What is the strongest governance response?",
+          "options": {
+            "A": "Deploy immediately because helping high-risk learners is always ethical",
+            "B": "Delete all data and abandon the project",
+            "C": "Pilot with fairness testing, human review and transparent intervention criteria",
+            "D": "Hide the model from teachers so they cannot influence it",
+            "E": "Use postcode as the main predictor because it is easy to obtain"
+          },
+          "correct_answer": "C",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. The intended benefit is strong, but socioeconomic variables may create unfair profiling. A controlled pilot with fairness testing and human oversight is the defensible path.",
+            "A": "Incorrect. Good intentions do not eliminate bias or unintended harm.",
+            "B": "Too extreme. The problem can be addressed through responsible design and governance.",
+            "D": "Incorrect. Hiding a system weakens accountability.",
+            "E": "Risky. Postcode can act as a proxy for socioeconomic disadvantage."
+          },
+          "plot_twist": {
+            "scenario": "The model is highly accurate overall but much less accurate for learners from rural schools.",
+            "question": "What should management examine next?",
+            "correct_answer": "Subgroup performance and representation",
+            "answer_text": "Overall accuracy can hide unequal performance across groups."
+          },
+          "teaching_point": "Beneficial interventions can still be unfairly targeted.",
+          "sdg": {
+            "primary": "SDG 4",
+            "name": "Quality Education",
+            "secondary": "SDG 10"
+          },
+          "ethics_flash": "Predictive systems can turn socioeconomic disadvantage into a self-reinforcing label.",
+          "facilitator_tip": "Ask whether fairness means equal treatment or equitable support.",
+          "fun_line": "A model can be accurate on average and unfair in practice."
+        }
+      ]
+    },
+    {
+      "stage_id": "STAGE_3",
+      "stage_name": "Boardroom Boss",
+      "emoji": "👑",
+      "difficulty": "Advanced",
+      "problems": 5,
+      "africoin_per_problem": 30,
+      "stage_max_africoin": 150,
+      "badge": {
+        "name": "Africa Tech Commander",
+        "emoji": "🏆",
+        "unlock_condition": "At least 4 correct answers out of 5",
+        "tagline": "You do not chase technology. You make technology answer to strategy."
+      },
+      "problems_list": [
+        {
+          "problem_id": "S3P1",
+          "title": "The R40 Million Question",
+          "location": "Tshwane, Gauteng",
+          "character": {
+            "name": "Ndaedzo Ramabulana",
+            "role": "Senior IT Leader",
+            "organisation": "MICT SETA"
+          },
+          "scenario": "A public skills organisation has R40 million available for digital transformation. Three vendors arrive. Vendor 1 proposes a flashy Generative AI chatbot for R18 million. Vendor 2 proposes a data-cleaning and integration programme for R12 million. Vendor 3 proposes cloud modernisation and cybersecurity for R15 million. The organisation currently has fragmented databases, duplicate learner records, weak access controls and unreliable reporting.",
+          "question": "What should the executive committee prioritise first?",
+          "options": {
+            "A": "Buy the Generative AI chatbot because it is the most visible innovation",
+            "B": "Build foundational data quality, integration and secure infrastructure before scaling AI",
+            "C": "Spend all R40 million on marketing the digital-transformation programme",
+            "D": "Reject all technology until competitors prove it works",
+            "E": "Buy all three immediately, even if governance is not ready"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. AI depends on reliable data, infrastructure and governance. A technology-first purchase on weak foundations can amplify existing problems.",
+            "A": "Tempting but strategically weak. A chatbot on poor data can confidently deliver poor answers.",
+            "C": "Incorrect. Communication cannot substitute for capability.",
+            "D": "Overly conservative. The organisation can improve readiness now.",
+            "E": "High implementation risk. Simultaneous adoption can exceed organisational capacity."
+          },
+          "plot_twist": {
+            "scenario": "The CEO says, 'But competitors already have chatbots!'",
+            "question": "What principle should guide the response?",
+            "correct_answer": "Problem and readiness before fashion",
+            "answer_text": "Adopt technology because it solves a priority problem and the organisation can govern it."
+          },
+          "teaching_point": "Readiness is a strategic asset.",
+          "sdg": {
+            "primary": "SDG 9",
+            "name": "Industry, Innovation and Infrastructure",
+            "secondary": "SDG 4"
+          },
+          "ethics_flash": "Poor data quality can make automated decisions systematically wrong.",
+          "facilitator_tip": "Ask students whether 'AI strategy' can exist without data strategy.",
+          "fun_line": "A Ferrari on a gravel road is still having a bad day."
+        },
+        {
+          "problem_id": "S3P2",
+          "title": "The Autonomous Drone Vote",
+          "location": "Pretoria, Gauteng",
+          "character": {
+            "name": "Mahlwara Lucas Mokwena",
+            "role": "Military Technology Practitioner",
+            "organisation": "Denel"
+          },
+          "scenario": "A new surveillance drone can identify vehicles, detect people, navigate around obstacles and reroute itself. A proposed upgrade would allow it to classify a person as a likely threat and initiate a harmful response without waiting for a human decision.",
+          "question": "What is the most defensible governance position?",
+          "options": {
+            "A": "Allow full autonomous harmful action whenever model confidence exceeds 90%",
+            "B": "Require meaningful human control for any decision that can cause serious harm",
+            "C": "Use the system only at night",
+            "D": "Hide the autonomy feature from operators",
+            "E": "Let the vendor decide the rules"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. High-consequence decisions require strong human accountability, governance and meaningful control. Model confidence does not remove moral or institutional responsibility.",
+            "A": "Incorrect. Confidence scores do not justify delegating irreversible harmful decisions.",
+            "C": "Irrelevant to the core governance problem.",
+            "D": "Incorrect. Lack of transparency increases risk.",
+            "E": "Incorrect. Accountability cannot simply be outsourced to a vendor."
+          },
+          "plot_twist": {
+            "scenario": "The vendor claims the autonomous mode is faster than human decision-making.",
+            "question": "What should the board ask?",
+            "correct_answer": "Faster at what cost, with what error rate, accountability and safeguards?",
+            "answer_text": "Speed is only one performance criterion."
+          },
+          "teaching_point": "The highest-stakes systems require the strongest governance.",
+          "sdg": {
+            "primary": "SDG 16",
+            "name": "Peace, Justice and Strong Institutions"
+          },
+          "ethics_flash": "Autonomous harmful action raises profound accountability and human-rights concerns.",
+          "facilitator_tip": "Keep the discussion on governance principles rather than military tactics.",
+          "fun_line": "Fast is not the same thing as wise."
+        },
+        {
+          "problem_id": "S3P3",
+          "title": "The Limpopo Clinic Algorithm",
+          "location": "Limpopo Province",
+          "character": {
+            "name": "The Provincial Executive Committee",
+            "role": "Health-system decision makers",
+            "organisation": "Fictional Provincial Health Authority"
+          },
+          "scenario": "A proposed AI system predicts which clinic patients are at highest risk of serious complications and gives them priority appointments. It appears aligned with SDG 3. However, 82% of its training data comes from private hospitals in Johannesburg, Pretoria and Cape Town. Rural Limpopo patients are underrepresented, and patients are not told that an algorithm influences appointment priority.",
+          "question": "What is the best executive decision today?",
+          "options": {
+            "A": "Adopt immediately across the province",
+            "B": "Pilot under controlled conditions while improving representativeness, transparency and oversight",
+            "C": "Reject all AI in healthcare permanently",
+            "D": "Deploy only where patients cannot complain",
+            "E": "Use the system secretly until accuracy improves"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. The problem is important and the technology may create value, but current evidence raises serious representativeness, transparency and safety concerns. A controlled pilot with corrective safeguards is appropriate.",
+            "A": "Too risky. The training data does not adequately represent the intended population.",
+            "C": "Too absolute. Responsible piloting can generate evidence.",
+            "D": "Unethical and inconsistent with accountable governance.",
+            "E": "Incorrect. Secrecy undermines trust and informed governance."
+          },
+          "plot_twist": {
+            "scenario": "During the pilot, overall accuracy is 89%, but only 67% for remote rural clinics.",
+            "question": "Which result should matter most?",
+            "correct_answer": "Performance for the populations most affected",
+            "answer_text": "Overall averages can conceal harmful subgroup performance."
+          },
+          "teaching_point": "An SDG-aligned project is not automatically an ethical project.",
+          "sdg": {
+            "primary": "SDG 3",
+            "name": "Good Health and Well-being",
+            "secondary": "SDG 10"
+          },
+          "ethics_flash": "Bias, consent, transparency, safety and unequal access all matter.",
+          "facilitator_tip": "Ask students to distinguish 'good purpose' from 'good implementation'.",
+          "fun_line": "A noble objective does not give an algorithm diplomatic immunity."
+        },
+        {
+          "problem_id": "S3P4",
+          "title": "The Code That Passed Every Test",
+          "location": "Cape Town, Western Cape",
+          "character": {
+            "name": "Dewald Terence van Wyk",
+            "role": "Technical Delivery Manager",
+            "organisation": "Entelect"
+          },
+          "scenario": "A development team uses Generative AI to produce code, unit tests and documentation for a customer repayment module. The code passes the initial test suite and is deployed. Three months later, a serious security vulnerability is discovered in an AI-generated component.",
+          "question": "What is the strongest management lesson?",
+          "options": {
+            "A": "The AI vendor is fully responsible because the AI wrote the code",
+            "B": "The developer is fully responsible and everyone else is cleared",
+            "C": "The organisation needs accountable human review, secure development controls and AI-use governance",
+            "D": "Generative AI should never be used for software development",
+            "E": "If tests passed, no one could reasonably have done more"
+          },
+          "correct_answer": "C",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. AI-assisted development changes the workflow, not the organisation's responsibility for secure engineering. Human review, testing, provenance and governance remain essential.",
+            "A": "Incorrect. Vendor responsibility may exist, but organisational accountability remains.",
+            "B": "Too narrow. Responsibility spans process, management and governance.",
+            "D": "Overly absolute. Generative AI can be useful when controlled appropriately.",
+            "E": "Incorrect. Passing initial tests does not prove secure design."
+          },
+          "plot_twist": {
+            "scenario": "The team cannot identify which code fragments were AI-generated.",
+            "question": "What governance weakness is exposed?",
+            "correct_answer": "Lack of provenance and traceability",
+            "answer_text": "Organisations should know how critical outputs were produced and reviewed."
+          },
+          "teaching_point": "AI can assist work; it does not absorb accountability.",
+          "sdg": {
+            "primary": "SDG 9",
+            "name": "Industry, Innovation and Infrastructure"
+          },
+          "ethics_flash": "Poorly governed AI coding can create invisible security and accountability risks.",
+          "facilitator_tip": "Ask whether AI-generated work should face more, less or the same review as human-generated work.",
+          "fun_line": "The machine wrote it is not a cybersecurity strategy."
+        },
+        {
+          "problem_id": "S3P5",
+          "title": "The Boardroom Budget Battle",
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "The MBA Executive Committee",
+            "role": "Board-level decision team",
+            "organisation": "Ubuntu Growth Holdings, fictional"
+          },
+          "scenario": "Ubuntu Growth Holdings has 1.2 million AfriCOIN available for one major technology programme. Proposal A: 900,000 AfriCOIN for a Generative AI customer assistant promising rapid visibility. Proposal B: 700,000 AfriCOIN for predictive maintenance across factories, supported by two years of sensor data and a clear downtime problem. Proposal C: 600,000 AfriCOIN for blockchain-based employee attendance, even though the current attendance system works and no trust problem has been identified. Proposal D: 800,000 AfriCOIN for a data-governance and integration programme that would support several future AI projects.",
+          "question": "Which proposal is the strongest first investment based on problem-value-readiness logic?",
+          "options": {
+            "A": "Proposal A, because Generative AI is currently fashionable",
+            "B": "Proposal B, because it addresses a measurable problem with relevant data and a clear value case",
+            "C": "Proposal C, because blockchain is inherently disruptive",
+            "D": "Proposal D, because foundations always beat business outcomes",
+            "E": "Split the budget equally across all four"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. Proposal B has the clearest combination of problem definition, data readiness, measurable value and implementation logic. Proposal D may also be strategically useful, but the question asks for the strongest single first investment based on the stated evidence.",
+            "A": "Incorrect. Fashion is not a business case.",
+            "C": "Incorrect. No meaningful trust or record-integrity problem has been established.",
+            "D": "Plausible, but weaker than B as the first single investment because B already has a defined operational problem, data and measurable value case.",
+            "E": "Incorrect. Splitting the budget can leave every initiative underfunded and strategically incoherent."
+          },
+          "plot_twist": {
+            "scenario": "The predictive-maintenance pilot reduces unplanned downtime by 18%, but workers report that maintenance alerts are being used to blame shifts rather than improve equipment reliability.",
+            "question": "What must management address next?",
+            "correct_answer": "Governance, incentives and human impact",
+            "answer_text": "Technology value can be undermined by how organisations use the resulting information."
+          },
+          "teaching_point": "The best technology decision connects problem, readiness, value, ethics and measurable impact.",
+          "sdg": {
+            "primary": "SDG 9",
+            "name": "Industry, Innovation and Infrastructure",
+            "secondary": "SDG 8"
+          },
+          "ethics_flash": "A technically successful system can create harmful workplace incentives if governance is poor.",
+          "facilitator_tip": "Use this final mission to reveal the module's full decision spine: Problem -> Technology -> Value -> Feasibility -> Risk -> Implementation -> Impact.",
+          "fun_line": "Congratulations. You have survived the boardroom without buying blockchain for the coffee machine."
+        }
+      ]
+    }
+  ],
+  "end_game": {
+    "maximum_africoin": 300,
+    "score_bands": [
+      {
+        "min_africoin": 0,
+        "max_africoin": 120,
+        "rank": "Curious Explorer",
+        "message": "You have entered the technology jungle. Keep asking what the machine is actually doing."
+      },
+      {
+        "min_africoin": 130,
+        "max_africoin": 210,
+        "rank": "Emerging Tech Navigator",
+        "message": "You can distinguish the tools. Now sharpen your judgement about value, risk and implementation."
+      },
+      {
+        "min_africoin": 220,
+        "max_africoin": 270,
+        "rank": "Disruption Strategist",
+        "message": "Strong work. You are making technology answer to business and societal problems."
+      },
+      {
+        "min_africoin": 280,
+        "max_africoin": 300,
+        "rank": "Africa Tech Commander",
+        "message": "You are thinking beyond hype: problem, technology, SDG, ethics, implementation and impact."
+      }
+    ],
+    "final_message": "The hardest question is rarely 'Is this AI?'. The harder MBA questions are: What problem are we solving? Is this the right technology? Who benefits? Who may be harmed? Which SDG is advanced? Who is accountable? Can we implement it? How will we measure impact?",
+    "module_framework": [
+      "African Problem",
+      "Emerging Technology",
+      "SDG",
+      "Ethics",
+      "Implementation",
+      "Impact"
+    ]
+  }
+}

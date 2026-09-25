@@ -1,0 +1,589 @@
+{
+  "simulation_id": "EDT900_MAJOR_SIM_1_END_SECTION_5",
+  "title": "Gauteng Smart Supply Challenge",
+  "subtitle": "From Farm to Township: Can You Keep Gauteng Fed, Connected and Moving?",
+  "module": "Emerging & Disruptive Technology 900",
+  "simulation_type": "Major Simulation 1",
+  "formal_weighting_percent": 5,
+  "delivery_point": "Only after completion of Sections 1 to 5",
+  "target_duration_minutes": 25,
+  "total_problems": 9,
+  "levels": 3,
+  "problems_per_level": 3,
+  "game_currency": "AfriCOIN",
+  "maximum_africoin": 180,
+  "academic_scoring": {
+    "raw_academic_points": 9,
+    "points_per_problem": 1,
+    "conversion_to_module_mark": "Academic score = (correct answers / 9) × 5",
+    "note": "AfriCOIN is the game score. All nine academic questions are weighted equally for the formal 5% assessment, regardless of level difficulty."
+  },
+  "fiction_notice": "All names, organisations, locations, events and decisions in this simulation are fictionalised for teaching purposes. Names and professional contexts are used to create familiarity; surnames and organisational details have been altered.",
+  "coverage": {
+    "section_1": "Foundations of Emerging and Disruptive Technology",
+    "section_2": "Artificial Intelligence, Machine Learning and Intelligent Automation",
+    "section_3": "Data, Big Data, Analytics and Decision Intelligence",
+    "section_4": "Digital Infrastructure, Cloud and Cybersecurity",
+    "section_5": "Intelligent Physical Systems",
+    "exclusions": [
+      "Blockchain and cryptocurrency",
+      "Immersive technologies and BCI",
+      "Technology investment and business models as formal Section 8 content",
+      "Future of work as formal Section 9 content",
+      "Commercialisation as formal Section 10 content"
+    ]
+  },
+  "core_case": {
+    "organisation": "Mzansi FreshLink",
+    "organisation_type": "Fictional Gauteng fresh-food distribution network",
+    "context": "Mzansi FreshLink moves fresh produce from farms in Limpopo, North West and Mpumalanga into markets, retailers, schools and township businesses across Gauteng. The network is losing food through cold-chain failures, suffering delivery delays, working with fragmented data, and facing growing cybersecurity risks as more sensors and cloud services are introduced.",
+    "primary_business_and_societal_problem": "Reduce food loss and delivery disruption while improving reliable access to affordable fresh food.",
+    "primary_sdgs": [
+      {
+        "code": "SDG 2",
+        "name": "Zero Hunger"
+      },
+      {
+        "code": "SDG 9",
+        "name": "Industry, Innovation and Infrastructure"
+      },
+      {
+        "code": "SDG 12",
+        "name": "Responsible Consumption and Production"
+      }
+    ]
+  },
+  "game_rules": {
+    "answer_format": "Single best answer",
+    "feedback": "Immediate detailed feedback after each answer",
+    "badge_unlock_rule": "At least 2 correct answers out of 3 in a level",
+    "difficulty_progression": [
+      "Level 1 tests recognition and problem framing.",
+      "Level 2 tests systems thinking across infrastructure, cybersecurity and intelligent physical systems.",
+      "Level 3 tests integrated MBA-level technology judgement using only concepts from Sections 1 to 5."
+    ]
+  },
+  "levels_data": [
+    {
+      "level_id": "LEVEL_1",
+      "level_name": "Signal Scout",
+      "emoji": "🛰️",
+      "difficulty": "Foundation",
+      "africoin_per_correct_answer": 10,
+      "level_max_africoin": 30,
+      "badge": {
+        "name": "Tech Tracker",
+        "emoji": "🏅",
+        "unlock_condition": "2 or more correct answers out of 3",
+        "tagline": "You can separate genuine capability from shiny technology theatre."
+      },
+      "problems": [
+        {
+          "problem_id": "L1P1",
+          "title": "The Tablet Revolution... Or Is It?",
+          "section_focus": [
+            "Section 1"
+          ],
+          "location": "Johannesburg Fresh Produce Market, Gauteng",
+          "character": {
+            "name": "Mbalenhle Dlamini",
+            "role": "Field Support Technician",
+            "organisation": "Mzansi FreshLink"
+          },
+          "scenario": "Mzansi FreshLink replaces handwritten delivery sheets with tablets. Drivers now capture quantities, delivery times and signatures digitally. The same suppliers, routes, pricing model and operating process remain in place. At the launch, an executive announces: 'This is disruptive technology. We have disrupted food logistics!'",
+          "question": "What is the best assessment of the executive's claim?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Correct. Any move from paper to digital is automatically disruptive."
+            },
+            {
+              "id": "B",
+              "text": "Not necessarily. This is a useful digital improvement, but disruption requires a more fundamental change in value, markets, processes or competitive logic."
+            },
+            {
+              "id": "C",
+              "text": "Correct. Tablets are artificial intelligence devices."
+            },
+            {
+              "id": "D",
+              "text": "Incorrect because digital technology can never be disruptive."
+            }
+          ],
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "feedback": {
+            "correct": "Correct. Digitisation can improve efficiency without being disruptive. The key question is whether the technology fundamentally changes how value is created, delivered or captured, not whether the device looks modern.",
+            "A": "Incorrect. Digitisation and disruption are not synonyms.",
+            "C": "Incorrect. A tablet is a computing device; nothing in the scenario establishes AI.",
+            "D": "Incorrect. Digital technologies can be disruptive, but they are not automatically so."
+          },
+          "teaching_point": "Emerging, digital and disruptive are related ideas, but they are not interchangeable.",
+          "sdg_link": "SDG 9",
+          "ethics_flash": "If drivers are now tracked continuously through the tablets, what privacy and workplace-governance questions arise?",
+          "facilitator_tip": "Ask students to give one example of a digital improvement that is valuable but not disruptive.",
+          "fun_line": "Putting a tablet where a clipboard used to be does not automatically cause an industry earthquake."
+        },
+        {
+          "problem_id": "L1P2",
+          "title": "Durand's Demand Crystal Ball",
+          "section_focus": [
+            "Section 2",
+            "Section 3"
+          ],
+          "location": "City Deep, Johannesburg",
+          "character": {
+            "name": "Durand Jesse Govender",
+            "role": "Operations Analysis Manager",
+            "organisation": "Mzansi FreshLink"
+          },
+          "scenario": "Durand has three years of sales, weather, school-calendar and delivery data. A model learns patterns from these records and predicts how many crates of tomatoes, spinach and potatoes different Gauteng zones are likely to require next week.",
+          "question": "What is the best description of this capability?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Descriptive dashboard only"
+            },
+            {
+              "id": "B",
+              "text": "Rule-based automation"
+            },
+            {
+              "id": "C",
+              "text": "Machine learning used for predictive analytics"
+            },
+            {
+              "id": "D",
+              "text": "Generative AI because it generates numbers"
+            }
+          ],
+          "correct_answer": "C",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "feedback": {
+            "correct": "Correct. The model learns patterns from historical data and predicts future demand. That is a machine-learning use case supporting predictive analytics.",
+            "A": "Incorrect. The system is predicting future demand rather than merely describing past performance.",
+            "B": "Incorrect. The scenario says the model learns patterns from data.",
+            "D": "Incorrect. Producing a numerical prediction does not make a system Generative AI."
+          },
+          "teaching_point": "The question is not whether software produces an output; it is how the output is produced.",
+          "sdg_link": "SDG 12",
+          "ethics_flash": "If low-income areas have poor historical sales records because stock rarely reached them, a model may mistake undersupply for low demand.",
+          "facilitator_tip": "Use the case to reconnect AI, ML and predictive analytics.",
+          "fun_line": "A forecast is not magic. Somewhere underneath it, data is doing the heavy lifting."
+        },
+        {
+          "problem_id": "L1P3",
+          "title": "Garbage In, Avocados Out?",
+          "section_focus": [
+            "Section 3"
+          ],
+          "location": "Pretoria Distribution Hub, Gauteng",
+          "character": {
+            "name": "Estenia Mokoena",
+            "role": "Sourcing Manager",
+            "organisation": "Mzansi FreshLink"
+          },
+          "scenario": "Estenia wants an AI model to predict supplier reliability. The dataset contains duplicate supplier IDs, missing delivery dates, different spellings for the same farms, and incomplete records from smaller suppliers. A vendor says: 'Don't worry about the messy data. Our AI will figure it out.'",
+          "question": "What should Estenia insist on first?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Deploy the AI immediately because large models can repair any dataset automatically."
+            },
+            {
+              "id": "B",
+              "text": "Improve data quality, definitions, completeness and governance before trusting the model."
+            },
+            {
+              "id": "C",
+              "text": "Delete all small suppliers from the dataset so it becomes cleaner."
+            },
+            {
+              "id": "D",
+              "text": "Replace the dataset with social-media comments."
+            }
+          ],
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "feedback": {
+            "correct": "Correct. Poor-quality, incomplete and inconsistent data can produce unreliable analytics and AI outputs. Data readiness is part of technology readiness.",
+            "A": "Incorrect. AI does not make data-quality problems disappear.",
+            "C": "Incorrect. Removing underrepresented suppliers may make the model less representative and less fair.",
+            "D": "Incorrect. Replacing relevant operational data with unrelated data does not solve the problem."
+          },
+          "teaching_point": "Data quality is a management issue before it becomes a modelling issue.",
+          "sdg_link": "SDG 9",
+          "ethics_flash": "Poor representation of small suppliers can turn a data problem into a fairness problem.",
+          "facilitator_tip": "Ask students which of the 5Vs are implicated by the case.",
+          "fun_line": "Artificial intelligence is not artificial housekeeping."
+        }
+      ]
+    },
+    {
+      "level_id": "LEVEL_2",
+      "level_name": "Systems Ranger",
+      "emoji": "🛡️",
+      "difficulty": "Intermediate",
+      "africoin_per_correct_answer": 20,
+      "level_max_africoin": 60,
+      "badge": {
+        "name": "Systems Shield",
+        "emoji": "🎖️",
+        "unlock_condition": "2 or more correct answers out of 3",
+        "tagline": "You can see that AI needs infrastructure, security and physical systems to survive the real world."
+      },
+      "problems": [
+        {
+          "problem_id": "L2P1",
+          "title": "Clouds Over Gauteng",
+          "section_focus": [
+            "Section 4"
+          ],
+          "location": "Midrand and multiple Gauteng distribution hubs",
+          "character": {
+            "name": "Motlatsi Martha Maseko",
+            "role": "Senior ICT Manager",
+            "organisation": "Mzansi FreshLink"
+          },
+          "scenario": "Mzansi FreshLink is opening new distribution hubs. Demand for computing capacity changes dramatically by season. The company wants central analytics and scalable computing, but some operational systems must keep functioning when connectivity drops. Highly sensitive employee and financial records also require tighter control.",
+          "question": "Which approach is the strongest fit?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Put every system on one employee laptop."
+            },
+            {
+              "id": "B",
+              "text": "Use a hybrid architecture: scalable cloud services where appropriate, with controlled local/private capability for sensitive or connectivity-critical workloads."
+            },
+            {
+              "id": "C",
+              "text": "Avoid all cloud services because cloud computing is inherently insecure."
+            },
+            {
+              "id": "D",
+              "text": "Move everything to public cloud immediately without classifying data or operational dependencies."
+            }
+          ],
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "feedback": {
+            "correct": "Correct. The scenario has mixed requirements: scalability and centralisation, but also sensitivity and resilience to connectivity loss. A hybrid approach matches technology architecture to business requirements.",
+            "A": "Incorrect. This creates major resilience, security and scalability problems.",
+            "C": "Incorrect. Cloud risk must be managed; cloud is not inherently unusable.",
+            "D": "Incorrect. Architecture should follow workload, data, risk and continuity requirements."
+          },
+          "teaching_point": "Cloud strategy is not 'cloud versus no cloud'; it is workload, risk and resilience alignment.",
+          "sdg_link": "SDG 9",
+          "ethics_flash": "Where data is stored and who can access it affects privacy, accountability and data sovereignty.",
+          "facilitator_tip": "Ask students what they would keep local and what they would place in scalable cloud services.",
+          "fun_line": "The cloud is still somebody else's computer, plus contracts, controls and consequences."
+        },
+        {
+          "problem_id": "L2P2",
+          "title": "The Fridge That Joined the Internet",
+          "section_focus": [
+            "Section 4",
+            "Section 5"
+          ],
+          "location": "Tembisa Distribution Centre, Gauteng",
+          "character": {
+            "name": "Lubabalo Mthembu",
+            "role": "IT Security Technician",
+            "organisation": "Mzansi FreshLink"
+          },
+          "scenario": "Hundreds of refrigerated storage units and truck sensors are connected to the network. Lubabalo discovers that many devices still use default passwords, several cannot be patched easily, and the IoT devices sit on the same network segment as finance systems.",
+          "question": "What is the strongest immediate cybersecurity response?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Leave the devices unchanged because temperature sensors cannot create cyber risk."
+            },
+            {
+              "id": "B",
+              "text": "Segment the IoT environment, replace default credentials, restrict access, patch where possible and monitor device behaviour."
+            },
+            {
+              "id": "C",
+              "text": "Disconnect the finance team from the internet but leave the IoT devices untouched."
+            },
+            {
+              "id": "D",
+              "text": "Post all device passwords in the operations control room so staff can respond faster."
+            }
+          ],
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "feedback": {
+            "correct": "Correct. Connected physical devices expand the attack surface. Segmentation, identity controls, patching and monitoring reduce the chance that a compromised sensor becomes a pathway into critical systems.",
+            "A": "Incorrect. IoT devices can be entry points into wider networks.",
+            "C": "Incomplete. The vulnerable IoT environment remains exposed.",
+            "D": "Incorrect. Shared visible passwords weaken access control."
+          },
+          "teaching_point": "Cybersecurity becomes a physical-operations issue when connected devices enter the environment.",
+          "sdg_link": "SDG 9",
+          "ethics_flash": "A cyber failure in connected food infrastructure can become a public-safety and food-security problem.",
+          "facilitator_tip": "Connect this case to attack surface, least privilege and network segmentation.",
+          "fun_line": "The fridge may not care about your password policy. The attacker does."
+        },
+        {
+          "problem_id": "L2P3",
+          "title": "The Cold-Chain Detective",
+          "section_focus": [
+            "Section 5",
+            "Section 3"
+          ],
+          "location": "N1 corridor between Pretoria and Johannesburg",
+          "character": {
+            "name": "Jaquesco Botha",
+            "role": "Sensor Systems Specialist",
+            "organisation": "Mzansi FreshLink"
+          },
+          "scenario": "Fresh produce is spoiling inside refrigerated trucks, but the company does not know exactly when or where temperature failures occur. Jaquesco proposes fitting trucks with temperature, humidity and door-open sensors that transmit readings during each trip.",
+          "question": "What is the primary technology described before any prediction model is added?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Internet of Things sensor network"
+            },
+            {
+              "id": "B",
+              "text": "Generative AI"
+            },
+            {
+              "id": "C",
+              "text": "Blockchain"
+            },
+            {
+              "id": "D",
+              "text": "Virtual reality"
+            }
+          ],
+          "correct_answer": "A",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "feedback": {
+            "correct": "Correct. Connected sensors collecting and transmitting physical-world data are a classic Internet of Things application.",
+            "B": "Incorrect. No content generation is described.",
+            "C": "Incorrect. No distributed ledger is needed to identify the primary capability described.",
+            "D": "Incorrect. The case concerns connected physical sensing, not immersive simulation."
+          },
+          "plot_twist": "If a model later learns from sensor patterns and predicts a refrigeration-unit failure before it happens, the solution becomes an IoT plus predictive AI system.",
+          "teaching_point": "Intelligent physical systems often combine sensing, connectivity, analytics and AI in layers.",
+          "sdg_link": "SDG 12",
+          "ethics_flash": "Who owns operational data collected continuously from vehicles and drivers?",
+          "facilitator_tip": "Ask students to separate the sensor layer, connectivity layer, analytics layer and AI layer.",
+          "fun_line": "Before the truck becomes intelligent, it first needs to know that it is getting warm."
+        }
+      ]
+    },
+    {
+      "level_id": "LEVEL_3",
+      "level_name": "Boardroom Commander",
+      "emoji": "👑",
+      "difficulty": "Advanced",
+      "africoin_per_correct_answer": 30,
+      "level_max_africoin": 90,
+      "badge": {
+        "name": "Executive Vanguard",
+        "emoji": "🏆",
+        "unlock_condition": "2 or more correct answers out of 3",
+        "tagline": "You choose technology because it fits the problem, not because the vendor brought a dramatic PowerPoint."
+      },
+      "problems": [
+        {
+          "problem_id": "L3P1",
+          "title": "The Spoilage War Room",
+          "section_focus": [
+            "Sections 1 to 5 integrated"
+          ],
+          "location": "Germiston Operations Centre, Gauteng",
+          "character": {
+            "name": "Gloria Thandiwe Molefe",
+            "role": "Manufacturing and Operations Executive",
+            "organisation": "Mzansi FreshLink"
+          },
+          "scenario": "Management learns that 40% of avoidable food spoilage comes from refrigeration failures during transport. A vendor proposes four solutions: a Generative AI marketing assistant, VR training goggles, connected temperature sensors with predictive maintenance, or a new executive dashboard using only monthly historical reports.",
+          "question": "Which solution most directly fits the diagnosed problem?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Generative AI marketing assistant"
+            },
+            {
+              "id": "B",
+              "text": "VR training goggles"
+            },
+            {
+              "id": "C",
+              "text": "IoT condition monitoring combined with predictive maintenance analytics / AI"
+            },
+            {
+              "id": "D",
+              "text": "A monthly dashboard with no real-time operational data"
+            }
+          ],
+          "correct_answer": "C",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "feedback": {
+            "correct": "Correct. The diagnosed problem is equipment failure during transport. Real-time sensing plus predictive maintenance directly addresses the failure mechanism.",
+            "A": "Incorrect. Marketing does not address the operational cause of spoilage.",
+            "B": "Potentially useful for some training needs, but it is not the strongest fit for the identified failure mechanism.",
+            "D": "Useful for reporting, but monthly retrospective data is too slow for a real-time cold-chain problem."
+          },
+          "teaching_point": "Start with the failure mechanism, not the fashionable technology.",
+          "sdg_link": "SDG 12",
+          "ethics_flash": "If sensors are also used to monitor driver behaviour, the governance purpose must be clearly defined.",
+          "facilitator_tip": "Make students defend why the rejected technologies are not necessarily bad, just poorly matched.",
+          "fun_line": "The tomatoes do not care how exciting the chatbot demo was."
+        },
+        {
+          "problem_id": "L3P2",
+          "title": "The Township Data Trap",
+          "section_focus": [
+            "Section 2",
+            "Section 3",
+            "Sections 1 to 5 integrated"
+          ],
+          "location": "Soweto, Alexandra and Tembisa, Gauteng",
+          "character": {
+            "name": "Shiraz Pillay",
+            "role": "Logistics and Network Planning Executive",
+            "organisation": "Mzansi FreshLink"
+          },
+          "scenario": "A demand model recommends sending less fresh produce to several township routes because historical sales are lower there. Shiraz discovers that those routes also suffered the most stock-outs, late deliveries and missing point-of-sale data. In other words, the historical dataset may record poor supply as if it were poor demand.",
+          "question": "What is the strongest response before using the model for allocation decisions?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Accept the model because historical data is always objective."
+            },
+            {
+              "id": "B",
+              "text": "Reduce deliveries immediately to match the prediction."
+            },
+            {
+              "id": "C",
+              "text": "Investigate data gaps and supply constraints, improve representation, test subgroup outcomes and retain human review during a controlled pilot."
+            },
+            {
+              "id": "D",
+              "text": "Delete all township data so the model cannot be biased."
+            }
+          ],
+          "correct_answer": "C",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "feedback": {
+            "correct": "Correct. Historical data can reflect past operational failures and inequalities. The organisation should test whether the model is learning actual demand or merely reproducing historical undersupply.",
+            "A": "Incorrect. Data records reality imperfectly and can encode historical patterns of exclusion.",
+            "B": "Incorrect. This could create a self-reinforcing cycle of undersupply.",
+            "D": "Incorrect. Removing the affected population can make the model even less representative."
+          },
+          "teaching_point": "A model can accurately learn the wrong lesson from flawed history.",
+          "sdg_link": "SDG 2 and SDG 10",
+          "ethics_flash": "Algorithmic allocation can convert historical inequality into automated future inequality.",
+          "facilitator_tip": "Ask students to explain the feedback loop that would occur if the model were deployed uncritically.",
+          "fun_line": "Sometimes the data is not telling you what people want. It is telling you what you failed to deliver."
+        },
+        {
+          "problem_id": "L3P3",
+          "title": "The 1.95 Million AfriCOIN Boardroom",
+          "section_focus": [
+            "Sections 1 to 5 integrated"
+          ],
+          "location": "Sandton, Gauteng",
+          "character": {
+            "name": "The Mzansi FreshLink Executive Committee",
+            "role": "Board-level decision team",
+            "organisation": "Mzansi FreshLink"
+          },
+          "scenario": "The board has exactly 1.95 million AfriCOIN for the next technology phase. Proposal A costs 450,000 AfriCOIN: clean and integrate supplier, sales and logistics data. Proposal B costs 650,000: install connected cold-chain sensors on priority trucks. Proposal C costs 500,000: build a demand-forecasting model using the improved operational data. Proposal D costs 350,000: cybersecurity hardening for cloud and IoT environments. Proposal E costs 850,000: launch a flashy Generative AI brand ambassador. The board can fund any combination within budget.",
+          "question": "Which portfolio creates the strongest foundation for solving the identified food-loss and delivery problem using only what has been covered in Sections 1 to 5?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Fund E and keep the remaining budget for advertising."
+            },
+            {
+              "id": "B",
+              "text": "Fund A + B + C + D, using the full 1.95 million AfriCOIN."
+            },
+            {
+              "id": "C",
+              "text": "Fund B + E because physical technology and Generative AI sound innovative."
+            },
+            {
+              "id": "D",
+              "text": "Fund only C because AI can compensate for poor data, weak sensing and cybersecurity."
+            }
+          ],
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "feedback": {
+            "correct": "Correct. The portfolio combines data readiness, intelligent physical sensing, predictive capability and cybersecurity. It creates an integrated technology stack directly connected to the diagnosed operational problem.",
+            "A": "Incorrect. The brand assistant does not address the core cold-chain and delivery problem.",
+            "C": "Incorrect. It mixes one relevant investment with a high-cost initiative that does not solve the priority problem.",
+            "D": "Incorrect. Predictive AI depends on trustworthy data, useful operational signals and secure infrastructure."
+          },
+          "teaching_point": "Technology value emerges from an aligned system, not from isolated fashionable tools.",
+          "sdg_link": "SDG 2, SDG 9 and SDG 12",
+          "ethics_flash": "The board should also define who can access operational and personal data generated by the new system.",
+          "facilitator_tip": "End by asking students to articulate the chain: Problem -> Data -> Infrastructure -> Physical sensing -> AI/analytics -> Security -> Impact.",
+          "fun_line": "Congratulations. You resisted the expensive chatbot and funded the plumbing. The tomatoes salute you."
+        }
+      ]
+    }
+  ],
+  "end_game": {
+    "maximum_africoin": 180,
+    "academic_maximum": 9,
+    "formal_weight_percent": 5,
+    "score_bands": [
+      {
+        "min_africoin": 0,
+        "max_africoin": 60,
+        "rank": "Tech Cadet",
+        "message": "You can see the technology. Now work on matching it to the problem."
+      },
+      {
+        "min_africoin": 70,
+        "max_africoin": 120,
+        "rank": "Systems Navigator",
+        "message": "You are connecting data, infrastructure and intelligent systems."
+      },
+      {
+        "min_africoin": 130,
+        "max_africoin": 160,
+        "rank": "Disruption Strategist",
+        "message": "Strong judgement. You are choosing technology based on fit, readiness and risk."
+      },
+      {
+        "min_africoin": 170,
+        "max_africoin": 180,
+        "rank": "Mzansi Tech Commander",
+        "message": "Excellent. You are thinking across the whole technology system, not chasing isolated tools."
+      }
+    ],
+    "final_debrief": {
+      "question": "What did the best decisions have in common?",
+      "answer": "They started with a real problem, used appropriate data, matched technology to the failure mechanism, considered infrastructure and cybersecurity, and connected technology choices to measurable impact.",
+      "framework": [
+        "Problem",
+        "Technology",
+        "Data",
+        "Infrastructure",
+        "Security",
+        "Implementation",
+        "Impact"
+      ]
+    }
+  }
+}

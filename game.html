@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Richfield EDT900 Game Simulations: play the three Emerging &amp; Disruptive Technology 900 simulations and collect AfriCOIN on your own account.">
+    <title>Play the simulations | Richfield EDT900</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/quiz-games.css" rel="stylesheet">
+    <link href="assets/css/auth.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light gsb-navbar sticky-top">
+        <div class="container">
+            <a class="site-brand" href="index.html" aria-label="Richfield EDT900 home">
+                <img class="gla-logo" alt="Richfield EDT900" src="assets/images/richfield-edt900-mark.svg">
+
+                <span class="site-brand-text">
+                    <span class="site-brand-title">EDT900 Simulation Games</span>
+                    <span class="site-brand-sub">Richfield</span>
+                </span>
+            </a>
+
+            <div class="account-chip ms-auto" id="accountChip" hidden>
+                <span class="account-name" data-user-name></span>
+                <span class="account-points" data-user-points>0 / 660</span>
+                <button class="account-signout" type="button" data-sign-out hidden>
+                    Sign out
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <p class="db-note" data-db-note hidden></p>
+
+    <main id="appMain" hidden>
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-meta">
+                    <span class="meta-chip">EDT900</span>
+                    <span>Simulation 0 &middot; Simulation 1 &middot; Simulation 2</span>
+                </div>
+
+                <span class="eyebrow">
+                    Emerging &amp; Disruptive Technology 900
+                </span>
+
+                <h1>Game Simulations</h1>
+
+                <p>
+                    Three boardroom-style simulations. Every answer is scored on the
+                    server and saved to your own account, and only the best
+                    AfriCOIN you reach for a problem is counted.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-gsb-primary btn-lg" href="#quiz-centre">
+                        Choose a simulation
+                        <i class="bi bi-controller" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="btn btn-gsb-outline btn-lg" href="index.html">
+                        Module overview
+                        <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-white">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <article class="content-card h-100">
+                            <span class="eyebrow eyebrow-dark">Your AfriCOIN</span>
+                            <h3 data-user-points>0 / 660</h3>
+                            <p>Every point saved to your account across the three simulations.</p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <article class="content-card h-100">
+                            <span class="eyebrow eyebrow-dark">Simulation 0</span>
+                            <h3 data-game-points="sim0">0 / 300</h3>
+                            <p>AI Detective: 15 problems across three stages.</p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <article class="content-card h-100">
+                            <span class="eyebrow eyebrow-dark">Simulation 1</span>
+                            <h3 data-game-points="sim1">0 / 180</h3>
+                            <p>Gauteng Smart Supply Challenge: 9 problems across three levels.</p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <article class="content-card h-100">
+                            <span class="eyebrow eyebrow-dark">Simulation 2</span>
+                            <h3 data-game-points="sim2">0 / 180</h3>
+                            <p>Africa 2035 Boardroom Challenge: 9 problems across three levels.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-centre" class="section section-soft">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <span class="eyebrow eyebrow-dark">EDT900 Simulations</span>
+                    <h2>Choose your simulation</h2>
+                    <span class="heading-line" aria-hidden="true"></span>
+                    <p>Each simulation stores its own AfriCOIN on your account.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <article class="quiz-hub-card">
+                            <div class="quiz-hub-card-top">
+                                <span class="quiz-hub-number">00</span>
+                                <span class="quiz-hub-status available">Available</span>
+                            </div>
+
+                            <div class="quiz-hub-icon">
+                                <i class="bi bi-search" aria-hidden="true"></i>
+                            </div>
+
+                            <h2>Simulation 0</h2>
+
+                            <strong class="quiz-hub-subtitle">
+                                AI Detective
+                            </strong>
+
+                            <p>
+                                AI, generative AI, automation, analytics or neither?
+                                Three stages of technology detective work, business
+                                value and executive governance decisions.
+                            </p>
+
+                            <div class="quiz-hub-stats">
+                                <div>
+                                    <strong id="sim0CardQuestions">15</strong>
+                                    <span>Problems</span>
+                                </div>
+
+                                <div>
+                                    <strong id="sim0CardScore">300</strong>
+                                    <span>AfriCOIN</span>
+                                </div>
+
+                                <div>
+                                    <strong data-game-points="sim0">0 / 300</strong>
+                                    <span>Your AfriCOIN</span>
+                                </div>
+                            </div>
+
+                            <button id="openSim0Game" class="btn btn-gsb-primary btn-lg w-100" type="button" disabled>
+                                <span data-game-button-label>Start Simulation 0</span>
+                                <i class="bi bi-controller" aria-hidden="true"></i>
+                            </button>
+
+                            <p id="sim0LoadStatus" class="quiz-load-status" role="status">
+                                Loading Simulation 0 problems...
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <article class="quiz-hub-card">
+                            <div class="quiz-hub-card-top">
+                                <span class="quiz-hub-number">01</span>
+                                <span class="quiz-hub-status available">Available</span>
+                            </div>
+
+                            <div class="quiz-hub-icon">
+                                <i class="bi bi-truck" aria-hidden="true"></i>
+                            </div>
+
+                            <h2>Simulation 1</h2>
+
+                            <strong class="quiz-hub-subtitle">
+                                Gauteng Smart Supply Challenge
+                            </strong>
+
+                            <p>
+                                From farm to township: keep Gauteng fed, connected and
+                                moving with intelligent physical systems, cloud and
+                                cybersecurity decisions.
+                            </p>
+
+                            <div class="quiz-hub-stats">
+                                <div>
+                                    <strong id="sim1CardQuestions">9</strong>
+                                    <span>Problems</span>
+                                </div>
+
+                                <div>
+                                    <strong id="sim1CardScore">180</strong>
+                                    <span>AfriCOIN</span>
+                                </div>
+
+                                <div>
+                                    <strong data-game-points="sim1">0 / 180</strong>
+                                    <span>Your AfriCOIN</span>
+                                </div>
+                            </div>
+
+                            <button id="openSim1Game" class="btn btn-gsb-primary btn-lg w-100" type="button" disabled>
+                                <span data-game-button-label>Start Simulation 1</span>
+                                <i class="bi bi-controller" aria-hidden="true"></i>
+                            </button>
+
+                            <p id="sim1LoadStatus" class="quiz-load-status" role="status">
+                                Loading Simulation 1 problems...
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <article class="quiz-hub-card">
+                            <div class="quiz-hub-card-top">
+                                <span class="quiz-hub-number">02</span>
+                                <span class="quiz-hub-status available">Available</span>
+                            </div>
+
+                            <div class="quiz-hub-icon">
+                                <i class="bi bi-globe-africa" aria-hidden="true"></i>
+                            </div>
+
+                            <h2>Simulation 2</h2>
+
+                            <strong class="quiz-hub-subtitle">
+                                Africa 2035: The Boardroom Technology Challenge
+                            </strong>
+
+                            <p>
+                                Take the board seat: frontier technology, trust,
+                                investment discipline, ethics and commercialisation
+                                across the African continent.
+                            </p>
+
+                            <div class="quiz-hub-stats">
+                                <div>
+                                    <strong id="sim2CardQuestions">9</strong>
+                                    <span>Problems</span>
+                                </div>
+
+                                <div>
+                                    <strong id="sim2CardScore">180</strong>
+                                    <span>AfriCOIN</span>
+                                </div>
+
+                                <div>
+                                    <strong data-game-points="sim2">0 / 180</strong>
+                                    <span>Your AfriCOIN</span>
+                                </div>
+                            </div>
+
+                            <button id="openSim2Game" class="btn btn-gsb-primary btn-lg w-100" type="button" disabled>
+                                <span data-game-button-label>Start Simulation 2</span>
+                                <i class="bi bi-controller" aria-hidden="true"></i>
+                            </button>
+
+                            <p id="sim2LoadStatus" class="quiz-load-status" role="status">
+                                Loading Simulation 2 problems...
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sim0GameSection" class="section section-soft game-section" hidden>
+            <div class="container">
+                <div id="sim0GameMount" class="game-mount"></div>
+            </div>
+        </section>
+
+        <section id="sim1GameSection" class="section section-soft game-section" hidden>
+            <div class="container">
+                <div id="sim1GameMount" class="game-mount"></div>
+            </div>
+        </section>
+
+        <section id="sim2GameSection" class="section section-soft game-section" hidden>
+            <div class="container">
+                <div id="sim2GameMount" class="game-mount"></div>
+            </div>
+        </section>
+
+        <div id="gameScoreToast" class="game-score-toast" role="status" aria-live="assertive" hidden>
+            <strong id="gameScoreToastHeading"></strong>
+            <span id="gameScoreToastCopy"></span>
+        </div>
+
+    </main>
+
+    <footer class="gsb-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <img class="gla-logo gla-logo-footer" alt="Richfield EDT900"
+                        src="assets/images/richfield-edt900-mark.svg">
+
+                    <p class="footer-intro">
+                        EDT900 Simulation Games - three Emerging &amp; Disruptive
+                        Technology 900 simulations where every decision earns
+                        AfriCOIN on your own account.
+                    </p>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <h2>Simulations</h2>
+
+                    <ul>
+                        <li>
+                            <a href="#quiz-centre">
+                                Simulation 0 &middot; AI Detective
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#quiz-centre">
+                                Simulation 1 &middot; Gauteng Smart Supply Challenge
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#quiz-centre">
+                                Simulation 2 &middot; Africa 2035 Boardroom Challenge
+                            </a>
+                        </li>
+
+                        <li><a href="register.html">Create an account</a></li>
+                        <li><a href="login.html">Sign in</a></li>
+                        <li><a href="index.html">Module overview</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h2>Score monitor</h2>
+
+                    <p class="footer-copy">
+                        The lecturer can open the score monitor to see every player,
+                        their AfriCOIN per simulation and every problem they answered.
+                    </p>
+
+                    <a class="footer-contact-link" href="admin.html">
+                        Open the score monitor
+                        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Richfield &middot; Emerging &amp; Disruptive
+                    Technology 900
+                </p>
+
+                <p>660 AfriCOIN available across the three simulations</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/local-db.js"></script>
+    <script src="assets/js/api-client.js"></script>
+
+    <script>
+        // The simulations only appear once the player is signed in, so every
+        // answer can be stored against the right account.
+        (function () {
+            "use strict";
+
+            window.GameApi.requireUser().then(function (user) {
+                if (!user) {
+                    return;
+                }
+
+                document.getElementById("accountChip").hidden = false;
+                document.getElementById("appMain").hidden = false;
+            });
+        })();
+    </script>
+
+    <script src="assets/js/quiz-games.js"></script>
+</body>
+
+</html>
+

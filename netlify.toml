@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  publish = "."
+  functions = "netlify/functions"
+
+# The whole API (accounts, points, admin monitor) is served by
+# netlify/functions/api.mjs, which stores data in Netlify Blobs.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true

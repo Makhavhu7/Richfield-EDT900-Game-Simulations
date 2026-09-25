@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="Richfield EDT900">
+  <rect width="96" height="96" rx="20" fill="#0b2a4e"/>
+  <rect x="20" y="58" width="12" height="18" rx="3" fill="#f4c542"/>
+  <rect x="42" y="44" width="12" height="32" rx="3" fill="#f4c542"/>
+  <rect x="64" y="30" width="12" height="46" rx="3" fill="#f4c542"/>
+  <circle cx="70" cy="20" r="6" fill="#27b4d5"/>
+</svg>

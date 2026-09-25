@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sign in to the Richfield EDT900 game simulations and collect AfriCOIN for your boardroom decisions.">
+    <title>Sign in | Richfield EDT900</title>
+
+    <link rel="icon" type="image/svg+xml"
+        href="assets/images/favicon.svg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+        rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/auth.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
+</head>
+
+<body class="auth-page">
+    <header class="gsb-navbar auth-navbar">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a class="logo-lockup" href="index.html" aria-label="Richfield EDT900 home">
+                <img alt="Richfield EDT900"
+                    src="assets/images/richfield-edt900-mark.svg">
+
+                <span class="logo-text">
+                    RICHFIELD
+                    <span>EDT900</span>
+                </span>
+            </a>
+
+            <a class="btn btn-gsb-primary" href="register.html">Create account</a>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <div class="container">
+            <p class="db-note" data-db-note hidden></p>
+
+            <div class="auth-card">
+                <span class="eyebrow eyebrow-dark">Student sign in</span>
+                <h1>Welcome back</h1>
+
+                <p class="auth-lead">
+                    Sign in to play the three EDT900 simulations. Every answer you
+                    submit adds AfriCOIN to your own account.
+                </p>
+
+                <div class="auth-message" id="message" role="alert"></div>
+
+                <form id="loginForm" novalidate>
+                    <div class="auth-field">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" autocomplete="email"
+                            placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password"
+                            autocomplete="current-password" placeholder="Your password" required>
+                    </div>
+
+                    <div class="auth-check">
+                        <input type="checkbox" id="remember" checked>
+                        <label for="remember">Keep me signed in on this device</label>
+                    </div>
+
+                    <button class="btn btn-gsb-primary btn-lg" id="submitBtn" type="submit">
+                        Sign in and play
+                        <i class="bi bi-box-arrow-in-right" aria-hidden="true"></i>
+                    </button>
+                </form>
+
+                <p class="auth-switch">
+                    No account yet? <a href="register.html">Create one here</a>.
+                </p>
+
+                <p class="auth-footnote">
+                    Administrator? <a href="admin.html">Open the score monitor</a>.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/local-db.js"></script>
+    <script src="assets/js/api-client.js"></script>
+    <script>
+        (function () {
+            "use strict";
+
+            var form = document.getElementById("loginForm");
+            var submitBtn = document.getElementById("submitBtn");
+            var message = document.getElementById("message");
+            var next = window.GameApi.nextPage();
+
+            function showMessage(text, type) {
+                message.textContent = text;
+                message.className = "auth-message show " + (type || "");
+            }
+
+            window.GameApi.me().then(function (result) {
+                if (result.data && result.data.ok) {
+                    window.location.replace(next);
+                }
+            });
+
+            form.addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                message.className = "auth-message";
+                submitBtn.disabled = true;
+
+                var result = await window.GameApi.login({
+                    email: document.getElementById("email").value,
+                    password: document.getElementById("password").value,
+                    remember: document.getElementById("remember").checked
+                });
+
+                if (result.data && result.data.ok) {
+                    showMessage("Signed in. Loading your games...", "success");
+                    window.location.replace(next);
+                    return;
+                }
+
+                submitBtn.disabled = false;
+
+                showMessage(
+                    (result.data && result.data.message) ||
+                    "Sign in failed. Please try again.",
+                    "error"
+                );
+            });
+        })();
+    </script>
+</body>
+
+</html>

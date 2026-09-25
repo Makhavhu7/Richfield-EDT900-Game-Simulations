@@ -1,0 +1,41 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Installed packages
+node_modules/
+
+# Editor worktrees and scratch folders
+.kilo/
+.tmp-http-check-data/
+.tmp-vercel-check/
+.tmp-logout-check/
+
+# Local environment variables and API secrets
+.env
+.env.*
+!.env.example
+
+# Netlify local build output
+.netlify/
+
+# Database: data/admins.json and data/users.json are the JSON database.
+# Only the runtime files below are ignored.
+data/sessions.json
+data/runtime.json

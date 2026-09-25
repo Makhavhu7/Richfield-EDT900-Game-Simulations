@@ -1,0 +1,370 @@
+/**
+ * Richfield EDT900 Game Simulations
+ * ---------------------------------------------------------------
+ * Checks the Vercel function (api/[...route].mjs) the way Vercel
+ * runs it:
+ *
+ *   1. bundles it with esbuild (the same bundler Vercel uses)
+ *   2. starts a small stand-in for the Upstash / Vercel KV REST API
+ *   3. sends the real requests through the function handler
+ *
+ *   node scripts/vercel-check.mjs
+ */
+
+import { createServer } from "node:http";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+import * as esbuild from "esbuild";
+
+const root = path.resolve(
+    fileURLToPath(new URL("..", import.meta.url))
+);
+
+const outDir = path.join(root, ".tmp-vercel-check");
+const bundle = path.join(outDir, "api.mjs");
+
+const token = "test-kv-token";
+
+let passed = 0;
+let failed = 0;
+
+function check(title, condition, detail) {
+    if (condition) {
+        passed += 1;
+        console.log("  PASS  " + title);
+
+        return;
+    }
+
+    failed += 1;
+
+    console.log(
+        "  FAIL  " + title +
+        (detail ? "  -> " + detail : "")
+    );
+}
+
+/* -------------------- stand-in for the hosted key/value store -------------------- */
+
+const store = new Map();
+
+const kvServer = createServer((request, response) => {
+    const url = new URL(
+        request.url,
+        "http://localhost"
+    );
+
+    const parts = url.pathname
+        .split("/")
+        .filter(Boolean);
+
+    const command = parts[0];
+    const key = decodeURIComponent(parts.slice(1).join("/"));
+
+    const reply = payload => {
+        response.writeHead(200, {
+            "content-type": "application/json"
+        });
+
+        response.end(JSON.stringify(payload));
+    };
+
+    if (request.headers.authorization !== "Bearer " + token) {
+        response.writeHead(401, {
+            "content-type": "application/json"
+        });
+
+        response.end(JSON.stringify({ error: "unauthorized" }));
+
+        return;
+    }
+
+    if (command === "get") {
+        reply({
+            result: store.has(key)
+                ? store.get(key)
+                : null
+        });
+
+        return;
+    }
+
+    if (command === "set") {
+        let body = "";
+
+        request.on("data", chunk => {
+            body += chunk;
+        });
+
+        request.on("end", () => {
+            store.set(key, body);
+
+            reply({ result: "OK" });
+        });
+
+        return;
+    }
+
+    if (command === "del") {
+        store.delete(key);
+
+        reply({ result: 1 });
+
+        return;
+    }
+
+    response.writeHead(404, {
+        "content-type": "application/json"
+    });
+
+    response.end(JSON.stringify({ error: "unknown command" }));
+});
+
+await new Promise(resolve => kvServer.listen(0, "127.0.0.1", resolve));
+
+const kvUrl =
+    "http://127.0.0.1:" +
+    kvServer.address().port;
+
+process.env.KV_REST_API_URL = kvUrl;
+process.env.KV_REST_API_TOKEN = token;
+
+/* ------------------------------- bundle ------------------------------- */
+
+fs.rmSync(outDir, { recursive: true, force: true });
+fs.mkdirSync(outDir, { recursive: true });
+
+await esbuild.build({
+    entryPoints: [
+        path.join(root, "api", "[...route].mjs")
+    ],
+
+    outfile: bundle,
+    bundle: true,
+    platform: "node",
+    format: "esm",
+    logLevel: "silent"
+});
+
+const { default: handler } = await import(
+    "file://" + bundle.replaceAll("\\", "/")
+);
+
+/* --------------------------- request helper --------------------------- */
+
+function invoke(method, url, options = {}) {
+    return new Promise((resolve, reject) => {
+        const headers = {
+            host: "edt900-game-simulations.vercel.app"
+        };
+
+        if (options.cookie) {
+            headers.cookie = options.cookie;
+        }
+
+        const response = {
+            statusCode: 0,
+            headers: {},
+
+            setHeader(name, value) {
+                this.headers[String(name).toLowerCase()] = value;
+            }
+        };
+
+        const request = {
+            method,
+            url,
+            headers,
+
+            query: {},
+            body: options.body
+        };
+
+        response.end = text => {
+            resolve({
+                status: response.statusCode,
+                headers: response.headers,
+                text: String(text ?? "")
+            });
+        };
+
+        Promise.resolve(handler(request, response))
+            .catch(reject);
+    });
+}
+
+function jar() {
+    let cookie = "";
+
+    return {
+        get() {
+            return cookie;
+        },
+
+        capture(response) {
+            const raw = response.headers["set-cookie"];
+
+            if (raw) {
+                cookie = String(raw).split(";")[0];
+            }
+        }
+    };
+}
+
+/* -------------------------------- checks -------------------------------- */
+
+console.log(
+    "\nRichfield EDT900 - Vercel function check\n" +
+    "===========================================\n"
+);
+
+const health = await invoke("GET", "/api/health");
+
+check(
+    "GET /api/health answers through the Vercel function",
+    health.status === 200 &&
+    JSON.parse(health.text).maximumTotal === 660,
+    health.text.slice(0, 120)
+);
+
+const player = jar();
+
+const register = await invoke("POST", "/api/register", {
+    body: {
+        fullName: "Vercel Check Player",
+        email: "vercel-check@example.com",
+        password: "Ghost1234",
+        confirmPassword: "Ghost1234",
+        remember: true
+    }
+});
+
+player.capture(register);
+
+check(
+    "A player can register and the account is written to the store",
+    register.status === 201 &&
+    player.get().startsWith("edt900_sid=") &&
+    store.has("user:u1"),
+    register.text.slice(0, 120)
+);
+
+const me = await invoke("GET", "/api/me", {
+    cookie: player.get()
+});
+
+check(
+    "The signed-in player can read their own account",
+    me.status === 200 &&
+    JSON.parse(me.text).user.email === "vercel-check@example.com"
+);
+
+const gameOne = JSON.parse(
+    fs.readFileSync(
+        path.join(
+            root,
+            "assets/data/EDT900_Simulation_0_AI_Detective.json"
+        ),
+        "utf8"
+    )
+);
+
+const puzzle = gameOne.stages[0].problems_list[0];
+
+const answer = await invoke("POST", "/api/answers", {
+    cookie: player.get(),
+
+    body: {
+        gameId: "sim0",
+        questionId: puzzle.problem_id,
+        answer: puzzle.correct_answer
+    }
+});
+
+check(
+    "A correct Simulation 0 answer is scored on the server",
+    answer.status === 200 &&
+    JSON.parse(answer.text).awarded === 10,
+    answer.text.slice(0, 120)
+);
+
+const admin = jar();
+
+const adminLogin = await invoke("POST", "/api/admin/login", {
+    body: {
+        username: "admin",
+        password: "EDT900@2026",
+        remember: true
+    }
+});
+
+admin.capture(adminLogin);
+
+check(
+    "The admin can sign in",
+    adminLogin.status === 200
+);
+
+const users = await invoke("GET", "/api/admin/users", {
+    cookie: admin.get()
+});
+
+const usersBody = JSON.parse(users.text);
+
+check(
+    "The admin sees every registered player with their points",
+    users.status === 200 &&
+    usersBody.users.length === 1 &&
+    usersBody.users[0].points.total === 10,
+    users.text.slice(0, 160)
+);
+
+const summaryCsv = await invoke(
+    "GET",
+    "/api/admin/users.csv?view=questions",
+    { cookie: admin.get() }
+);
+
+check(
+    "The CSV export streams through the function",
+    summaryCsv.status === 200 &&
+    summaryCsv.text.includes("Points earned") &&
+    summaryCsv.text.includes("Vercel Check Player")
+);
+
+const unknown = await invoke("GET", "/api/nope");
+
+check(
+    "Unknown API routes answer with 404",
+    unknown.status === 404
+);
+
+const stored = JSON.parse(store.get("user:u1"));
+
+check(
+    "The stored player keeps the per-problem AfriCOIN",
+    stored.games.sim0.questions[puzzle.problem_id].best === 10
+);
+
+const blocked = await invoke("GET", "/api/me");
+
+check(
+    "Without a session the API answers 401",
+    blocked.status === 401
+);
+
+/* ------------------------------- teardown ------------------------------ */
+
+console.log(
+    "\n-------------------------------------------\n" +
+    "Passed: " + passed + "\n" +
+    "Failed: " + failed + "\n"
+);
+
+kvServer.close();
+
+fs.rmSync(outDir, { recursive: true, force: true });
+
+process.exit(failed ? 1 : 0);
