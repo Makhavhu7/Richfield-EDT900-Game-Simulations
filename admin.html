@@ -98,16 +98,6 @@
                     </div>
 
                     <div class="admin-actions">
-                        <div class="admin-filters" id="adminRange" role="group"
-                            aria-label="Which students to show">
-                            <button class="admin-range" type="button" data-range="today"
-                                aria-pressed="true">This game</button>
-                            <button class="admin-range" type="button" data-range="week"
-                                aria-pressed="false">Last 7 days</button>
-                            <button class="admin-range" type="button" data-range="all"
-                                aria-pressed="false">All time</button>
-                        </div>
-
                         <button class="btn btn-outline-gsb" id="refreshBtn" type="button">
                             <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
                             Refresh
@@ -138,8 +128,17 @@
                             </small>
                         </div>
 
-                        <input class="admin-search" id="adminSearch" type="search"
-                            placeholder="Search a name or email address">
+                        <div class="admin-panel-tools">
+                            <input class="admin-search" id="adminSearch" type="search"
+                                placeholder="Search a name or email address">
+
+                            <label class="admin-date" for="adminFromDate">
+                                <span>From</span>
+
+                                <input type="date" id="adminFromDate"
+                                    aria-label="Show students registered or active on or after this date">
+                            </label>
+                        </div>
                     </div>
 
                     <div class="admin-table-wrap">

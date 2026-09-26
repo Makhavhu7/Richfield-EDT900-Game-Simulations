@@ -31,7 +31,7 @@
         message: document.getElementById("adminMessage"),
         stats: document.getElementById("adminStats"),
 
-        range: document.getElementById("adminRange"),
+        fromDate: document.getElementById("adminFromDate"),
 
         tableBody: document.getElementById("adminTableBody"),
         search: document.getElementById("adminSearch"),
@@ -57,69 +57,79 @@
 
     let allUsers = [];
     let serverSummary = null;
-    let range = "today";
+    let fromDate = localDay(new Date());
 
-    const RANGES = {
-        today: {
-            heading: "Students in this game",
-            note: "in this game",
-            active: "active today"
-        },
-        week: {
-            heading: "Students in the last 7 days",
-            note: "in the last 7 days",
-            active: "seen in the last 7 days"
-        },
-        all: {
-            heading: "All registered students",
-            note: "on record",
-            active: "seen so far"
-        }
-    };
+    /** A date as the YYYY-MM-DD value that a date input uses, in local time. */
+    function localDay(value) {
+        const date = value instanceof Date ? value : new Date(value);
 
-    function rangeStart() {
-        if (range === "all") {
-            return null;
+        if (Number.isNaN(date.getTime())) {
+            return "";
         }
 
-        const start = new Date();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
 
-        start.setHours(0, 0, 0, 0);
-
-        if (range === "week") {
-            start.setDate(start.getDate() - 6);
-        }
-
-        return start.getTime();
+        return date.getFullYear() + "-" + month + "-" + day;
     }
 
-    function stamp(value) {
-        const time = Date.parse(value || "");
+    function dayOf(value) {
+        return value ? localDay(value) : "";
+    }
 
-        return Number.isFinite(time) ? time : null;
+    function formatDay(value) {
+        const date = new Date(value + "T00:00:00");
+
+        if (Number.isNaN(date.getTime())) {
+            return value;
+        }
+
+        return date.toLocaleDateString([], {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        });
+    }
+
+    /** Heading, note and "active" wording for the date that is chosen. */
+    function describe() {
+        if (!fromDate) {
+            return {
+                heading: "All registered students",
+                note: "on record",
+                today: false
+            };
+        }
+
+        if (fromDate === localDay(new Date())) {
+            return {
+                heading: "Students in this game",
+                note: "in this game",
+                today: true
+            };
+        }
+
+        return {
+            heading: "Students since " + formatDay(fromDate),
+            note: "since " + formatDay(fromDate),
+            today: false
+        };
     }
 
     function inRange(user) {
-        const start = rangeStart();
-
-        if (start === null) {
+        if (!fromDate) {
             return true;
         }
 
-        const created = stamp(user.createdAt);
-        const seen = stamp(user.lastSeenAt);
-
         return (
-            (created !== null && created >= start) ||
-            (seen !== null && seen >= start)
+            dayOf(user.createdAt) >= fromDate ||
+            dayOf(user.lastSeenAt) >= fromDate
         );
     }
 
-    /** Players of this game: registered or active in the chosen range. */
-    function gameUsers() {
-        const start = rangeStart();
-
-        return allUsers.filter(user => inRange(user, start));
+    /** Players registered or active on or after the chosen date. */
+    function visibleUsers() {
+        return allUsers.filter(inRange);
     }
 
     function showMessage(element, text, type) {
@@ -188,7 +198,7 @@
     function renderTable() {
         const term = elements.search.value.trim().toLowerCase();
 
-        const players = gameUsers();
+        const players = visibleUsers();
 
         const rows = players.filter(user => {
             if (!term) {
@@ -206,13 +216,14 @@
                 '<tr><td class="empty" colspan="11">' +
                 (term
                     ? "No student matches that search."
-                    : range === "all"
-                        ? "No student has registered yet. Share the register " +
-                          "page and their AfriCOIN will appear here."
-                        : "No student has registered for this game yet. Keep " +
-                          "this page open - every player appears here the " +
-                          "moment they register. Choose \"All time\" to see " +
-                          "the earlier sessions.") +
+                    : fromDate
+                        ? "No student has registered or played on or after " +
+                          formatDay(fromDate) +
+                          " yet. Every player appears here the moment they " +
+                          "register - clear the From date to see the earlier " +
+                          "sessions."
+                        : "No student has registered yet. Share the register " +
+                          "page and their AfriCOIN will appear here.") +
                 "</td></tr>";
 
             return;
@@ -224,7 +235,7 @@
     }
 
     function renderStats(users) {
-        const copy = RANGES[range];
+        const copy = describe();
 
         elements.heading.textContent = copy.heading;
 
@@ -238,9 +249,11 @@
             0
         );
 
-        const active = users.filter(
-            user => stamp(user.lastSeenAt) !== null
-        ).length;
+        const active = users.filter(user => {
+            const seen = dayOf(user.lastSeenAt);
+
+            return fromDate ? seen >= fromDate : Boolean(seen);
+        }).length;
 
         const games = (serverSummary?.games || []).map(game => ({
             id: game.id,
@@ -278,7 +291,12 @@
             statCard(
                 "Students registered",
                 users.length,
-                active + " " + copy.active
+                active +
+                    (fromDate
+                        ? copy.today
+                            ? " active today"
+                            : " seen since " + formatDay(fromDate)
+                        : " seen so far")
             ) +
             statCard(
                 "AfriCOIN earned in total",
@@ -306,9 +324,9 @@
             (hidden
                 ? " · " +
                   hidden +
-                  " older registration" +
+                  " other registration" +
                   (hidden === 1 ? "" : "s") +
-                  " hidden (choose All time to see them)"
+                  " hidden (clear the From date to see them)"
                 : "") +
             " · " +
             totalPoints +
@@ -317,19 +335,10 @@
             " AfriCOIN available per student";
     }
 
-    function setRange(next) {
-        range = RANGES[next] ? next : "today";
+    function setFromDate(value) {
+        fromDate = value || "";
 
-        elements.range
-            .querySelectorAll("[data-range]")
-            .forEach(button => {
-                button.setAttribute(
-                    "aria-pressed",
-                    String(button.dataset.range === range)
-                );
-            });
-
-        renderStats(gameUsers());
+        renderStats(visibleUsers());
         renderTable();
     }
 
@@ -357,7 +366,9 @@
         allUsers = result.data.users;
         serverSummary = result.data.summary;
 
-        renderStats(gameUsers());
+        elements.fromDate.value = fromDate;
+
+        renderStats(visibleUsers());
         renderTable();
 
         showMessage(elements.message, "", "");
@@ -495,12 +506,8 @@
         renderTable();
     });
 
-    elements.range.addEventListener("click", event => {
-        const button = event.target.closest("[data-range]");
-
-        if (button) {
-            setRange(button.dataset.range);
-        }
+    elements.fromDate.addEventListener("change", () => {
+        setFromDate(elements.fromDate.value);
     });
 
     elements.tableBody.addEventListener("click", event => {

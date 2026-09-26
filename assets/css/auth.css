@@ -334,37 +334,44 @@
     border-color: var(--gsb-cyan);
 }
 
-.admin-filters {
+.admin-panel-tools {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.3rem;
-    padding: 0.25rem;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.admin-date {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.24rem 0.5rem 0.24rem 0.7rem;
     background: var(--gsb-soft);
     border: 1px solid var(--gsb-border);
-    border-radius: 10px;
+    border-radius: 9px;
 }
 
-.admin-range {
-    padding: 0.45rem 0.85rem;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    background: transparent;
-    color: var(--gsb-navy);
-    font-family: inherit;
-    font-size: 0.8rem;
+.admin-date span {
+    color: var(--gsb-muted);
+    font-size: 0.7rem;
     font-weight: 600;
-    cursor: pointer;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-.admin-range:hover,
-.admin-range:focus {
+.admin-date input {
+    padding: 0.3rem 0.35rem;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background: var(--gsb-white);
+    color: var(--gsb-text);
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+.admin-date input:focus {
     border-color: var(--gsb-cyan);
-}
-
-.admin-range[aria-pressed="true"] {
-    color: #ffffff;
-    background: var(--gsb-navy);
-    border-color: var(--gsb-navy);
+    outline: 3px solid rgba(217, 166, 52, 0.2);
 }
 
 .admin-stats {
