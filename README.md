@@ -190,7 +190,14 @@ npm run test:local      # tests the browser database used without the server
 npm run test:fallback   # tests the switch to that database when the API store is unusable
 npm run test:vercel     # bundles the Vercel function and drives it against a mock store
 npm run test:ui         # plays all three simulations through a DOM stand-in without a browser
+npm run test:live       # checks a deployed site: every page, stylesheet, script and file it uses
 ```
+
+`npm run test:live` accepts another address, for example
+`node scripts/live-check.mjs https://your-site.vercel.app` or
+`node scripts/live-check.mjs http://localhost:5500`. It also prints the git
+commit the deployment was built from, which is the quickest way to tell an old
+deployment from the newest one.
 
 ## Theme
 

@@ -13,7 +13,8 @@
     "test:local": "node scripts/local-db-check.mjs",
     "test:ui": "node scripts/ui-check.mjs",
     "test:fallback": "node scripts/fallback-check.mjs",
-    "check": "node --check server.mjs && node --check lib/admin-seed.mjs && node --check lib/api-core.mjs && node --check lib/game-catalog.mjs && node --check lib/kv-jsondb.mjs && node --check lib/kv-blobs.mjs && node --check lib/kv-rest.mjs && node --check \"api/[...route].mjs\" && node --check netlify/functions/api.mjs && node --check assets/js/local-db.js && node --check assets/js/api-client.js && node --check assets/js/quiz-games.js && node --check assets/js/admin.js && node --check scripts/build-vercel.mjs && node --check scripts/smoke-test.mjs && node --check scripts/http-check.mjs && node --check scripts/vercel-check.mjs && node --check scripts/local-db-check.mjs && node --check scripts/ui-check.mjs && node --check scripts/fallback-check.mjs"
+    "test:live": "node scripts/live-check.mjs",
+    "check": "node --check server.mjs && node --check lib/admin-seed.mjs && node --check lib/api-core.mjs && node --check lib/game-catalog.mjs && node --check lib/kv-jsondb.mjs && node --check lib/kv-blobs.mjs && node --check lib/kv-rest.mjs && node --check \"api/[...route].mjs\" && node --check netlify/functions/api.mjs && node --check assets/js/local-db.js && node --check assets/js/api-client.js && node --check assets/js/quiz-games.js && node --check assets/js/admin.js && node --check scripts/build-vercel.mjs && node --check scripts/smoke-test.mjs && node --check scripts/http-check.mjs && node --check scripts/vercel-check.mjs && node --check scripts/local-db-check.mjs && node --check scripts/ui-check.mjs && node --check scripts/fallback-check.mjs && node --check scripts/live-check.mjs"
   },
   "engines": {
     "node": ">=18"
