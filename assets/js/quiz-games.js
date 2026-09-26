@@ -17,6 +17,84 @@
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
 
+    // Facilitator locks: a locked simulation cannot be opened or started.
+    // The state is re-checked every few seconds, so students pick up an
+    // unlock without having to reload the page.
+    const LOCK_TARGETS = {
+        sim0: ["openSim0Game", "sim0Start"],
+        sim1: ["openSim1Game", "sim1Start"],
+        sim2: ["openSim2Game", "sim2Start"]
+    };
+
+    const lockedSims = new Set();
+
+    function applyLocks(locks) {
+        Object.keys(LOCK_TARGETS).forEach(gameId => {
+            const locked = Boolean(locks && locks[gameId]);
+
+            if (locked) {
+                lockedSims.add(gameId);
+            } else {
+                lockedSims.delete(gameId);
+            }
+
+            LOCK_TARGETS[gameId].forEach(id => {
+                const node = document.getElementById(id);
+
+                if (!node) {
+                    return;
+                }
+
+                node.disabled = locked;
+
+                node.setAttribute(
+                    "aria-disabled",
+                    String(locked)
+                );
+
+                node.style.pointerEvents =
+                    locked ? "none" : "";
+
+                node.style.opacity =
+                    locked ? "0.6" : "";
+
+                if (locked) {
+                    node.dataset.lockLabel =
+                        node.dataset.lockLabel ||
+                        node.innerHTML;
+
+                    node.innerHTML =
+                        "Locked by the facilitator";
+                } else if (node.dataset.lockLabel) {
+                    node.innerHTML = node.dataset.lockLabel;
+                }
+            });
+        });
+    }
+
+    (async function watchLocks() {
+        if (!window.GameApi || !window.GameApi.locks) {
+            return;
+        }
+
+        const paint = async () => {
+            try {
+                const result = await window.GameApi.locks();
+
+                if (result.data && result.data.ok) {
+                    applyLocks(result.data.locks || {});
+                }
+            } catch (error) {
+                // Offline or the store is not reachable: leave the
+                // simulations open rather than blocking the class.
+            }
+
+            window.setTimeout(paint, 15000);
+        };
+
+        paint();
+    })();
+
     const SIMULATIONS = [
         {
             id: "sim0",
@@ -691,6 +769,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function startGame(player) {
+        if (lockedSims.has(player.config.id)) {
+            window.alert(
+                "This simulation is locked by the facilitator. " +
+                "Please wait for the unlock."
+            );
+
+            return;
+        }
+
         player.resetState();
         player.started = true;
         renderQuestion(player);

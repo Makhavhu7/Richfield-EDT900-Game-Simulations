@@ -374,6 +374,39 @@
     outline: 3px solid rgba(217, 166, 52, 0.2);
 }
 
+.admin-locks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.22rem;
+    background: var(--gsb-soft);
+    border: 1px solid var(--gsb-border);
+    border-radius: 10px;
+}
+
+.admin-lock {
+    padding: 0.45rem 0.8rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: var(--gsb-white);
+    color: var(--gsb-navy);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-lock[data-locked="true"] {
+    color: #ffffff;
+    background: #8b2934;
+    border-color: #8b2934;
+}
+
+.admin-lock:disabled {
+    opacity: 0.6;
+    cursor: progress;
+}
+
 .admin-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));

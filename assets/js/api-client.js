@@ -246,6 +246,14 @@
 
         adminUsers: () => call("api/admin/users"),
 
+        locks: () => call("api/locks"),
+
+        adminLock: body =>
+            call("api/admin/locks", {
+                method: "POST",
+                body
+            }),
+
         adminUser: id =>
             call(
                 "api/admin/users/" +

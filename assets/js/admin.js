@@ -58,6 +58,100 @@
     let allUsers = [];
     let serverSummary = null;
     let fromDate = localDay(new Date());
+    let allLocks = {};
+
+    const lockHost = document.querySelector(".admin-actions");
+
+    const lockRow = document.createElement("div");
+
+    lockRow.className = "admin-locks";
+    lockRow.id = "adminLocks";
+
+    lockRow.innerHTML = ["sim0", "sim1", "sim2"]
+        .map(
+            (gameId, index) =>
+                '<button class="admin-lock" type="button" data-lock="' +
+                gameId +
+                '" aria-pressed="false">Simulation ' +
+                index +
+                ': <strong>open</strong></button>'
+        )
+        .join("");
+
+    if (lockHost) {
+        lockHost.prepend(lockRow);
+    }
+
+    function paintLocks() {
+        lockRow.querySelectorAll("[data-lock]").forEach(button => {
+            const locked = Boolean(allLocks[button.dataset.lock]);
+
+            button.dataset.locked = String(locked);
+
+            button.setAttribute(
+                "aria-pressed",
+                String(locked)
+            );
+
+            button.querySelector("strong").textContent =
+                locked ? "locked" : "open";
+        });
+    }
+
+    async function loadLocks() {
+        const result = await api.locks();
+
+        if (result.data && result.data.ok) {
+            allLocks = result.data.locks || {};
+
+            paintLocks();
+        }
+    }
+
+    lockRow.addEventListener("click", async event => {
+        const button = event.target.closest("[data-lock]");
+
+        if (!button) {
+            return;
+        }
+
+        const gameId = button.dataset.lock;
+        const next = !Boolean(allLocks[gameId]);
+
+        button.disabled = true;
+
+        const result = await api.adminLock({
+            gameId,
+            locked: next
+        });
+
+        button.disabled = false;
+
+        if (result.data && result.data.ok) {
+            allLocks = result.data.locks || {};
+
+            paintLocks();
+
+            showMessage(
+                elements.message,
+                "Simulation " +
+                    gameId.slice(-1) +
+                    (next
+                        ? " is locked. Students cannot open it."
+                        : " is open for students."),
+                "success"
+            );
+
+            return;
+        }
+
+        showMessage(
+            elements.message,
+            (result.data && result.data.message) ||
+                "The lock could not be changed. Sign in as admin and retry.",
+            "error"
+        );
+    });
 
     /** The date the input is showing right now (falls back to the state). */
     function currentFromDate() {
@@ -382,6 +476,8 @@
 
         renderStats(visibleUsers());
         renderTable();
+
+        loadLocks();
 
         showMessage(elements.message, "", "");
     }
