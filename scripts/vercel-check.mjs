@@ -479,6 +479,35 @@ check(
     })
 );
 
+const functionKey =
+    Object.keys(vercelConfig.functions || {})[0] || "";
+
+const functionFile = "api/[...route].mjs";
+
+const functionMatches = typeof fs.globSync === "function"
+    ? fs.globSync(functionKey, { cwd: root })
+        .map(name => String(name).replaceAll("\\", "/"))
+    : [];
+
+check(
+    "vercel.json's functions key matches the Vercel function file",
+    functionKey !== "" &&
+    fs.existsSync(path.join(root, functionFile)) &&
+    (
+        functionMatches.length === 0 ||
+        functionMatches.includes(functionFile)
+    ),
+    functionKey + " -> " + functionMatches.join(", ")
+);
+
+check(
+    "The function bundles the pages and assets it serves as a backstop",
+    String(
+        vercelConfig.functions?.[functionKey]?.includeFiles || ""
+    ).includes("assets/"),
+    JSON.stringify(vercelConfig.functions || {})
+);
+
 const build = spawnSync(
     process.execPath,
     ["scripts/build-vercel.mjs"],
