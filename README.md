@@ -120,13 +120,18 @@ folder), and keeps `api/[...route].mjs` as the serverless API:
    connect it. Vercel injects `KV_REST_API_URL` and `KV_REST_API_TOKEN`.
 
 Run `npm run build:vercel` locally at any time to see exactly what will be
-published (it fails loudly if a page or asset is missing).
+published (it fails loudly if a page or asset is missing). The same command also
+writes `lib/published-bundle.mjs`, a committed copy of every page and asset that
+the Vercel function imports. Together with the `rewrites` in `vercel.json` (which
+send `/assets/*` and the five pages to the function) that keeps the site styled
+even when a project holds on to an older Output Directory in its dashboard
+settings and Vercel answers 404 for those files.
 
-The same files are also listed in `functions["api/[...route].mjs"].includeFiles`,
-so they travel inside the serverless function. `rewrites` send `/assets/*` and
-the five pages to the function as a backstop, which means the site still loads
-its stylesheets and scripts even if a project keeps an older Output Directory
-in its dashboard settings.
+Two quick ways to see what a deployment is serving:
+
+* `GET /api/health` - `commit` names the git commit the function was built from
+* `GET /api/health?debug=1` - adds `published`, which lists the files the
+  function can reach and how many it carries inside its bundle
 
 Optional: `ADMIN_USERNAME` / `ADMIN_PASSWORD` environment variables for an extra
 admin login. Without the store the site still works (browser database per

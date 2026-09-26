@@ -494,6 +494,25 @@ check(
 
 /* --------------------------- static publishing --------------------------- */
 
+const REQUIRED_PUBLISHED = [
+    "index.html",
+    "game.html",
+    "login.html",
+    "register.html",
+    "admin.html",
+    "assets/css/style.css",
+    "assets/css/theme.css",
+    "assets/css/auth.css",
+    "assets/css/quiz-games.css",
+    "assets/js/quiz-games.js",
+    "assets/js/api-client.js",
+    "assets/js/local-db.js",
+    "assets/js/admin.js",
+    "assets/data/EDT900_Simulation_0_AI_Detective.json",
+    "assets/data/EDT900_Major_Simulation_1_Gauteng_Smart_Supply.json",
+    "assets/data/EDT900_Major_Simulation_2_Africa_2035_Boardroom.json"
+];
+
 const vercelConfig = JSON.parse(
     fs.readFileSync(path.join(root, "vercel.json"), "utf8")
 );
@@ -532,38 +551,137 @@ check(
 const functionConfig =
     vercelConfig.functions?.[functionKey] || {};
 
-const includeFiles = String(functionConfig.includeFiles || "");
-const excludeFiles = String(functionConfig.excludeFiles || "");
+const bundleUrl = "file://" + path
+    .join(root, "lib", "published-bundle.mjs")
+    .replaceAll("\\", "/");
 
-let bundled = [];
+const { PUBLISHED_FILES } = await import(bundleUrl);
 
-try {
-    bundled = typeof fs.globSync === "function" &&
-        includeFiles
-        ? fs.globSync(includeFiles, {
-            cwd: root,
+const carried = Object.keys(PUBLISHED_FILES || {});
 
-            exclude: excludeFiles
-                ? [excludeFiles]
-                : []
-        }).map(name => String(name).replaceAll("\\", "/"))
-        : [];
-} catch (error) {
-    bundled = [];
-}
+const stale = REQUIRED_PUBLISHED.filter(
+    name =>
+        !PUBLISHED_FILES ||
+        PUBLISHED_FILES[name] !==
+        fs.readFileSync(path.join(root, name), "utf8")
+);
 
 check(
-    "The function bundles the pages and assets it serves as a backstop",
-    includeFiles !== "" &&
-    (
-        bundled.length === 0 ||
-        (
-            bundled.includes("assets/css/style.css") &&
-            bundled.includes("game.html") &&
-            !bundled.includes("node_modules")
+    "The function carries a copy of every page and asset",
+    REQUIRED_PUBLISHED.every(name => carried.includes(name)),
+    carried.length + " files: " + carried.join(", ")
+);
+
+check(
+    "That copy matches the files on disk (run npm run build:vercel)",
+    stale.length === 0,
+    stale.join(", ")
+);
+
+const { createApi } = await import(
+    "file://" + path
+        .join(root, "lib", "api-core.mjs")
+        .replaceAll("\\", "/")
+);
+
+const { buildCatalog } = await import(
+    "file://" + path
+        .join(root, "lib", "game-catalog.mjs")
+        .replaceAll("\\", "/")
+);
+
+function readSim(name) {
+    return JSON.parse(
+        fs.readFileSync(
+            path.join(root, "assets", "data", name),
+            "utf8"
         )
+    );
+}
+
+const bundleOnlyApi = createApi({
+    catalog: buildCatalog({
+        sim0: readSim("EDT900_Simulation_0_AI_Detective.json"),
+
+        sim1: readSim(
+            "EDT900_Major_Simulation_1_Gauteng_Smart_Supply.json"
+        ),
+
+        sim2: readSim(
+            "EDT900_Major_Simulation_2_Africa_2035_Boardroom.json"
+        )
+    }),
+
+    kv: {
+        get: async () => null,
+        set: async () => true,
+        del: async () => true
+    },
+
+    config: {
+        publishedFiles: PUBLISHED_FILES
+    }
+});
+
+const bundleOnlyCss = await bundleOnlyApi.handle({
+    method: "GET",
+    path: "/assets/css/theme.css"
+});
+
+check(
+    "The copy alone is enough to serve a stylesheet",
+    bundleOnlyCss.status === 200 &&
+    String(bundleOnlyCss.headers["content-type"] || "")
+        .startsWith("text/css") &&
+    bundleOnlyCss.text.length > 100,
+    bundleOnlyCss.status + " len " +
+    String(bundleOnlyCss.text || "").length
+);
+
+const bundleOnlyPage = await bundleOnlyApi.handle({
+    method: "GET",
+    path: "/api/pages/admin"
+});
+
+check(
+    "The copy alone is enough to serve a page",
+    bundleOnlyPage.status === 200 &&
+    bundleOnlyPage.text.includes("EDT900"),
+    bundleOnlyPage.status + " len " +
+    String(bundleOnlyPage.text || "").length
+);
+
+const bundleOnlyMissing = await bundleOnlyApi.handle({
+    method: "GET",
+    path: "/assets/css/does-not-exist.css"
+});
+
+check(
+    "A file that is not in the copy still answers 404",
+    bundleOnlyMissing.status === 404,
+    bundleOnlyMissing.status + " " +
+    String(bundleOnlyMissing.text || "").slice(0, 80)
+);
+
+check(
+    "maxDuration and memory stay configured for the function",
+    Number(functionConfig.maxDuration) > 0 &&
+    Number(functionConfig.memory) > 0,
+    JSON.stringify(functionConfig)
+);
+
+check(
+    "vercel.json routes the pages and assets through the function",
+    (vercelConfig.rewrites || []).some(row =>
+        String(row.source).startsWith("/assets/")
+    ) &&
+    (vercelConfig.rewrites || []).some(row =>
+        String(row.source) === "/game"
+    ) &&
+    (vercelConfig.rewrites || []).some(row =>
+        String(row.source) === "/admin"
     ),
-    includeFiles + " -> " + bundled.length + " files"
+    JSON.stringify(vercelConfig.rewrites || [])
 );
 
 const build = spawnSync(

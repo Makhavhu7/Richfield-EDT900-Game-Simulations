@@ -24,6 +24,7 @@ import { ADMIN_LOGINS } from "../lib/admin-seed.mjs";
 import { createApi } from "../lib/api-core.mjs";
 import { buildCatalog } from "../lib/game-catalog.mjs";
 import { createRestStore } from "../lib/kv-rest.mjs";
+import { PUBLISHED_FILES } from "../lib/published-bundle.mjs";
 
 const catalog = buildCatalog({ sim0, sim1, sim2 });
 
@@ -77,7 +78,8 @@ function getApi() {
 
                 siteName: "Richfield EDT900 Game Simulations",
 
-                publishedRoot: publishedRoot()
+                publishedRoot: publishedRoot(),
+                publishedFiles: PUBLISHED_FILES
             }
         });
     }

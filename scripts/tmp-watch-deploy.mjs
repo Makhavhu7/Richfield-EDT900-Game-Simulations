@@ -29,7 +29,11 @@ async function probe() {
     const debug = await fetch(base + "/api/health?debug=1");
 
     try {
-        const report = (await debug.json()).published;
+        const body = await debug.json();
+
+        console.log("  live commit " + (body.commit || "(unknown)"));
+
+        const report = body.published;
 
         if (report) {
             const names = Object.keys(report.files);
