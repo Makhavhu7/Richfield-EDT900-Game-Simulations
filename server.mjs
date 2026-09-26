@@ -18,6 +18,11 @@
  * When the site is deployed to Netlify or Vercel the same API is
  * served by netlify/functions/api.mjs or api/[...route].mjs instead,
  * so nothing changes for the browser.
+ *
+ * Vercel can also run this file as the project's server. In that case
+ * the deployment only carries the files this server imports, so any
+ * page or asset that is missing from disk is sent from the copy in
+ * lib/published-bundle.mjs (npm run build:vercel keeps it current).
  */
 
 import fs from "node:fs";
@@ -30,6 +35,7 @@ import { createApi } from "./lib/api-core.mjs";
 import { buildCatalog } from "./lib/game-catalog.mjs";
 import { createJsonDbStore } from "./lib/kv-jsondb.mjs";
 import { createRestStore, hasRestStore } from "./lib/kv-rest.mjs";
+import { PUBLISHED_FILES } from "./lib/published-bundle.mjs";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 
@@ -120,7 +126,10 @@ const api = createApi({
 
         adminLogins: ADMIN_LOGINS,
 
-        siteName: "Richfield EDT900 Game Simulations"
+        siteName: "Richfield EDT900 Game Simulations",
+
+        publishedRoot: ROOT,
+        publishedFiles: PUBLISHED_FILES
     }
 });
 
@@ -296,6 +305,52 @@ function sendFile(request, response, filePath) {
     });
 }
 
+/**
+ * Sends one page or asset from the copy that travels inside the
+ * deployment (lib/published-bundle.mjs). This is what keeps the site
+ * styled when the host only ships the files this server imports.
+ */
+function sendPublished(request, response, name) {
+    const relative = name.replace(/^\/+/, "");
+
+    const body =
+        Object.prototype.hasOwnProperty.call(
+            PUBLISHED_FILES,
+            relative
+        )
+            ? PUBLISHED_FILES[relative]
+            : null;
+
+    if (body === null) {
+        sendText(response, 404, "Not found.");
+
+        return false;
+    }
+
+    const extension = path.extname(relative).toLowerCase();
+
+    const headers = {
+        "content-type":
+            MIME_TYPES[extension] || "text/plain; charset=utf-8",
+
+        "cache-control":
+            extension === ".html"
+                ? "no-cache"
+                : "public, max-age=" + Math.floor(CACHE_MS / 1000),
+
+        "content-length": Buffer.byteLength(body),
+        "x-content-type-options": "nosniff"
+    };
+
+    response.writeHead(200, headers);
+
+    response.end(
+        request.method === "HEAD" ? undefined : body
+    );
+
+    return true;
+}
+
 function handleStatic(request, response, pathname) {
     if (
         request.method !== "GET" &&
@@ -361,13 +416,19 @@ function handleStatic(request, response, pathname) {
                     return;
                 }
 
-                sendText(response, 404, "Not found.");
+                // The page may only exist in the bundled copy.
+                sendPublished(
+                    request,
+                    response,
+                    relative + ".html"
+                );
             });
 
             return;
         }
 
-        sendText(response, 404, "Not found.");
+        // The asset may only exist in the bundled copy.
+        sendPublished(request, response, relative);
     });
 }
 

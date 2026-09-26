@@ -118,6 +118,8 @@ folder), and keeps `api/[...route].mjs` as the serverless API:
 5. Add the free key/value store so accounts and AfriCOIN survive on Vercel:
    project → **Storage → Create Database → Upstash Redis (Vercel KV)** →
    connect it. Vercel injects `KV_REST_API_URL` and `KV_REST_API_TOKEN`.
+   Until that is done, sign-ups and score saving fail with "read-only file
+   system" because a deployment can only write to `/tmp`.
 
 Run `npm run build:vercel` locally at any time to see exactly what will be
 published (it fails loudly if a page or asset is missing). The same command also
@@ -131,6 +133,24 @@ settings and Vercel answers 404 for those files.
 returns the git `commit` the function was built from, plus a `published` block
 that lists the files the function can reach (`files`) and how many it carries in
 its own bundle (`bundle`).
+
+### When Vercel runs the Node server
+
+If the Vercel project is set up to run `server.mjs` (a "Node.js" style preset,
+which happens when the project keeps a build/output override in its dashboard),
+Vercel only ships the files that server imports. Pages and assets that are never
+imported - the stylesheets, the scripts, `game.html` and friends - would then
+answer 404 and the site would look unstyled. `server.mjs` therefore answers any
+of the five pages and anything under `assets/` from `lib/published-bundle.mjs`
+when the file is not on disk, and `vercel.json` additionally routes `/assets/*`
+and the pages through the API, which reads the same copy. Nothing is lost: the
+files on disk still win whenever they are there.
+
+To go back to a normal static CDN deployment, open the project's **Settings →
+Build and Development Settings** and set **Framework Preset** to *Other*, clear
+**Build Command**, **Output Directory** and **Root Directory** (or leave the
+values `node scripts/build-vercel.mjs` and `public`, which `vercel.json` sets),
+then **Redeploy**.
 
 Optional: `ADMIN_USERNAME` / `ADMIN_PASSWORD` environment variables for an extra
 admin login. Without the store the site still works (browser database per
