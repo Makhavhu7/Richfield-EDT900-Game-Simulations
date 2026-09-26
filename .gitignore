@@ -24,6 +24,7 @@ node_modules/
 # Editor worktrees and scratch folders
 .kilo/
 .tmp-*/
+.tmp-*
 
 # Local environment variables and API secrets
 .env

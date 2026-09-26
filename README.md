@@ -183,12 +183,13 @@ A scored answer is sent as:
 ## Checks
 
 ```bash
-npm run check        # syntax check of every server, function and browser script
-npm test             # API test suite (accounts, scoring, admin, CSV)
-npm run test:http    # boots server.mjs, tests pages, accounts and the JSON files
-npm run test:local   # tests the browser database used without the server
-npm run test:vercel  # bundles the Vercel function and drives it against a mock store
-npm run test:ui      # plays all three simulations through a DOM stand-in without a browser
+npm run check           # syntax check of every server, function and browser script
+npm test                # API test suite (accounts, scoring, admin, CSV)
+npm run test:http       # boots server.mjs, tests pages, accounts and the JSON files
+npm run test:local      # tests the browser database used without the server
+npm run test:fallback   # tests the switch to that database when the API store is unusable
+npm run test:vercel     # bundles the Vercel function and drives it against a mock store
+npm run test:ui         # plays all three simulations through a DOM stand-in without a browser
 ```
 
 ## Theme

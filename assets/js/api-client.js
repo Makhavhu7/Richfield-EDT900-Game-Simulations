@@ -128,11 +128,12 @@
             : { ok: response.ok, text: await response.text() };
 
         // A hosted store that is not configured yet (for example a
-        // Vercel preview without Upstash Redis) answers 500 - the
-        // browser database takes over so the session can continue.
+        // Vercel preview without Upstash Redis, or a deployment whose
+        // filesystem is read-only) answers 500 - the browser database
+        // takes over so the session can continue.
         if (
             response.status >= 500 &&
-            /key\/value store|could not start/i.test(
+            /key\/value store|could not start|read-only file system/i.test(
                 String(data.message || "")
             ) &&
             useLocalMode("hosted store not configured")
