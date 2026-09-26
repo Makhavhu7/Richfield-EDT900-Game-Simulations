@@ -192,7 +192,7 @@ check(
     home.text.includes("CALLING ALL") &&
     home.text.includes("register.html") &&
     home.text.includes(
-        "assets/images/richfield-edt900-mark.svg"
+        "https://showroom.gritlabafrica.org/assets/images/logo.png"
     ),
     home.text.slice(0, 120)
 );
@@ -276,9 +276,7 @@ for (const file of [
 
 for (const asset of [
     "/assets/css/quiz-games.css",
-    "/assets/css/theme.css",
-    "/assets/images/richfield-edt900-mark.svg",
-    "/assets/images/favicon.svg"
+    "/assets/css/theme.css"
 ]) {
     const response = await send("GET", asset);
 

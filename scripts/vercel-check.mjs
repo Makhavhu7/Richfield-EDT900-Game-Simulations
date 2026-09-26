@@ -11,6 +11,7 @@
  *   node scripts/vercel-check.mjs
  */
 
+import { spawnSync } from "node:child_process";
 import { createServer } from "node:http";
 import fs from "node:fs";
 import path from "node:path";
@@ -353,6 +354,61 @@ const blocked = await invoke("GET", "/api/me");
 check(
     "Without a session the API answers 401",
     blocked.status === 401
+);
+
+/* --------------------------- static publishing --------------------------- */
+
+const vercelConfig = JSON.parse(
+    fs.readFileSync(path.join(root, "vercel.json"), "utf8")
+);
+
+check(
+    "vercel.json publishes the assembled public folder",
+    vercelConfig.buildCommand === "node scripts/build-vercel.mjs" &&
+    vercelConfig.outputDirectory === "public",
+    JSON.stringify({
+        buildCommand: vercelConfig.buildCommand,
+        outputDirectory: vercelConfig.outputDirectory
+    })
+);
+
+const build = spawnSync(
+    process.execPath,
+    ["scripts/build-vercel.mjs"],
+    { cwd: root, encoding: "utf8" }
+);
+
+check(
+    "The static bundle builds and verifies every required file",
+    build.status === 0 &&
+    /required files verified/.test(build.stdout || ""),
+    (build.stdout || "") + (build.stderr || "")
+);
+
+const published = [
+    "index.html",
+    "game.html",
+    "login.html",
+    "register.html",
+    "admin.html",
+    "assets/css/style.css",
+    "assets/css/theme.css",
+    "assets/css/auth.css",
+    "assets/css/quiz-games.css",
+    "assets/js/quiz-games.js",
+    "assets/js/api-client.js",
+    "assets/js/local-db.js",
+    "assets/js/admin.js"
+];
+
+const missingPublished = published.filter(
+    name => !fs.existsSync(path.join(root, "public", name))
+);
+
+check(
+    "The published folder holds every page, stylesheet and script",
+    missingPublished.length === 0,
+    missingPublished.join(", ")
 );
 
 /* ------------------------------- teardown ------------------------------ */

@@ -100,13 +100,27 @@ browser console.
 
 ## Deploying to Vercel
 
+`vercel.json` publishes the site from a **`public/` folder** that
+`scripts/build-vercel.mjs` assembles (every page plus the complete `assets/`
+folder), and keeps `api/[...route].mjs` as the serverless API:
+
 1. Put the project on GitHub (or run `npx vercel` in this folder) and import it
-   in the Vercel dashboard - Vercel detects the static site plus the `api/`
-   function.
-2. Add the free key/value store so accounts and AfriCOIN survive on Vercel:
+   in the Vercel dashboard.
+2. Leave the project's **Build Command**, **Output Directory** and **Root
+   Directory** empty - `vercel.json` sets them (build:
+   `node scripts/build-vercel.mjs`, output: `public`). If the dashboard has old
+   overrides, clear them, because an installed project may keep stale settings.
+3. Redeploy (Deployments → the latest one → **Redeploy**). The build log should
+   end with `Vercel bundle ready in public/ (... required files verified)`.
+4. Check the deployment: `https://<your-site>/assets/css/style.css` must answer
+   **200** with `content-type: text/css`. If it answers 404, the deployment used
+   an old build setting - clear the overrides and redeploy again.
+5. Add the free key/value store so accounts and AfriCOIN survive on Vercel:
    project → **Storage → Create Database → Upstash Redis (Vercel KV)** →
    connect it. Vercel injects `KV_REST_API_URL` and `KV_REST_API_TOKEN`.
-3. Redeploy. The admin logins above are seeded into the store automatically.
+
+Run `npm run build:vercel` locally at any time to see exactly what will be
+published (it fails loudly if a page or asset is missing).
 
 Optional: `ADMIN_USERNAME` / `ADMIN_PASSWORD` environment variables for an extra
 admin login. Without the store the site still works (browser database per
@@ -152,9 +166,8 @@ npm run test:ui      # plays all three simulations through a DOM stand-in withou
 The poster palette lives in `assets/css/theme.css` (and `:root` in
 `assets/css/style.css`): cream `#f2f0ea` with a `#d8d3c5` dot pattern, gold
 `#d9a634` / `#c99a2e`, ink `#161616`, Montserrat 400-900, white cards with soft
-shadows. The header, footer and favicon use the local EDT900 mark
-(`assets/images/richfield-edt900-mark.svg` and `assets/images/favicon.svg`), so
-the site carries no external logo dependency.
+shadows. The header, footer and favicon use the GRIT Lab Africa logo from
+`https://showroom.gritlabafrica.org/assets/images/logo.png`.
 
 ## This project's own repository
 

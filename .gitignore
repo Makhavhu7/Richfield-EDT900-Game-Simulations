@@ -33,6 +33,9 @@ node_modules/
 # Netlify local build output
 .netlify/
 
+# Vercel build output (assembled by scripts/build-vercel.mjs)
+public/
+
 # Database: data/admins.json and data/users.json are the JSON database.
 # Only the runtime files below are ignored.
 data/sessions.json
