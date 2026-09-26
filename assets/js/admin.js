@@ -59,6 +59,11 @@
     let serverSummary = null;
     let fromDate = localDay(new Date());
 
+    /** The date the input is showing right now (falls back to the state). */
+    function currentFromDate() {
+        return elements.fromDate ? elements.fromDate.value : fromDate;
+    }
+
     /** A date as the YYYY-MM-DD value that a date input uses, in local time. */
     function localDay(value) {
         const date = value instanceof Date ? value : new Date(value);
@@ -93,7 +98,9 @@
 
     /** Heading, note and "active" wording for the date that is chosen. */
     function describe() {
-        if (!fromDate) {
+        const from = currentFromDate();
+
+        if (!from) {
             return {
                 heading: "All registered students",
                 note: "on record",
@@ -101,7 +108,7 @@
             };
         }
 
-        if (fromDate === localDay(new Date())) {
+        if (from === localDay(new Date())) {
             return {
                 heading: "Students in this game",
                 note: "in this game",
@@ -110,20 +117,22 @@
         }
 
         return {
-            heading: "Students since " + formatDay(fromDate),
-            note: "since " + formatDay(fromDate),
+            heading: "Students since " + formatDay(from),
+            note: "since " + formatDay(from),
             today: false
         };
     }
 
     function inRange(user) {
-        if (!fromDate) {
+        const from = currentFromDate();
+
+        if (!from) {
             return true;
         }
 
         return (
-            dayOf(user.createdAt) >= fromDate ||
-            dayOf(user.lastSeenAt) >= fromDate
+            dayOf(user.createdAt) >= from ||
+            dayOf(user.lastSeenAt) >= from
         );
     }
 
@@ -216,9 +225,9 @@
                 '<tr><td class="empty" colspan="11">' +
                 (term
                     ? "No student matches that search."
-                    : fromDate
+                    : currentFromDate()
                         ? "No student has registered or played on or after " +
-                          formatDay(fromDate) +
+                          formatDay(currentFromDate()) +
                           " yet. Every player appears here the moment they " +
                           "register - clear the From date to see the earlier " +
                           "sessions."
@@ -251,8 +260,9 @@
 
         const active = users.filter(user => {
             const seen = dayOf(user.lastSeenAt);
+            const from = currentFromDate();
 
-            return fromDate ? seen >= fromDate : Boolean(seen);
+            return from ? seen >= from : Boolean(seen);
         }).length;
 
         const games = (serverSummary?.games || []).map(game => ({
@@ -292,10 +302,10 @@
                 "Students registered",
                 users.length,
                 active +
-                    (fromDate
+                    (currentFromDate()
                         ? copy.today
                             ? " active today"
-                            : " seen since " + formatDay(fromDate)
+                            : " seen since " + formatDay(currentFromDate())
                         : " seen so far")
             ) +
             statCard(
@@ -366,7 +376,9 @@
         allUsers = result.data.users;
         serverSummary = result.data.summary;
 
-        elements.fromDate.value = fromDate;
+        if (elements.fromDate) {
+            elements.fromDate.value = fromDate;
+        }
 
         renderStats(visibleUsers());
         renderTable();
@@ -506,9 +518,13 @@
         renderTable();
     });
 
-    elements.fromDate.addEventListener("change", () => {
-        setFromDate(elements.fromDate.value);
-    });
+    if (elements.fromDate) {
+        ["change", "input"].forEach(type => {
+            elements.fromDate.addEventListener(type, () => {
+                setFromDate(elements.fromDate.value);
+            });
+        });
+    }
 
     elements.tableBody.addEventListener("click", event => {
         const button = event.target.closest("[data-user-id]");
