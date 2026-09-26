@@ -26,9 +26,12 @@
         signOut: document.getElementById("adminSignOut"),
 
         dashboard: document.getElementById("adminDashboard"),
+        heading: document.getElementById("adminHeading"),
         summaryLine: document.getElementById("adminSummaryLine"),
         message: document.getElementById("adminMessage"),
         stats: document.getElementById("adminStats"),
+
+        range: document.getElementById("adminRange"),
 
         tableBody: document.getElementById("adminTableBody"),
         search: document.getElementById("adminSearch"),
@@ -53,6 +56,71 @@
     };
 
     let allUsers = [];
+    let serverSummary = null;
+    let range = "today";
+
+    const RANGES = {
+        today: {
+            heading: "Students in this game",
+            note: "in this game",
+            active: "active today"
+        },
+        week: {
+            heading: "Students in the last 7 days",
+            note: "in the last 7 days",
+            active: "seen in the last 7 days"
+        },
+        all: {
+            heading: "All registered students",
+            note: "on record",
+            active: "seen so far"
+        }
+    };
+
+    function rangeStart() {
+        if (range === "all") {
+            return null;
+        }
+
+        const start = new Date();
+
+        start.setHours(0, 0, 0, 0);
+
+        if (range === "week") {
+            start.setDate(start.getDate() - 6);
+        }
+
+        return start.getTime();
+    }
+
+    function stamp(value) {
+        const time = Date.parse(value || "");
+
+        return Number.isFinite(time) ? time : null;
+    }
+
+    function inRange(user) {
+        const start = rangeStart();
+
+        if (start === null) {
+            return true;
+        }
+
+        const created = stamp(user.createdAt);
+        const seen = stamp(user.lastSeenAt);
+
+        return (
+            (created !== null && created >= start) ||
+            (seen !== null && seen >= start)
+        );
+    }
+
+    /** Players of this game: registered or active in the chosen range. */
+    function gameUsers() {
+        const start = rangeStart();
+
+        return allUsers.filter(user => inRange(user, start));
+    }
 
     function showMessage(element, text, type) {
         element.textContent = text || "";
@@ -120,7 +188,9 @@
     function renderTable() {
         const term = elements.search.value.trim().toLowerCase();
 
-        const rows = allUsers.filter(user => {
+        const players = gameUsers();
+
+        const rows = players.filter(user => {
             if (!term) {
                 return true;
             }
@@ -134,10 +204,15 @@
         if (!rows.length) {
             elements.tableBody.innerHTML =
                 '<tr><td class="empty" colspan="11">' +
-                (allUsers.length
+                (term
                     ? "No student matches that search."
-                    : "No student has registered yet. Share the register page " +
-                      "and their AfriCOIN will appear here.") +
+                    : range === "all"
+                        ? "No student has registered yet. Share the register " +
+                          "page and their AfriCOIN will appear here."
+                        : "No student has registered for this game yet. Keep " +
+                          "this page open - every player appears here the " +
+                          "moment they register. Choose \"All time\" to see " +
+                          "the earlier sessions.") +
                 "</td></tr>";
 
             return;
@@ -148,8 +223,45 @@
             .join("");
     }
 
-    function renderStats(summary) {
-        const gameCards = summary.games
+    function renderStats(users) {
+        const copy = RANGES[range];
+
+        elements.heading.textContent = copy.heading;
+
+        const maximumTotal =
+            serverSummary?.maximumTotal ||
+            users[0]?.points.maximum ||
+            0;
+
+        const totalPoints = users.reduce(
+            (sum, user) => sum + user.points.total,
+            0
+        );
+
+        const active = users.filter(
+            user => stamp(user.lastSeenAt) !== null
+        ).length;
+
+        const games = (serverSummary?.games || []).map(game => ({
+            id: game.id,
+            label: game.label,
+            maximum: game.maximum,
+
+            average: users.length
+                ? Math.round(
+                    users.reduce(
+                        (sum, user) =>
+                            sum +
+                            Number(
+                                user.points.games?.[game.id]?.points || 0
+                            ),
+                        0
+                    ) / users.length
+                )
+                : 0
+        }));
+
+        const gameCards = games
             .map(game =>
                 statCard(
                     game.label + " AfriCOIN",
@@ -159,34 +271,66 @@
             )
             .join("");
 
+        const top = users[0] || null;
+        const hidden = allUsers.length - users.length;
+
         elements.stats.innerHTML =
             statCard(
                 "Students registered",
-                summary.users,
-                summary.activeToday + " active today"
+                users.length,
+                active + " " + copy.active
             ) +
             statCard(
                 "AfriCOIN earned in total",
-                summary.totalPoints,
-                summary.averagePoints + " average per student"
+                totalPoints,
+                (
+                    users.length
+                        ? Math.round(totalPoints / users.length)
+                        : 0
+                ) + " average per student"
             ) +
             statCard(
                 "Top student",
-                summary.topScorer ? summary.topScorer.points : 0,
-                summary.topScorer
-                    ? summary.topScorer.fullName
+                top ? top.points.total : 0,
+                top
+                    ? top.fullName
                     : "Waiting for the first simulation"
             ) +
             gameCards;
 
         elements.summaryLine.textContent =
-            summary.users +
-            (summary.users === 1 ? " student" : " students") +
+            users.length +
+            (users.length === 1 ? " student" : " students") +
+            " " +
+            copy.note +
+            (hidden
+                ? " · " +
+                  hidden +
+                  " older registration" +
+                  (hidden === 1 ? "" : "s") +
+                  " hidden (choose All time to see them)"
+                : "") +
             " · " +
-            summary.totalPoints +
+            totalPoints +
             " AfriCOIN earned · " +
-            summary.maximumTotal +
+            maximumTotal +
             " AfriCOIN available per student";
+    }
+
+    function setRange(next) {
+        range = RANGES[next] ? next : "today";
+
+        elements.range
+            .querySelectorAll("[data-range]")
+            .forEach(button => {
+                button.setAttribute(
+                    "aria-pressed",
+                    String(button.dataset.range === range)
+                );
+            });
+
+        renderStats(gameUsers());
+        renderTable();
     }
 
     async function loadUsers() {
@@ -211,8 +355,9 @@
         }
 
         allUsers = result.data.users;
+        serverSummary = result.data.summary;
 
-        renderStats(result.data.summary);
+        renderStats(gameUsers());
         renderTable();
 
         showMessage(elements.message, "", "");
@@ -348,6 +493,14 @@
 
     elements.search.addEventListener("input", () => {
         renderTable();
+    });
+
+    elements.range.addEventListener("click", event => {
+        const button = event.target.closest("[data-range]");
+
+        if (button) {
+            setRange(button.dataset.range);
+        }
     });
 
     elements.tableBody.addEventListener("click", event => {

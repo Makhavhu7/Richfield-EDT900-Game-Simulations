@@ -334,6 +334,39 @@
     border-color: var(--gsb-cyan);
 }
 
+.admin-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding: 0.25rem;
+    background: var(--gsb-soft);
+    border: 1px solid var(--gsb-border);
+    border-radius: 10px;
+}
+
+.admin-range {
+    padding: 0.45rem 0.85rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--gsb-navy);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-range:hover,
+.admin-range:focus {
+    border-color: var(--gsb-cyan);
+}
+
+.admin-range[aria-pressed="true"] {
+    color: #ffffff;
+    background: var(--gsb-navy);
+    border-color: var(--gsb-navy);
+}
+
 .admin-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));

@@ -93,11 +93,21 @@
             <section id="adminDashboard" hidden>
                 <div class="admin-toolbar">
                     <div>
-                        <h1>All registered students</h1>
+                        <h1 id="adminHeading">Students in this game</h1>
                         <p id="adminSummaryLine">Loading the student list...</p>
                     </div>
 
                     <div class="admin-actions">
+                        <div class="admin-filters" id="adminRange" role="group"
+                            aria-label="Which students to show">
+                            <button class="admin-range" type="button" data-range="today"
+                                aria-pressed="true">This game</button>
+                            <button class="admin-range" type="button" data-range="week"
+                                aria-pressed="false">Last 7 days</button>
+                            <button class="admin-range" type="button" data-range="all"
+                                aria-pressed="false">All time</button>
+                        </div>
+
                         <button class="btn btn-outline-gsb" id="refreshBtn" type="button">
                             <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
                             Refresh
