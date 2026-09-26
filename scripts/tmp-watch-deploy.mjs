@@ -44,8 +44,9 @@ async function probe() {
 
             console.log(
                 "  published root " + report.root +
-                " | " + found.length + "/" + names.length +
-                " files: " + found.join(", ")
+                " | bundle " + report.bundle +
+                " | files " + found.length + "/" + names.length +
+                " : " + found.join(", ")
             );
         } else {
             console.log("  no published report yet");
