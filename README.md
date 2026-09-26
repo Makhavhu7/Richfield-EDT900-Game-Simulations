@@ -127,11 +127,10 @@ send `/assets/*` and the five pages to the function) that keeps the site styled
 even when a project holds on to an older Output Directory in its dashboard
 settings and Vercel answers 404 for those files.
 
-Two quick ways to see what a deployment is serving:
-
-* `GET /api/health` - `commit` names the git commit the function was built from
-* `GET /api/health?debug=1` - adds `published`, which lists the files the
-  function can reach and how many it carries inside its bundle
+`GET /api/health` is the quickest way to see what a deployment is serving: it
+returns the git `commit` the function was built from, plus a `published` block
+that lists the files the function can reach (`files`) and how many it carries in
+its own bundle (`bundle`).
 
 Optional: `ADMIN_USERNAME` / `ADMIN_PASSWORD` environment variables for an extra
 admin login. Without the store the site still works (browser database per

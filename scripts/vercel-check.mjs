@@ -474,22 +474,23 @@ try {
 }
 
 check(
-    "GET /api/health?debug=1 reports the published files",
+    "GET /api/health reports the published files",
     debugHealth.status === 200 &&
     debugReport !== null &&
+    debugReport.bundle > 0 &&
     debugReport.files["assets/css/style.css"] === true &&
     debugReport.files["index.html"] === true,
     debugHealth.status + " " +
-    JSON.stringify(debugReport).slice(0, 200)
+    JSON.stringify(debugReport).slice(0, 240)
 );
 
 const plainHealth = await invoke("GET", "/api/health");
 
 check(
-    "The plain health reply stays free of debug data",
+    "The plain health reply carries that report too",
     plainHealth.status === 200 &&
-    JSON.parse(plainHealth.text).published === undefined,
-    plainHealth.text.slice(0, 120)
+    Boolean(JSON.parse(plainHealth.text).published),
+    plainHealth.text.slice(0, 160)
 );
 
 /* --------------------------- static publishing --------------------------- */
