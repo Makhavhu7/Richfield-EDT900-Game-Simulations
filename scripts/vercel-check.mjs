@@ -463,6 +463,35 @@ check(
     dotDot.status + " " + dotDot.text.slice(0, 80)
 );
 
+const debugHealth = await invoke("GET", "/api/health?debug=1");
+
+let debugReport = null;
+
+try {
+    debugReport = JSON.parse(debugHealth.text).published || null;
+} catch (error) {
+    debugReport = null;
+}
+
+check(
+    "GET /api/health?debug=1 reports the published files",
+    debugHealth.status === 200 &&
+    debugReport !== null &&
+    debugReport.files["assets/css/style.css"] === true &&
+    debugReport.files["index.html"] === true,
+    debugHealth.status + " " +
+    JSON.stringify(debugReport).slice(0, 200)
+);
+
+const plainHealth = await invoke("GET", "/api/health");
+
+check(
+    "The plain health reply stays free of debug data",
+    plainHealth.status === 200 &&
+    JSON.parse(plainHealth.text).published === undefined,
+    plainHealth.text.slice(0, 120)
+);
+
 /* --------------------------- static publishing --------------------------- */
 
 const vercelConfig = JSON.parse(
@@ -500,12 +529,41 @@ check(
     functionKey + " -> " + functionMatches.join(", ")
 );
 
+const functionConfig =
+    vercelConfig.functions?.[functionKey] || {};
+
+const includeFiles = String(functionConfig.includeFiles || "");
+const excludeFiles = String(functionConfig.excludeFiles || "");
+
+let bundled = [];
+
+try {
+    bundled = typeof fs.globSync === "function" &&
+        includeFiles
+        ? fs.globSync(includeFiles, {
+            cwd: root,
+
+            exclude: excludeFiles
+                ? [excludeFiles]
+                : []
+        }).map(name => String(name).replaceAll("\\", "/"))
+        : [];
+} catch (error) {
+    bundled = [];
+}
+
 check(
     "The function bundles the pages and assets it serves as a backstop",
-    String(
-        vercelConfig.functions?.[functionKey]?.includeFiles || ""
-    ).includes("assets/"),
-    JSON.stringify(vercelConfig.functions || {})
+    includeFiles !== "" &&
+    (
+        bundled.length === 0 ||
+        (
+            bundled.includes("assets/css/style.css") &&
+            bundled.includes("game.html") &&
+            !bundled.includes("node_modules")
+        )
+    ),
+    includeFiles + " -> " + bundled.length + " files"
 );
 
 const build = spawnSync(

@@ -8,7 +8,8 @@
     "api/*.mjs": {
       "memory": 1024,
       "maxDuration": 15,
-      "includeFiles": "{*.html,assets/**}"
+      "includeFiles": "**",
+      "excludeFiles": "node_modules/**"
     }
   },
   "rewrites": [

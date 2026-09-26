@@ -26,6 +26,30 @@ async function probe() {
         " | size " + html.length
     );
 
+    const debug = await fetch(base + "/api/health?debug=1");
+
+    try {
+        const report = (await debug.json()).published;
+
+        if (report) {
+            const names = Object.keys(report.files);
+
+            const found = names.filter(
+                name => report.files[name]
+            );
+
+            console.log(
+                "  published root " + report.root +
+                " | " + found.length + "/" + names.length +
+                " files: " + found.join(", ")
+            );
+        } else {
+            console.log("  no published report yet");
+        }
+    } catch (error) {
+        console.log("  debug failed: " + error.message);
+    }
+
     if (css.status === 200) {
         const text = await css.text();
 
