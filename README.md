@@ -122,6 +122,12 @@ folder), and keeps `api/[...route].mjs` as the serverless API:
 Run `npm run build:vercel` locally at any time to see exactly what will be
 published (it fails loudly if a page or asset is missing).
 
+The same files are also listed in `functions["api/[...route].mjs"].includeFiles`,
+so they travel inside the serverless function. `rewrites` send `/assets/*` and
+the five pages to the function as a backstop, which means the site still loads
+its stylesheets and scripts even if a project keeps an older Output Directory
+in its dashboard settings.
+
 Optional: `ADMIN_USERNAME` / `ADMIN_PASSWORD` environment variables for an extra
 admin login. Without the store the site still works (browser database per
 device).

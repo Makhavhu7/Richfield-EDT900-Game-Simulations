@@ -7,9 +7,36 @@
   "functions": {
     "api/[...route].mjs": {
       "memory": 1024,
-      "maxDuration": 15
+      "maxDuration": 15,
+      "includeFiles": "{*.html,assets/**}"
     }
   },
+  "rewrites": [
+    {
+      "source": "/assets/:path*",
+      "destination": "/api/assets/:path*"
+    },
+    {
+      "source": "/index",
+      "destination": "/api/pages/index"
+    },
+    {
+      "source": "/game",
+      "destination": "/api/pages/game"
+    },
+    {
+      "source": "/login",
+      "destination": "/api/pages/login"
+    },
+    {
+      "source": "/register",
+      "destination": "/api/pages/register"
+    },
+    {
+      "source": "/admin",
+      "destination": "/api/pages/admin"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

@@ -356,6 +356,113 @@ check(
     blocked.status === 401
 );
 
+/* --------------------------- published files -------------------------- */
+
+const styleCss = await invoke("GET", "/assets/css/style.css");
+
+check(
+    "GET /assets/css/style.css is served by the function",
+    styleCss.status === 200 &&
+    String(styleCss.headers["content-type"] || "")
+        .startsWith("text/css") &&
+    styleCss.text.includes(":root"),
+    styleCss.status + " " +
+    styleCss.headers["content-type"] +
+    " len " + styleCss.text.length
+);
+
+const themeCss = await invoke("GET", "/api/assets/css/theme.css");
+
+check(
+    "The /assets rewrite shape (/api/assets/...) also works",
+    themeCss.status === 200 &&
+    String(themeCss.headers["content-type"] || "")
+        .startsWith("text/css"),
+    themeCss.status + " " + themeCss.headers["content-type"]
+);
+
+const quizJs = await invoke("GET", "/api/assets/js/quiz-games.js");
+
+check(
+    "Scripts travel to the function too",
+    quizJs.status === 200 &&
+    quizJs.text.includes("EDT900"),
+    quizJs.status + " len " + quizJs.text.length
+);
+
+const gamePage = await invoke("GET", "/api/pages/game");
+
+check(
+    "The /game rewrite shape (/api/pages/game) serves game.html",
+    gamePage.status === 200 &&
+    String(gamePage.headers["content-type"] || "")
+        .startsWith("text/html") &&
+    gamePage.text.includes("EDT900"),
+    gamePage.status + " " + gamePage.headers["content-type"]
+);
+
+const gameHtml = await invoke("GET", "/game.html");
+
+check(
+    "A direct game.html request is served as well",
+    gameHtml.status === 200 &&
+    gameHtml.text.includes("EDT900"),
+    gameHtml.status + " len " + gameHtml.text.length
+);
+
+const simData = await invoke(
+    "GET",
+    "/assets/data/EDT900_Simulation_0_AI_Detective.json"
+);
+
+let simDataOk = false;
+
+try {
+    simDataOk = Boolean(
+        JSON.parse(simData.text)
+    );
+} catch (error) {
+    simDataOk = false;
+}
+
+check(
+    "Simulation data is readable from the function bundle",
+    simData.status === 200 &&
+    String(simData.headers["content-type"] || "")
+        .startsWith("application/json") &&
+    simDataOk,
+    simData.status + " " + simData.headers["content-type"]
+);
+
+const unknownApi = await invoke("GET", "/api/definitely-not-a-route");
+
+check(
+    "Unknown API routes still answer with a JSON 404",
+    unknownApi.status === 404 &&
+    String(unknownApi.headers["content-type"] || "")
+        .startsWith("application/json"),
+    unknownApi.status + " " + unknownApi.text.slice(0, 80)
+);
+
+const traversal = await invoke(
+    "GET",
+    "/api/pages/..%2F..%2Fpackage.json"
+);
+
+check(
+    "Path traversal outside the published folder is refused",
+    traversal.status === 404,
+    traversal.status + " " + traversal.text.slice(0, 80)
+);
+
+const dotDot = await invoke("GET", "/api/pages/../package.json");
+
+check(
+    "A dotted path is refused as well",
+    dotDot.status === 404,
+    dotDot.status + " " + dotDot.text.slice(0, 80)
+);
+
 /* --------------------------- static publishing --------------------------- */
 
 const vercelConfig = JSON.parse(

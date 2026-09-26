@@ -12,6 +12,10 @@
  * otherwise the reply explains what to configure.
  */
 
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
 import sim0 from "../assets/data/EDT900_Simulation_0_AI_Detective.json";
 import sim1 from "../assets/data/EDT900_Major_Simulation_1_Gauteng_Smart_Supply.json";
 import sim2 from "../assets/data/EDT900_Major_Simulation_2_Africa_2035_Boardroom.json";
@@ -22,6 +26,37 @@ import { buildCatalog } from "../lib/game-catalog.mjs";
 import { createRestStore } from "../lib/kv-rest.mjs";
 
 const catalog = buildCatalog({ sim0, sim1, sim2 });
+
+/**
+ * The deployment keeps the repository layout, so the pages and assets
+ * listed in vercel.json (includeFiles) sit one level above this function.
+ * The first candidate that holds index.html wins.
+ */
+function publishedRoot() {
+    const here = path.dirname(fileURLToPath(import.meta.url));
+
+    const candidates = [
+        process.cwd(),
+        path.resolve(here, ".."),
+        path.resolve(here, "../..")
+    ];
+
+    for (const candidate of candidates) {
+        try {
+            if (
+                fs.existsSync(
+                    path.join(candidate, "index.html")
+                )
+            ) {
+                return candidate;
+            }
+        } catch (error) {
+            // try the next candidate
+        }
+    }
+
+    return process.cwd();
+}
 
 let cachedApi = null;
 
@@ -40,7 +75,9 @@ function getApi() {
 
                 adminLogins: ADMIN_LOGINS,
 
-                siteName: "Richfield EDT900 Game Simulations"
+                siteName: "Richfield EDT900 Game Simulations",
+
+                publishedRoot: publishedRoot()
             }
         });
     }
