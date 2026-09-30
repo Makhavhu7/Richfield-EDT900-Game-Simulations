@@ -1,0 +1,613 @@
+{
+  "simulation_id": "EDT900_SIM0_MAKEUP_AI_DETECTIVE_SECOND_SHIFT",
+  "title": "AI Detective: The Second Shift",
+  "subtitle": "Make-up Simulation for Students Who Missed Simulation 0",
+  "module": "Emerging & Disruptive Technology 900",
+  "audience": "MBA Students",
+  "simulation_type": "Make-up / Alternative Simulation 0",
+  "formal_weighting_percent": 0,
+  "delivery_note": "This alternative simulation is designed for students who were absent during the original Simulation 0. It assesses the same core learning outcomes using different and deliberately more demanding scenarios.",
+  "game_currency": "AfriCOIN",
+  "maximum_africoin": 300,
+  "total_stages": 3,
+  "problems_per_stage": 5,
+  "total_problems": 15,
+  "classification_reference": {
+    "AI_ML": "Artificial Intelligence / Machine Learning",
+    "GENAI": "Generative AI",
+    "AUTOMATION": "Automation / Rule-Based System",
+    "ANALYTICS": "Analytics",
+    "OPTIMISATION": "Algorithmic Optimisation",
+    "MIXED_SYSTEM": "A system combining more than one technology"
+  },
+  "core_learning_outcomes": [
+    "Distinguish AI, machine learning, Generative AI, automation, analytics and algorithmic optimisation.",
+    "Identify mixed technology systems rather than forcing every system into one category.",
+    "Recognise hallucination, automation bias, proxy bias, representativeness problems and misuse of model confidence.",
+    "Evaluate when human oversight is meaningful rather than symbolic.",
+    "Make responsible management decisions about AI-supported work.",
+    "Connect technological capability to evidence, risk, human judgement and accountability."
+  ],
+  "game_rules": {
+    "answer_format": "Single best answer unless otherwise stated",
+    "feedback_mode": "Immediate detailed feedback",
+    "badge_unlock_rule": "At least 4 correct answers out of 5 within the stage",
+    "difficulty_progression": [
+      "Stage 1: identify the underlying system or technology combination.",
+      "Stage 2: diagnose the data, model or human-interaction problem.",
+      "Stage 3: make management and governance decisions."
+    ],
+    "scoring": {
+      "stage_1_per_problem": 10,
+      "stage_2_per_problem": 20,
+      "stage_3_per_problem": 30
+    }
+  },
+  "stages": [
+    {
+      "stage_id": "STAGE_1",
+      "stage_name": "Signal Breaker",
+      "emoji": "🔎",
+      "difficulty": "Challenging",
+      "stage_max_africoin": 50,
+      "africoin_per_correct_answer": 10,
+      "badge": {
+        "name": "Tech Forensics Badge",
+        "emoji": "🏅",
+        "unlock_condition": "4 or more correct answers out of 5",
+        "tagline": "You stopped judging the interface and started interrogating the logic."
+      },
+      "problems": [
+        {
+          "problem_id": "S1P1",
+          "title": "The Smart Claims Desk",
+          "location": "Sandton, Gauteng",
+          "character": {
+            "name": "Nthobeko Mkhize",
+            "role": "Relationship Manager",
+            "organisation": "Ubuntu Shield Insurance, fictional"
+          },
+          "scenario": "A claims system checks whether all required documents are attached, rejects incomplete submissions using predefined rules, calculates total claims by branch and creates a monthly management dashboard. It does not learn from past claims.",
+          "question": "What is the best description of the system?",
+          "options": {
+            "A": "Artificial Intelligence only",
+            "B": "Generative AI only",
+            "C": "Automation plus Analytics, but not AI",
+            "D": "Machine Learning plus Generative AI",
+            "E": "Neither digital automation nor analytics"
+          },
+          "correct_answer": "C",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The system uses predefined rules to act on claims, which is automation, and it also summarises claim volumes, which is analytics. Nothing in the scenario indicates learning, prediction or content generation.",
+            "A": "Incorrect. No learning or predictive model is described.",
+            "B": "Incorrect. The system is not generating novel content.",
+            "D": "Incorrect. Neither machine learning nor Generative AI is described.",
+            "E": "Incorrect. Both automation and analytics are clearly present."
+          },
+          "teaching_point": "A real business system may combine multiple non-AI technologies.",
+          "ethics_flash": "If rule-based rejection disproportionately affects customers with poor digital access, should the workflow include an appeal or assisted channel?",
+          "facilitator_tip": "Ask students to identify which exact feature belongs to automation and which belongs to analytics.",
+          "fun_line": "One system can wear two hats without becoming AI."
+        },
+        {
+          "problem_id": "S1P2",
+          "title": "The Call-Centre Whisperer",
+          "location": "Pretoria, Gauteng",
+          "character": {
+            "name": "Motlatsi Martha Maseko",
+            "role": "Senior ICT Manager",
+            "organisation": "Ubuntu Connect Services, fictional"
+          },
+          "scenario": "A call-centre platform converts customer speech to text and then classifies the customer's emotional tone as angry, neutral or satisfied. The sentiment classifier was trained using thousands of labelled conversations.",
+          "question": "What is the dominant capability being tested?",
+          "options": {
+            "A": "Rule-based Automation",
+            "B": "Machine Learning classification",
+            "C": "Generative AI",
+            "D": "Descriptive Analytics only",
+            "E": "Algorithmic Optimisation"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The defining capability is classification learned from labelled historical examples. Speech recognition may also be involved, but the sentiment judgement is a machine-learning classification task.",
+            "A": "Incorrect. The sentiment category is not described as a fixed IF-THEN rule.",
+            "C": "Incorrect. The system is classifying, not generating new content.",
+            "D": "Incorrect. It is making a learned inference about emotional tone.",
+            "E": "Incorrect. No optimisation problem is described."
+          },
+          "teaching_point": "Not every sophisticated language system is Generative AI.",
+          "ethics_flash": "Accent, language and cultural expression can affect sentiment models. What happens if the model performs poorly for particular linguistic groups?",
+          "facilitator_tip": "Ask why classification is different from generation.",
+          "fun_line": "The machine may hear anger where the customer is merely tired of waiting."
+        },
+        {
+          "problem_id": "S1P3",
+          "title": "The Report Writer",
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "Douglas Mighty Nkuna",
+            "role": "Senior Data Analyst",
+            "organisation": "Ubuntu Retail Analytics, fictional"
+          },
+          "scenario": "Douglas's dashboard calculates sales trends, identifies the five worst-performing regions and measures month-on-month changes. Those results are then sent to another system that writes a one-page management explanation in natural language.",
+          "question": "Which technology combination is most accurate?",
+          "options": {
+            "A": "Automation only",
+            "B": "Analytics plus Generative AI",
+            "C": "Machine Learning only",
+            "D": "Blockchain plus Analytics",
+            "E": "Neither Analytics nor AI"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The dashboard performs analytics on existing data, while the second system generates a written narrative from those results.",
+            "A": "Incorrect. The main functions described are analysis and content generation.",
+            "C": "Incorrect. No learned prediction or classification is required by the description.",
+            "D": "Incorrect. No distributed ledger or trust architecture is involved.",
+            "E": "Incorrect. Both analytics and Generative AI are clearly described."
+          },
+          "teaching_point": "Enterprise workflows often pass outputs from one technology layer into another.",
+          "ethics_flash": "If the generated narrative adds explanations that are not supported by the data, who verifies the management report?",
+          "facilitator_tip": "Ask students where the boundary between analysis and generation sits.",
+          "fun_line": "The dashboard finds the problem. The GenAI writes the speech."
+        },
+        {
+          "problem_id": "S1P4",
+          "title": "The Route That Learns Nothing",
+          "location": "Durban to Johannesburg",
+          "character": {
+            "name": "Shiraz Pillay",
+            "role": "Logistics Executive",
+            "organisation": "Ubuntu Freight Solutions, fictional"
+          },
+          "scenario": "A route-planning system calculates the cheapest feasible route using distance, fuel cost, toll fees, truck weight and maximum driving hours. It uses mathematical optimisation but never learns from historical journeys.",
+          "question": "What is the best classification?",
+          "options": {
+            "A": "Generative AI",
+            "B": "Machine Learning",
+            "C": "Algorithmic Optimisation, not necessarily AI",
+            "D": "Rule-based customer-service automation",
+            "E": "Predictive analytics"
+          },
+          "correct_answer": "C",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The system is solving a constrained optimisation problem. Complex mathematics and algorithms do not automatically make a system AI.",
+            "A": "Incorrect. Generating a route is not the same as Generative AI.",
+            "B": "Incorrect. No learning from historical examples is described.",
+            "D": "Incorrect. This is not a customer-service workflow.",
+            "E": "Incorrect. It calculates an optimum rather than predicting a future outcome from learned data."
+          },
+          "teaching_point": "Complexity is not a reliable test for AI.",
+          "ethics_flash": "Optimised routes can shift noise, congestion or road wear into particular communities.",
+          "facilitator_tip": "Ask whether the answer would change if the system learned delay patterns from five years of journeys.",
+          "fun_line": "Clever mathematics existed before AI learned how to write emails."
+        },
+        {
+          "problem_id": "S1P5",
+          "title": "The Recruitment Robot That Isn't",
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "Gloria Thandiwe Molefe",
+            "role": "Operations Executive",
+            "organisation": "Ubuntu Business Services, fictional"
+          },
+          "scenario": "A recruitment platform awards points using fixed rules: degree +20, MBA +15, five years' experience +25, required certification +20, and salary expectation above budget -15. Applicants scoring above 60 automatically proceed to the next stage.",
+          "question": "What is the best classification?",
+          "options": {
+            "A": "Machine Learning recruitment AI",
+            "B": "Generative AI",
+            "C": "Rule-based Automation",
+            "D": "Predictive Analytics",
+            "E": "Computer Vision"
+          },
+          "correct_answer": "C",
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. Every scoring rule is explicitly programmed. The system may look like it is evaluating people intelligently, but it is following a fixed scoring workflow.",
+            "A": "Incorrect. The system is not learning candidate patterns from past hiring outcomes.",
+            "B": "Incorrect. No new content is being generated.",
+            "D": "Incorrect. It is not predicting an outcome using statistical or learned patterns.",
+            "E": "Incorrect. No image or video interpretation is involved."
+          },
+          "teaching_point": "A system can make consequential decisions without being AI.",
+          "ethics_flash": "Fixed rules can still be unfair. Transparency does not automatically make a decision rule equitable.",
+          "facilitator_tip": "Ask whether rule-based systems deserve governance even when they are not AI.",
+          "fun_line": "It may reject you very efficiently without having learned a single thing."
+        }
+      ]
+    },
+    {
+      "stage_id": "STAGE_2",
+      "stage_name": "Pattern Hunter",
+      "emoji": "🧩",
+      "difficulty": "Hard",
+      "stage_max_africoin": 100,
+      "africoin_per_correct_answer": 20,
+      "badge": {
+        "name": "System Decoder Badge",
+        "emoji": "🎖️",
+        "unlock_condition": "4 or more correct answers out of 5",
+        "tagline": "You now know that adding a human button does not automatically make a system responsible."
+      },
+      "problems": [
+        {
+          "problem_id": "S2P1",
+          "title": "From Rules to Learning",
+          "location": "Midrand, Gauteng",
+          "character": {
+            "name": "Mbalenhle Dlamini",
+            "role": "IT Support Specialist",
+            "organisation": "Ubuntu Digital Support, fictional"
+          },
+          "scenario": "Version 1 of the support system routes tickets using manually programmed keywords. Version 2 studies 150,000 resolved tickets and predicts the issue category, likely support team and expected resolution time.",
+          "question": "What changed fundamentally between Version 1 and Version 2?",
+          "options": {
+            "A": "The system moved from rule-based automation to machine-learning prediction",
+            "B": "The system moved from machine learning to a spreadsheet",
+            "C": "The system became Generative AI because it now produces numbers",
+            "D": "Nothing important changed",
+            "E": "The system became blockchain-based"
+          },
+          "correct_answer": "A",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Version 1 follows explicit rules. Version 2 learns patterns from historical cases and makes predictions.",
+            "B": "Incorrect. The direction of change is the opposite.",
+            "C": "Incorrect. Producing predicted numbers does not make a system Generative AI.",
+            "D": "Incorrect. Learning from historical examples is a fundamental change in system behaviour.",
+            "E": "Incorrect. No distributed ledger is described."
+          },
+          "teaching_point": "The defining shift is from programmed logic to learned patterns.",
+          "ethics_flash": "If the historical helpdesk treated certain departments slowly, the model may learn that inequality.",
+          "facilitator_tip": "Ask what evidence would prove that Version 2 is genuinely learning.",
+          "fun_line": "The software stopped following the map and started learning the traffic."
+        },
+        {
+          "problem_id": "S2P2",
+          "title": "The Confident Legal Assistant",
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "The Legal Services Team",
+            "role": "Customer Complaint Review Team",
+            "organisation": "Ubuntu Consumer Services, fictional"
+          },
+          "scenario": "A Generative AI assistant drafts a polished response to a customer complaint and cites 'Section 48A of the South African Digital Customer Protection Act'. The law does not exist.",
+          "question": "What is the main failure?",
+          "options": {
+            "A": "Data encryption",
+            "B": "Hallucination",
+            "C": "Network latency",
+            "D": "Automation bias only",
+            "E": "Computer vision error"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. The system generated a plausible but false legal reference. The danger is increased because fluent language can make fabricated information appear authoritative.",
+            "A": "Incorrect. Encryption is unrelated to the false legal citation.",
+            "C": "Incorrect. Speed or connectivity is not the problem.",
+            "D": "Automation bias could occur if humans accept the answer blindly, but the model failure itself is hallucination.",
+            "E": "Incorrect. No image interpretation is involved."
+          },
+          "teaching_point": "Fluency can hide factual unreliability.",
+          "ethics_flash": "High-stakes professional outputs require verification because plausible falsehoods can cause legal or financial harm.",
+          "facilitator_tip": "Ask why hallucination is more dangerous in law or health than in casual brainstorming.",
+          "fun_line": "The citation looked expensive. Unfortunately, it was imaginary."
+        },
+        {
+          "problem_id": "S2P3",
+          "title": "The Fraud Model Loves Johannesburg",
+          "location": "South Africa",
+          "character": {
+            "name": "Durand Jesse Govender",
+            "role": "Operations Analysis Manager",
+            "organisation": "Ubuntu Financial Services, fictional"
+          },
+          "scenario": "A fraud model performs very well in Gauteng. It is deployed nationally. Accuracy falls sharply in rural provinces because most training data came from urban customer behaviour.",
+          "question": "What is the core technical and data problem?",
+          "options": {
+            "A": "The model is too fast",
+            "B": "Training-data representativeness / distribution mismatch",
+            "C": "The model uses too many colours",
+            "D": "Generative AI hallucination",
+            "E": "The problem is definitely cybercrime"
+          },
+          "correct_answer": "B",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. The model was trained on a population that does not adequately represent the environment in which it is now being used.",
+            "A": "Incorrect. Speed is not the issue.",
+            "C": "Incorrect. Interface design is irrelevant to the model's declining performance.",
+            "D": "Incorrect. This is not a content-generation failure.",
+            "E": "Incorrect. The issue concerns model generalisation and data representation."
+          },
+          "teaching_point": "A model can work well in one population and poorly in another.",
+          "ethics_flash": "Poor rural performance can create unequal access or higher false-positive rates for already underserved communities.",
+          "facilitator_tip": "Ask whether overall national accuracy would be enough if one province performs badly.",
+          "fun_line": "The model travelled nationally. Its training data did not."
+        },
+        {
+          "problem_id": "S2P4",
+          "title": "The Invisible Proxy",
+          "location": "South Africa",
+          "character": {
+            "name": "The Credit Risk Committee",
+            "role": "Lending Governance Team",
+            "organisation": "Ubuntu Credit, fictional"
+          },
+          "scenario": "A lending model does not use race. It uses residential area, school attended, household income, employment history and property values. Historically disadvantaged groups still receive consistently poorer outcomes.",
+          "question": "Can the system still reproduce unfair bias?",
+          "options": {
+            "A": "No. Removing race makes bias impossible.",
+            "B": "Yes. Proxy variables can reproduce historical inequalities.",
+            "C": "No. Algorithms are always objective.",
+            "D": "Only if the model is Generative AI.",
+            "E": "Only if a human intentionally programmed discrimination."
+          },
+          "correct_answer": "B",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Variables that correlate with protected or historically disadvantaged characteristics can function as proxies and reproduce unequal outcomes.",
+            "A": "Incorrect. Removing one protected attribute does not remove correlated information.",
+            "C": "Incorrect. Algorithms can reflect data, design and historical patterns.",
+            "D": "Incorrect. Bias is not unique to Generative AI.",
+            "E": "Incorrect. Harm can emerge without explicit discriminatory intent."
+          },
+          "teaching_point": "Fairness requires examining outcomes and proxies, not only the variables explicitly named.",
+          "ethics_flash": "A system can be technically legal-looking and still produce socially harmful patterns.",
+          "facilitator_tip": "Ask students for other examples of proxy variables.",
+          "fun_line": "Bias does not always enter through the front door."
+        },
+        {
+          "problem_id": "S2P5",
+          "title": "The Human Who Always Agrees",
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "The Transaction Monitoring Team",
+            "role": "Fraud Analysts",
+            "organisation": "Ubuntu Payments, fictional"
+          },
+          "scenario": "An AI system recommends which unusual transactions should be investigated. Human analysts technically make the final decision, but they accept the AI recommendation 99.8% of the time without reviewing the evidence. Management claims this proves the company has human oversight.",
+          "question": "Is this meaningful human oversight?",
+          "options": {
+            "A": "Yes. Any human click counts as oversight.",
+            "B": "No. Human presence without genuine review can become automation bias rather than oversight.",
+            "C": "Yes, because 99.8% agreement proves the model is correct.",
+            "D": "No, because humans should never use AI recommendations.",
+            "E": "Yes, provided the user interface is clear."
+          },
+          "correct_answer": "B",
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Meaningful oversight requires the ability, time, information and willingness to challenge the system. Automatic agreement can become automation bias.",
+            "A": "Incorrect. Symbolic approval is not meaningful review.",
+            "C": "Incorrect. High agreement can reflect over-reliance rather than model quality.",
+            "D": "Too absolute. AI recommendations can be useful when humans review them properly.",
+            "E": "Incorrect. Interface clarity alone does not establish independent judgement."
+          },
+          "teaching_point": "Human-in-the-loop is a governance quality question, not a workflow checkbox.",
+          "ethics_flash": "People affected by consequential AI decisions need genuine routes for review and challenge.",
+          "facilitator_tip": "Ask what conditions make human oversight meaningful.",
+          "fun_line": "A human rubber stamp is still a rubber stamp."
+        }
+      ]
+    },
+    {
+      "stage_id": "STAGE_3",
+      "stage_name": "Decision Master",
+      "emoji": "🧠",
+      "difficulty": "Very Hard",
+      "stage_max_africoin": 150,
+      "africoin_per_correct_answer": 30,
+      "badge": {
+        "name": "AI Judgment Badge",
+        "emoji": "🏆",
+        "unlock_condition": "4 or more correct answers out of 5",
+        "tagline": "You no longer ask only what the machine can do. You ask what it should be allowed to do."
+      },
+      "problems": [
+        {
+          "problem_id": "S3P1",
+          "title": "The 94% Accurate Disaster",
+          "location": "Rustenburg, North West",
+          "character": {
+            "name": "Jaquesco Botha",
+            "role": "Safety Technology Specialist",
+            "organisation": "Ubuntu Mining Systems, fictional"
+          },
+          "scenario": "An AI safety model predicts dangerous mining conditions with 94% overall accuracy. Management wants immediate deployment. Jaquesco discovers that most errors occur during rare but extremely dangerous geological conditions.",
+          "question": "What should management conclude?",
+          "options": {
+            "A": "94% accuracy is sufficient; deploy immediately.",
+            "B": "Overall accuracy alone is insufficient. The distribution and cost of errors must be examined.",
+            "C": "Any model below 100% accuracy is useless.",
+            "D": "Rare events should be removed from evaluation.",
+            "E": "Replace the model with Generative AI."
+          },
+          "correct_answer": "B",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. A high overall accuracy can hide serious failure on rare, high-consequence cases. Management must examine false negatives, subgroup/event performance and the consequences of error.",
+            "A": "Incorrect. Overall accuracy can conceal catastrophic weaknesses.",
+            "C": "Incorrect. No predictive system needs perfect accuracy to be useful.",
+            "D": "Incorrect. Rare dangerous events may be the most important cases to evaluate.",
+            "E": "Incorrect. Generative AI does not solve the evaluation problem."
+          },
+          "teaching_point": "Model performance must be interpreted through consequence, not only averages.",
+          "ethics_flash": "When mistakes can cost lives, acceptable error thresholds should be much stricter.",
+          "facilitator_tip": "Ask whether false positives and false negatives have equal costs in this setting.",
+          "fun_line": "A beautiful average can hide a terrible corner."
+        },
+        {
+          "problem_id": "S3P2",
+          "title": "The Teacher's AI Shortcut",
+          "location": "Pretoria, Gauteng",
+          "character": {
+            "name": "Amogelang Molefe",
+            "role": "Teacher",
+            "organisation": "Ubuntu Learning Academy, fictional"
+          },
+          "scenario": "A Generative AI system prepares lesson plans, assessment questions, learner feedback and parent communications. Management proposes allowing the system to send everything automatically because it saves 11 hours per teacher per week.",
+          "question": "What is the strongest decision?",
+          "options": {
+            "A": "Allow full automatic sending because efficiency is the main goal.",
+            "B": "Use AI assistance but retain human review for educationally consequential outputs.",
+            "C": "Ban Generative AI completely.",
+            "D": "Let the AI decide which messages require human review.",
+            "E": "Use AI only for parents who consent to automation."
+          },
+          "correct_answer": "B",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. AI can reduce workload, but outputs affecting learning, assessment or parent communication still require professional accountability and review.",
+            "A": "Incorrect. Efficiency does not override accuracy and professional responsibility.",
+            "C": "Too absolute. The technology can still provide useful assistance.",
+            "D": "Incorrect. The organisation should define governance criteria rather than delegating the governance decision to the tool itself.",
+            "E": "Consent may matter, but it does not remove the need for quality control."
+          },
+          "teaching_point": "The right level of automation depends on consequence and professional responsibility.",
+          "ethics_flash": "Students should not bear hidden risks simply because automation saves staff time.",
+          "facilitator_tip": "Ask which outputs could be low-risk enough for automatic drafting and which require explicit review.",
+          "fun_line": "Saving time is excellent. Outsourcing judgement is a different decision."
+        },
+        {
+          "problem_id": "S3P3",
+          "title": "97% Confidence",
+          "location": "Sandton, Gauteng",
+          "character": {
+            "name": "Lubabalo Mthembu",
+            "role": "Cybersecurity Specialist",
+            "organisation": "Ubuntu Risk Systems, fictional"
+          },
+          "scenario": "An anomaly-detection system assigns an employee a fraud probability score of 97%. A manager says: '97% means we are 97% certain the employee committed fraud.'",
+          "question": "What is wrong with the manager's conclusion?",
+          "options": {
+            "A": "Nothing. Model scores are the same as proof.",
+            "B": "A model score supports risk assessment; it is not automatically proof of guilt or a disciplinary conclusion.",
+            "C": "The problem is that 97% is too low.",
+            "D": "Only a Generative AI system can assign confidence scores.",
+            "E": "The score should be rounded to 100%."
+          },
+          "correct_answer": "B",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. A model score must be interpreted in context, including calibration, false positives, evidence quality and the decision being made. Risk scoring is not the same as establishing guilt.",
+            "A": "Incorrect. Predictive output is not legal or disciplinary proof.",
+            "C": "Incorrect. The issue is interpretation, not merely the threshold.",
+            "D": "Incorrect. Many predictive models output scores or probabilities.",
+            "E": "Incorrect. Rounding does not create certainty."
+          },
+          "teaching_point": "Quantitative confidence can create false psychological certainty.",
+          "ethics_flash": "Consequential decisions require due process and independent evidence.",
+          "facilitator_tip": "Ask why a numerical score can feel more objective than it really is.",
+          "fun_line": "Adding a percentage sign does not turn suspicion into proof."
+        },
+        {
+          "problem_id": "S3P4",
+          "title": "The GenAI Performance Review",
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "The Human Capital Team",
+            "role": "Performance Management Committee",
+            "organisation": "Ubuntu Corporate Services, fictional"
+          },
+          "scenario": "A manager gives Generative AI employee emails, meeting transcripts, performance notes and customer feedback. The AI generates employee performance ratings. Management proposes accepting the rankings without examining the underlying evidence.",
+          "question": "What is the main management problem?",
+          "options": {
+            "A": "The AI is too slow.",
+            "B": "Consequential judgement is being delegated without adequate validation, transparency and accountability.",
+            "C": "Performance reviews should never use data.",
+            "D": "The only problem is that the system is Generative AI rather than Machine Learning.",
+            "E": "There is no issue if the output looks professional."
+          },
+          "correct_answer": "B",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. Employee ratings affect careers and livelihoods. Management must validate evidence, understand limitations, preserve accountability and ensure affected employees can challenge conclusions.",
+            "A": "Incorrect. Speed is not the governance concern.",
+            "C": "Incorrect. Data can support performance reviews responsibly.",
+            "D": "Incorrect. The core issue is consequential delegation and weak governance.",
+            "E": "Incorrect. Professional-looking output is not evidence of fairness or accuracy."
+          },
+          "teaching_point": "The higher the consequence, the stronger the validation and accountability required.",
+          "ethics_flash": "Employees may not know how private communications are being interpreted by an AI system.",
+          "facilitator_tip": "Ask what minimum governance controls would be required before AI could assist a performance review.",
+          "fun_line": "A polished paragraph can still ruin someone's career."
+        },
+        {
+          "problem_id": "S3P5",
+          "title": "The Final AI Board Vote",
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "The MBA Executive Committee",
+            "role": "Board-level decision team",
+            "organisation": "Ubuntu Future Holdings, fictional"
+          },
+          "scenario": "The organisation has four systems: a rule-based chatbot for routine enquiries, a machine-learning default predictor, a Generative AI communication assistant, and human decision-makers supported by analytics and AI recommendations. Management proposes: 'Let's replace as many human decisions as possible. AI is faster.'",
+          "question": "What is the strongest principle for deciding which decisions should be automated?",
+          "options": {
+            "A": "Automate anything AI can technically perform.",
+            "B": "Automate only decisions that are cheap.",
+            "C": "Consider consequence, uncertainty, reversibility, accuracy, human expertise and accountability before deciding the level of automation.",
+            "D": "Never automate any decision involving people.",
+            "E": "Automate whichever process has the most senior executive sponsor."
+          },
+          "correct_answer": "C",
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. The appropriate level of automation depends on the nature of the decision, consequences of error, uncertainty, ability to reverse harm, availability of human expertise and who remains accountable.",
+            "A": "Incorrect. Technical capability alone does not establish legitimacy or suitability.",
+            "B": "Incorrect. Cost matters, but it is only one decision factor.",
+            "D": "Too absolute. Some people-related processes can be responsibly automated or assisted.",
+            "E": "Incorrect. Executive enthusiasm is not a risk framework."
+          },
+          "teaching_point": "The question is not merely whether AI can decide. It is whether it should, under what conditions, and who remains accountable.",
+          "ethics_flash": "Responsible automation requires examining who bears the consequences when the system is wrong.",
+          "facilitator_tip": "Use this final question to close with: Capability -> Evidence -> Risk -> Human Judgement -> Accountability.",
+          "fun_line": "Congratulations. You have reached the point where 'because AI can' is no longer an acceptable board paper."
+        }
+      ]
+    }
+  ],
+  "end_game": {
+    "maximum_africoin": 300,
+    "score_bands": [
+      {
+        "min_africoin": 0,
+        "max_africoin": 120,
+        "rank": "Signal Rookie",
+        "message": "You can identify some technologies, but mixed systems and governance traps are still catching you."
+      },
+      {
+        "min_africoin": 130,
+        "max_africoin": 210,
+        "rank": "System Investigator",
+        "message": "You are separating technology capability from data and governance problems."
+      },
+      {
+        "min_africoin": 220,
+        "max_africoin": 270,
+        "rank": "AI Decision Strategist",
+        "message": "Strong work. You are diagnosing systems and questioning how AI-supported decisions should be governed."
+      },
+      {
+        "min_africoin": 280,
+        "max_africoin": 300,
+        "rank": "AI Judgment Master",
+        "message": "Excellent. You are thinking beyond classification to evidence, consequence, human judgement and accountability."
+      }
+    ],
+    "final_framework": [
+      "Capability",
+      "Evidence",
+      "Risk",
+      "Human Judgement",
+      "Accountability"
+    ],
+    "final_message": "The difficult question is no longer simply 'Is this AI?'. The stronger question is: what is the system doing, what evidence supports it, what happens when it is wrong, where should human judgement remain, and who is accountable?"
+  }
+}

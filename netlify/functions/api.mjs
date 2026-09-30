@@ -13,13 +13,15 @@
 import sim0 from "../../assets/data/EDT900_Simulation_0_AI_Detective.json";
 import sim1 from "../../assets/data/EDT900_Major_Simulation_1_Gauteng_Smart_Supply.json";
 import sim2 from "../../assets/data/EDT900_Major_Simulation_2_Africa_2035_Boardroom.json";
+import sim3 from "../../assets/data/EDT900_Simulation_0_Makeup_AI_Detective_Second_Shift.json";
+import sim4 from "../../assets/data/EDT900_Major_Simulation_1_Makeup_Gauteng_Water_Resilience_Challenge.json";
 
 import { ADMIN_LOGINS } from "../../lib/admin-seed.mjs";
 import { createApi } from "../../lib/api-core.mjs";
 import { buildCatalog } from "../../lib/game-catalog.mjs";
 import { createBlobsStore } from "../../lib/kv-blobs.mjs";
 
-const catalog = buildCatalog({ sim0, sim1, sim2 });
+const catalog = buildCatalog({ sim0, sim1, sim2, sim3, sim4 });
 
 let cachedApi = null;
 

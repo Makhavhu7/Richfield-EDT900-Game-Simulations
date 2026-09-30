@@ -71,7 +71,9 @@ const REQUIRED = [
     "assets/js/admin.js",
     "assets/data/EDT900_Simulation_0_AI_Detective.json",
     "assets/data/EDT900_Major_Simulation_1_Gauteng_Smart_Supply.json",
-    "assets/data/EDT900_Major_Simulation_2_Africa_2035_Boardroom.json"
+    "assets/data/EDT900_Major_Simulation_2_Africa_2035_Boardroom.json",
+    "assets/data/EDT900_Simulation_0_Makeup_AI_Detective_Second_Shift.json",
+    "assets/data/EDT900_Major_Simulation_1_Makeup_Gauteng_Water_Resilience_Challenge.json"
 ];
 
 function copyFile(from, to) {

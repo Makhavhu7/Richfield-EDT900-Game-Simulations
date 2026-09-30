@@ -67,13 +67,21 @@
     lockRow.className = "admin-locks";
     lockRow.id = "adminLocks";
 
-    lockRow.innerHTML = ["sim0", "sim1", "sim2"]
+    const LOCK_LABELS = {
+        sim0: "Simulation 0",
+        sim1: "Simulation 1",
+        sim2: "Simulation 2",
+        sim3: "Make-up 0",
+        sim4: "Make-up 1"
+    };
+
+    lockRow.innerHTML = Object.entries(LOCK_LABELS)
         .map(
-            (gameId, index) =>
+            ([gameId, label]) =>
                 '<button class="admin-lock" type="button" data-lock="' +
                 gameId +
-                '" aria-pressed="false">Simulation ' +
-                index +
+                '" aria-pressed="false">' +
+                label +
                 ': <strong>open</strong></button>'
         )
         .join("");
@@ -134,8 +142,7 @@
 
             showMessage(
                 elements.message,
-                "Simulation " +
-                    gameId.slice(-1) +
+                (LOCK_LABELS[gameId] || gameId) +
                     (next
                         ? " is locked. Students cannot open it."
                         : " is open for students."),
@@ -260,7 +267,7 @@
         const answered =
             user.points.answered + " of " + user.points.questions;
 
-        const gameCells = ["sim0", "sim1", "sim2"]
+        const gameCells = ["sim0", "sim1", "sim2", "sim3", "sim4"]
             .map(gameId => {
                 const game = games[gameId];
 
@@ -316,7 +323,7 @@
 
         if (!rows.length) {
             elements.tableBody.innerHTML =
-                '<tr><td class="empty" colspan="11">' +
+                '<tr><td class="empty" colspan="13">' +
                 (term
                     ? "No student matches that search."
                     : currentFromDate()

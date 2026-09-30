@@ -21,12 +21,38 @@ document.addEventListener("DOMContentLoaded", () => {
     // The state is re-checked every few seconds, so students pick up an
     // unlock without having to reload the page.
     const LOCK_TARGETS = {
-        sim0: ["openSim0Game", "sim0Start"],
-        sim1: ["openSim1Game", "sim1Start"],
-        sim2: ["openSim2Game", "sim2Start"]
+        sim0: {
+            buttons: ["openSim0Game", "sim0Start"],
+            section: "sim0GameSection"
+        },
+        sim1: {
+            buttons: ["openSim1Game", "sim1Start"],
+            section: "sim1GameSection"
+        },
+        sim2: {
+            buttons: ["openSim2Game", "sim2Start"],
+            section: "sim2GameSection"
+        },
+        sim3: {
+            buttons: ["openSim3Game", "sim3Start"],
+            section: "sim3GameSection"
+        },
+        sim4: {
+            buttons: ["openSim4Game", "sim4Start"],
+            section: "sim4GameSection"
+        }
     };
 
     const lockedSims = new Set();
+
+    function hideNode(node, hidden) {
+        if (!node) {
+            return;
+        }
+
+        node.hidden = hidden;
+        node.style.display = hidden ? "none" : "";
+    }
 
     function applyLocks(locks) {
         Object.keys(LOCK_TARGETS).forEach(gameId => {
@@ -38,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 lockedSims.delete(gameId);
             }
 
-            LOCK_TARGETS[gameId].forEach(id => {
+            LOCK_TARGETS[gameId].buttons.forEach(id => {
                 const node = document.getElementById(id);
 
                 if (!node) {
@@ -47,28 +73,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 node.disabled = locked;
 
-                node.setAttribute(
-                    "aria-disabled",
-                    String(locked)
+                const card = node.closest(".quiz-hub-card");
+
+                hideNode(
+                    card
+                        ? card.closest(".col-lg-4") || card
+                        : null,
+                    locked
                 );
-
-                node.style.pointerEvents =
-                    locked ? "none" : "";
-
-                node.style.opacity =
-                    locked ? "0.6" : "";
-
-                if (locked) {
-                    node.dataset.lockLabel =
-                        node.dataset.lockLabel ||
-                        node.innerHTML;
-
-                    node.innerHTML =
-                        "Locked by the facilitator";
-                } else if (node.dataset.lockLabel) {
-                    node.innerHTML = node.dataset.lockLabel;
-                }
             });
+
+            hideNode(
+                document.getElementById(
+                    LOCK_TARGETS[gameId].section
+                ),
+                locked
+            );
         });
     }
 
@@ -159,6 +179,52 @@ document.addEventListener("DOMContentLoaded", () => {
             mountId: "sim2GameMount",
             questionsId: "sim2CardQuestions",
             scoreId: "sim2CardScore",
+
+            nextId: null
+        },
+        {
+            id: "sim3",
+            label: "Simulation 0 (Make-up)",
+            file:
+                "assets/data/" +
+                "EDT900_Simulation_0_Makeup_AI_Detective_" +
+                "Second_Shift.json",
+
+            groupField: "stages",
+            groupKeyField: "stage_id",
+            groupNameField: "stage_name",
+            groupWord: "Stage",
+            icon: "bi-search",
+
+            buttonId: "openSim3Game",
+            statusId: "sim3LoadStatus",
+            sectionId: "sim3GameSection",
+            mountId: "sim3GameMount",
+            questionsId: "sim3CardQuestions",
+            scoreId: "sim3CardScore",
+
+            nextId: "sim4"
+        },
+        {
+            id: "sim4",
+            label: "Simulation 1 (Make-up)",
+            file:
+                "assets/data/" +
+                "EDT900_Major_Simulation_1_Makeup_Gauteng_" +
+                "Water_Resilience_Challenge.json",
+
+            groupField: "levels",
+            groupKeyField: "level_id",
+            groupNameField: "level_name",
+            groupWord: "Level",
+            icon: "bi-droplet",
+
+            buttonId: "openSim4Game",
+            statusId: "sim4LoadStatus",
+            sectionId: "sim4GameSection",
+            mountId: "sim4GameMount",
+            questionsId: "sim4CardQuestions",
+            scoreId: "sim4CardScore",
 
             nextId: null
         }

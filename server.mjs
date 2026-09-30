@@ -102,6 +102,14 @@ const catalog = buildCatalog({
 
     sim2: readGameFile(
         "EDT900_Major_Simulation_2_Africa_2035_Boardroom.json"
+    ),
+
+    sim3: readGameFile(
+        "EDT900_Simulation_0_Makeup_AI_Detective_Second_Shift.json"
+    ),
+
+    sim4: readGameFile(
+        "EDT900_Major_Simulation_1_Makeup_Gauteng_Water_Resilience_Challenge.json"
     )
 });
 

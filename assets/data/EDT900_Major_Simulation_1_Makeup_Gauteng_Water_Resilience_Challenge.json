@@ -1,0 +1,473 @@
+{
+  "simulation_id": "EDT900_MAJOR_SIM1_MAKEUP_WATER_RESILIENCE",
+  "title": "Gauteng Water Resilience Challenge",
+  "subtitle": "Make-up Major Simulation 1: Save Every Drop",
+  "module": "Emerging & Disruptive Technology 900",
+  "simulation_type": "Make-up / Alternative Major Simulation 1",
+  "formal_weighting_percent": 5,
+  "delivery_point": "Only after completion of Sections 1 to 5",
+  "target_duration_minutes": 25,
+  "audience": "MBA Students who missed the original Major Simulation 1",
+  "total_levels": 3,
+  "problems_per_level": 3,
+  "total_problems": 9,
+  "game_currency": "AfriCOIN",
+  "maximum_africoin": 180,
+  "academic_scoring": {
+    "raw_academic_points": 9,
+    "points_per_problem": 1,
+    "conversion_to_module_mark": "Academic score = (correct answers / 9) × 5",
+    "note": "AfriCOIN is the game score. All nine academic questions are weighted equally for the formal 5% module contribution, regardless of level difficulty."
+  },
+  "delivery_note": "This simulation is an alternative assessment for students who missed the original Major Simulation 1. It assesses the same Sections 1 to 5 learning outcomes through different and more demanding scenarios.",
+  "fiction_notice": "All names, organisations, events and decisions are fictionalised for teaching purposes. Student-inspired first names and professional contexts may be used for familiarity, while surnames, organisations and circumstances are altered.",
+  "coverage": {
+    "section_1": "Foundations of Emerging and Disruptive Technology",
+    "section_2": "Artificial Intelligence, Machine Learning and Intelligent Automation",
+    "section_3": "Data, Big Data, Analytics and Decision Intelligence",
+    "section_4": "Digital Infrastructure, Cloud and Cybersecurity",
+    "section_5": "Intelligent Physical Systems",
+    "excluded_topics": [
+      "Blockchain and cryptocurrency",
+      "VR, AR, BCI and other Section 7 frontier technologies",
+      "Formal Section 8 investment and business model frameworks",
+      "Formal Section 9 future-of-work content",
+      "Formal Section 10 commercialisation content"
+    ]
+  },
+  "core_case": {
+    "organisation": "AquaGauteng Response Network",
+    "organisation_type": "Fictional public-private urban water resilience programme",
+    "geography": "Johannesburg, Tshwane, Ekurhuleni and surrounding Gauteng communities",
+    "context": "AquaGauteng Response Network coordinates municipal teams, maintenance contractors, reservoirs, pump stations and community reporting channels. The network faces pipe bursts, water losses, inconsistent pressure, ageing infrastructure, fragmented data, cyber risk and uneven service visibility. The executive committee wants to use emerging technologies to reduce losses and improve reliable access without creating new risks or unfair service outcomes.",
+    "primary_problem": "Reduce avoidable water losses and service interruptions while improving infrastructure visibility, response time and equitable access.",
+    "relevant_sdgs": [
+      {
+        "code": "SDG 6",
+        "name": "Clean Water and Sanitation"
+      },
+      {
+        "code": "SDG 9",
+        "name": "Industry, Innovation and Infrastructure"
+      },
+      {
+        "code": "SDG 11",
+        "name": "Sustainable Cities and Communities"
+      }
+    ]
+  },
+  "game_rules": {
+    "answer_format": "Single best answer",
+    "feedback_mode": "Immediate detailed feedback",
+    "badge_unlock_rule": "At least 2 correct answers out of 3 in a level",
+    "difficulty_progression": [
+      "Level 1 tests problem framing, AI/data reasoning and technology classification.",
+      "Level 2 tests cloud, cybersecurity, IoT and intelligent physical systems under operational constraints.",
+      "Level 3 tests integrated MBA judgement across Sections 1 to 5."
+    ]
+  },
+  "levels": [
+    {
+      "level_id": "LEVEL_1",
+      "level_name": "Leak Detective",
+      "emoji": "💧",
+      "difficulty": "Challenging",
+      "africoin_per_correct_answer": 10,
+      "level_max_africoin": 30,
+      "badge": {
+        "name": "Signal Seeker",
+        "emoji": "🏅",
+        "unlock_condition": "2 or more correct answers out of 3",
+        "tagline": "You can tell the difference between a water problem, a data problem and a technology sales pitch."
+      },
+      "problems": [
+        {
+          "problem_id": "L1P1",
+          "title": "The Smart Meter Celebration",
+          "section_focus": [
+            "Section 1"
+          ],
+          "location": "Johannesburg South",
+          "character": {
+            "name": "Mbalenhle Dlamini",
+            "role": "Field Technology Coordinator",
+            "organisation": "AquaGauteng Response Network"
+          },
+          "scenario": "AquaGauteng replaces manual meter readings with connected digital meters. Bills are now captured automatically, but the organisation has not changed its maintenance model, customer channels, pricing logic or service-delivery process. A senior executive announces: 'We have disrupted the water sector.'",
+          "question": "What is the strongest assessment?",
+          "options": {
+            "A": "Correct. Any connected device is automatically disruptive.",
+            "B": "Not necessarily. This is a meaningful digital improvement, but disruption requires a deeper change in value creation, operating logic or market structure.",
+            "C": "Correct because smart meters are Generative AI.",
+            "D": "Incorrect because digital technology can never be disruptive."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. Digitisation can improve efficiency without fundamentally disrupting how an organisation or sector creates and delivers value.",
+            "A": "Incorrect. Connected devices can be useful without being disruptive.",
+            "C": "Incorrect. Smart meters are not automatically Generative AI.",
+            "D": "Incorrect. Digital technologies can be disruptive, but not every digital change is."
+          },
+          "teaching_point": "Do not confuse digitisation, innovation and disruption.",
+          "ethics_flash": "What happens if remote disconnection becomes technically easy but disproportionately harms vulnerable households?",
+          "facilitator_tip": "Ask students what would have to change for this to become genuinely disruptive.",
+          "fun_line": "A smart meter can be clever without overthrowing the industry."
+        },
+        {
+          "problem_id": "L1P2",
+          "title": "The Burst Predictor",
+          "section_focus": [
+            "Section 2",
+            "Section 3"
+          ],
+          "location": "Ekurhuleni, Gauteng",
+          "character": {
+            "name": "Durand Jesse Govender",
+            "role": "Operations Analytics Manager",
+            "organisation": "AquaGauteng Response Network"
+          },
+          "scenario": "Durand has five years of pipe age, pressure, repair history, soil condition and weather data. A model learns patterns from historical pipe failures and assigns each pipe segment a probability of bursting within 30 days.",
+          "question": "Which description is most accurate?",
+          "options": {
+            "A": "Descriptive analytics only",
+            "B": "Rule-based automation",
+            "C": "Machine learning supporting predictive analytics",
+            "D": "Generative AI because it produces a probability"
+          },
+          "correct_answer": "C",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The model learns from historical examples and predicts future failure risk.",
+            "A": "Incorrect. The model is predicting future failure, not merely describing history.",
+            "B": "Incorrect. The scenario explicitly states that the model learns patterns.",
+            "D": "Incorrect. Producing a probability does not make a system Generative AI."
+          },
+          "teaching_point": "Prediction becomes AI when patterns are learned from data.",
+          "ethics_flash": "If maintenance teams only repair areas with historically rich data, communities with poor historical records may receive less preventive attention.",
+          "facilitator_tip": "Ask what target variable the model is predicting.",
+          "fun_line": "The pipe is not psychic. The model is simply better at remembering every previous disaster."
+        },
+        {
+          "problem_id": "L1P3",
+          "title": "The Missing Township",
+          "section_focus": [
+            "Section 3"
+          ],
+          "location": "Soweto and Alexandra, Gauteng",
+          "character": {
+            "name": "Douglas Mighty Nkuna",
+            "role": "Senior Data Analyst",
+            "organisation": "AquaGauteng Response Network"
+          },
+          "scenario": "The network builds a service-priority dashboard using complaint volumes. Wealthier suburbs submit complaints through the app at high rates. Several township areas rely more on walk-ins, councillors and informal reporting, so their digital complaint counts are much lower.",
+          "question": "What is the most serious data interpretation risk?",
+          "options": {
+            "A": "Assuming low digital complaint volume means low service need",
+            "B": "Using too many dashboard colours",
+            "C": "The dashboard is automatically Generative AI",
+            "D": "The data is unusable because it contains locations"
+          },
+          "correct_answer": "A",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The dataset may reflect unequal reporting access rather than actual service need. Using it naively could convert a data-access gap into an allocation bias.",
+            "B": "Incorrect. Visual design is not the main analytical problem.",
+            "C": "Incorrect. A dashboard is not automatically Generative AI.",
+            "D": "Incorrect. Location data can be useful if governed properly."
+          },
+          "teaching_point": "Data can measure behaviour around a problem rather than the problem itself.",
+          "ethics_flash": "Digital exclusion can become algorithmic exclusion when incomplete data drives resource allocation.",
+          "facilitator_tip": "Ask what additional data sources would improve representativeness.",
+          "fun_line": "Silence in the app does not mean silence in the pipes."
+        }
+      ]
+    },
+    {
+      "level_id": "LEVEL_2",
+      "level_name": "Infrastructure Ranger",
+      "emoji": "🛡️",
+      "difficulty": "Hard",
+      "africoin_per_correct_answer": 20,
+      "level_max_africoin": 60,
+      "badge": {
+        "name": "Resilience Shield",
+        "emoji": "🎖️",
+        "unlock_condition": "2 or more correct answers out of 3",
+        "tagline": "You can connect sensors, cloud, security and real-world infrastructure without creating a digital disaster."
+      },
+      "problems": [
+        {
+          "problem_id": "L2P1",
+          "title": "The Pump Station Goes Offline",
+          "section_focus": [
+            "Section 4"
+          ],
+          "location": "Tshwane, Gauteng",
+          "character": {
+            "name": "Motlatsi Martha Maseko",
+            "role": "Senior ICT Manager",
+            "organisation": "AquaGauteng Response Network"
+          },
+          "scenario": "AquaGauteng wants central cloud analytics, but several pump stations operate in areas where connectivity sometimes fails. The stations still need local control to maintain safe pressure even when the cloud link is unavailable. Financial and employee records also require tighter access control than public sensor dashboards.",
+          "question": "Which architecture is the strongest fit?",
+          "options": {
+            "A": "Put every workload on one public website.",
+            "B": "Use a hybrid approach with scalable cloud analytics and controlled local/private capability for connectivity-critical and sensitive workloads.",
+            "C": "Avoid all cloud services because cloud is always insecure.",
+            "D": "Move all operational control to the cloud and remove local capability."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. The organisation has mixed requirements: scalability, central visibility, sensitivity and operational continuity during connectivity loss.",
+            "A": "Incorrect. A single public web environment is not appropriate for all workloads.",
+            "C": "Incorrect. Cloud risk can be managed; it is not inherently unusable.",
+            "D": "Incorrect. Removing local control creates resilience risk when connectivity fails."
+          },
+          "teaching_point": "Architecture should follow workload, risk and resilience requirements.",
+          "ethics_flash": "Centralisation can improve visibility but also concentrate surveillance and control.",
+          "facilitator_tip": "Ask which workloads students would keep local and which they would centralise.",
+          "fun_line": "The cloud is wonderful until the pump station cannot phone home."
+        },
+        {
+          "problem_id": "L2P2",
+          "title": "The Sensor That Opened the Door",
+          "section_focus": [
+            "Section 4",
+            "Section 5"
+          ],
+          "location": "Johannesburg CBD",
+          "character": {
+            "name": "Lubabalo Mthembu",
+            "role": "Cybersecurity Specialist",
+            "organisation": "AquaGauteng Response Network"
+          },
+          "scenario": "Thousands of water-pressure and reservoir sensors are connected to the network. Lubabalo discovers default passwords, outdated firmware and poor network separation. Some sensors can reach the same internal network used by finance and procurement.",
+          "question": "What is the strongest immediate response?",
+          "options": {
+            "A": "Ignore the sensors because they contain no payroll data.",
+            "B": "Segment IoT devices, replace default credentials, patch where possible, limit privileges and monitor unusual device behaviour.",
+            "C": "Publish all device passwords so maintenance teams can respond faster.",
+            "D": "Turn off cybersecurity monitoring because it may slow the network."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Connected sensors expand the attack surface. Segmentation, credential management, patching, least privilege and monitoring reduce systemic risk.",
+            "A": "Incorrect. A compromised sensor can become an entry point into other systems.",
+            "C": "Incorrect. Shared visible credentials worsen security.",
+            "D": "Incorrect. Monitoring is part of risk management."
+          },
+          "teaching_point": "Cybersecurity becomes a physical-service issue when devices control or monitor infrastructure.",
+          "ethics_flash": "A cyber incident affecting water infrastructure can become a public-health and service-equity problem.",
+          "facilitator_tip": "Ask students to explain why an apparently harmless sensor can matter to finance systems.",
+          "fun_line": "The hacker does not care that the device was 'just measuring pressure'."
+        },
+        {
+          "problem_id": "L2P3",
+          "title": "The Reservoir That Talks",
+          "section_focus": [
+            "Section 5",
+            "Section 3"
+          ],
+          "location": "Ekurhuleni, Gauteng",
+          "character": {
+            "name": "Jaquesco Botha",
+            "role": "Sensor Systems Specialist",
+            "organisation": "AquaGauteng Response Network"
+          },
+          "scenario": "A reservoir is fitted with water-level, flow, pressure and pump-vibration sensors. Readings are transmitted continuously to the control centre. No prediction model has yet been added.",
+          "question": "What is the primary technology described?",
+          "options": {
+            "A": "Internet of Things sensor network",
+            "B": "Generative AI",
+            "C": "Blockchain",
+            "D": "Virtual reality"
+          },
+          "correct_answer": "A",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Connected sensors collecting and transmitting physical-world data are an Internet of Things application.",
+            "B": "Incorrect. No content generation is described.",
+            "C": "Incorrect. No distributed ledger is required to describe the core capability.",
+            "D": "Incorrect. No immersive environment is involved."
+          },
+          "plot_twist": "If a model later learns vibration patterns and predicts pump failure before it happens, the system becomes IoT plus predictive AI.",
+          "teaching_point": "Intelligent physical systems are layered: sensing, connectivity, analytics and sometimes AI.",
+          "ethics_flash": "Who should be allowed to access real-time infrastructure data, and how much detail should be public?",
+          "facilitator_tip": "Ask students to identify the sensor layer, connectivity layer and analytics layer.",
+          "fun_line": "Before the reservoir becomes intelligent, it first needs to tell you what is happening."
+        }
+      ]
+    },
+    {
+      "level_id": "LEVEL_3",
+      "level_name": "Resilience Board",
+      "emoji": "👑",
+      "difficulty": "Very Hard",
+      "africoin_per_correct_answer": 30,
+      "level_max_africoin": 90,
+      "badge": {
+        "name": "Water Tech Commander",
+        "emoji": "🏆",
+        "unlock_condition": "2 or more correct answers out of 3",
+        "tagline": "You can make technology choices under pressure without mistaking hype for infrastructure."
+      },
+      "problems": [
+        {
+          "problem_id": "L3P1",
+          "title": "The Wrong Problem, Beautiful AI",
+          "section_focus": [
+            "Sections 1 to 5 integrated"
+          ],
+          "location": "Johannesburg, Gauteng",
+          "character": {
+            "name": "Gloria Thandiwe Molefe",
+            "role": "Operations Executive",
+            "organisation": "AquaGauteng Response Network"
+          },
+          "scenario": "A vendor proposes a Generative AI chatbot to reduce water losses. Internal analysis shows that the largest avoidable losses actually come from undetected leaks, failing valves and slow repair dispatch. The organisation has little real-time pressure data.",
+          "question": "What should management prioritise first?",
+          "options": {
+            "A": "Buy the chatbot because Generative AI is visible and popular.",
+            "B": "Improve sensing, operational data and leak-detection capability before investing in a customer-facing GenAI solution for this specific problem.",
+            "C": "Reject all digital technology.",
+            "D": "Use the chatbot to guess where pipes are leaking."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. The core problem is physical infrastructure visibility and response. Technology choice should follow the diagnosed failure mechanism.",
+            "A": "Incorrect. Visibility and fashion do not make a technology relevant.",
+            "C": "Too extreme. Digital tools can be highly useful if matched to the problem.",
+            "D": "Incorrect. A chatbot without relevant operational data cannot replace sensing."
+          },
+          "teaching_point": "Problem-first thinking is the foundation of sound technology strategy.",
+          "ethics_flash": "Misallocated technology budgets can indirectly harm communities if essential infrastructure needs remain unfunded.",
+          "facilitator_tip": "Ask students to name the minimum viable technology stack for leak detection.",
+          "fun_line": "The pipe does not care how charming the chatbot sounds."
+        },
+        {
+          "problem_id": "L3P2",
+          "title": "The AI That Punishes Poor Data",
+          "section_focus": [
+            "Sections 2, 3 and 5 integrated"
+          ],
+          "location": "Gauteng",
+          "character": {
+            "name": "Shiraz Pillay",
+            "role": "Network Planning Executive",
+            "organisation": "AquaGauteng Response Network"
+          },
+          "scenario": "A predictive model ranks neighbourhoods for proactive maintenance. Areas with detailed sensor histories receive high-confidence recommendations. Informal settlements and older township areas have fewer sensors and incomplete asset records, so they receive low-confidence scores and are repeatedly pushed down the maintenance list.",
+          "question": "What is the strongest response?",
+          "options": {
+            "A": "Follow the ranking because the model is objective.",
+            "B": "Treat low-data areas as low priority.",
+            "C": "Recognise data scarcity as a service-equity problem, improve sensing and asset records, and use human review so low-confidence does not become automatic neglect.",
+            "D": "Delete all high-quality data so every area is equally uncertain."
+          },
+          "correct_answer": "C",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. Data scarcity may reflect historical underinvestment. Allowing low confidence to reduce maintenance can create a self-reinforcing cycle.",
+            "A": "Incorrect. Model outputs reflect available data and design choices.",
+            "B": "Incorrect. Low data quality does not imply low service need.",
+            "D": "Incorrect. Destroying good data does not solve unequal representation."
+          },
+          "teaching_point": "Data inequality can become infrastructure inequality when models drive resource allocation.",
+          "ethics_flash": "A technically consistent model can still produce unfair outcomes if some communities are systematically under-observed.",
+          "facilitator_tip": "Ask students to identify the feedback loop that would emerge if the model were left unchanged.",
+          "fun_line": "The system cannot see the community, so it concludes the community can wait."
+        },
+        {
+          "problem_id": "L3P3",
+          "title": "The 2 Million AfriCOIN Water Board",
+          "section_focus": [
+            "Sections 1 to 5 integrated"
+          ],
+          "location": "Sandton, Gauteng",
+          "character": {
+            "name": "The AquaGauteng Executive Committee",
+            "role": "Board-level decision team",
+            "organisation": "AquaGauteng Response Network"
+          },
+          "scenario": "The board has exactly 2 million AfriCOIN. Proposal A costs 450,000: clean and integrate asset, repair and complaint data. Proposal B costs 700,000: install pressure and flow sensors in high-loss zones. Proposal C costs 500,000: build a pipe-failure prediction model using improved data. Proposal D costs 350,000: cybersecurity hardening for cloud and IoT environments. Proposal E costs 900,000: launch a Generative AI public-relations avatar.",
+          "question": "Which portfolio best addresses the diagnosed water-loss problem using concepts from Sections 1 to 5?",
+          "options": {
+            "A": "Fund E and keep the remaining budget for marketing.",
+            "B": "Fund A + B + C + D, using the full 2 million AfriCOIN.",
+            "C": "Fund B + E because physical technology plus GenAI sounds innovative.",
+            "D": "Fund only C because AI can compensate for poor data, weak sensing and cybersecurity."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. The portfolio combines data readiness, real-world sensing, predictive capability and cybersecurity in one integrated solution aligned to the problem.",
+            "A": "Incorrect. The PR avatar does not address the operational failure mechanism.",
+            "C": "Incorrect. One relevant investment is paired with a costly unrelated technology.",
+            "D": "Incorrect. Predictive AI depends on good data, useful signals and secure infrastructure."
+          },
+          "teaching_point": "Integrated technology systems create value when each layer supports the same problem.",
+          "ethics_flash": "The board should also ask whether investment is fairly distributed across communities with different infrastructure histories.",
+          "facilitator_tip": "End with the chain: Problem -> Data -> Infrastructure -> Sensors -> AI/Analytics -> Cybersecurity -> Impact.",
+          "fun_line": "Congratulations. You fixed the plumbing before funding the hologram."
+        }
+      ]
+    }
+  ],
+  "end_game": {
+    "maximum_africoin": 180,
+    "academic_maximum": 9,
+    "formal_weight_percent": 5,
+    "score_bands": [
+      {
+        "min_africoin": 0,
+        "max_africoin": 60,
+        "rank": "Leak Spotter",
+        "message": "You can identify pieces of the system. Keep working on how data, infrastructure and AI connect."
+      },
+      {
+        "min_africoin": 70,
+        "max_africoin": 120,
+        "rank": "Resilience Navigator",
+        "message": "You are connecting cloud, cybersecurity, IoT and analytics to real operational problems."
+      },
+      {
+        "min_africoin": 130,
+        "max_africoin": 160,
+        "rank": "Infrastructure Strategist",
+        "message": "Strong work. You are matching technology to problem, readiness, risk and service impact."
+      },
+      {
+        "min_africoin": 170,
+        "max_africoin": 180,
+        "rank": "Water Tech Commander",
+        "message": "Excellent. You are thinking across the complete Sections 1 to 5 technology system."
+      }
+    ],
+    "final_debrief": {
+      "question": "What did the strongest decisions have in common?",
+      "answer": "They began with the actual infrastructure problem, improved the evidence base, matched technology to the failure mechanism, protected the digital environment and considered who benefits or may be left behind.",
+      "framework": [
+        "Problem",
+        "Data",
+        "Technology",
+        "Infrastructure",
+        "Security",
+        "Human Judgement",
+        "Impact"
+      ]
+    }
+  }
+}
