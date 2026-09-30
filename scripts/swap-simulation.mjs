@@ -59,7 +59,12 @@ function groupsOf(data) {
 }
 
 function problemsOf(group) {
-    for (const key of ["problems", "questions", "steps"]) {
+    for (const key of [
+        "problems",
+        "problems_list",
+        "questions",
+        "steps"
+    ]) {
         if (Array.isArray(group[key])) {
             return group[key];
         }
@@ -74,7 +79,10 @@ function summarise(data) {
 
     const points = problems.reduce((total, problem) => {
         const value = Number(
-            problem.points ?? problem.africoin ?? 0
+            problem.points ??
+            problem.reward_africoin ??
+            problem.africoin ??
+            0
         );
 
         return total + (Number.isFinite(value) ? value : 0);
