@@ -1,50 +1,599 @@
 {
-  "simulation_id": "EDT900_MAJOR_SIM_2_END_OF_MODULE",
+  "simulation_id": "EDT900_MAJOR_SIM2_AFRICA_2035_15_PROBLEMS",
   "title": "Africa 2035: The Boardroom Technology Challenge",
-  "subtitle": "Trust, Frontier Tech, Strategy, Ethics and Commercialisation",
+  "subtitle": "Major Simulation 2: Trust, Frontier Technology, Strategy, Ethics and Commercialisation",
   "module": "Emerging & Disruptive Technology 900",
   "simulation_type": "Major Simulation 2",
   "formal_weighting_percent": 5,
-  "delivery_point": "Only after completion of Sections 6 to 10, with integration of Sections 1 to 10",
-  "target_duration_minutes": 25,
-  "total_problems": 9,
-  "levels": 3,
-  "problems_per_level": 3,
+  "delivery_point": "After completion of Sections 6 to 10",
+  "target_duration_minutes": 35,
+  "audience": "MBA Students",
+  "total_stages": 3,
+  "problems_per_stage": 5,
+  "total_problems": 15,
   "game_currency": "AfriCOIN",
-  "maximum_africoin": 180,
+  "maximum_africoin": 300,
   "academic_scoring": {
-    "raw_academic_points": 9,
+    "raw_academic_points": 15,
     "points_per_problem": 1,
-    "conversion_to_module_mark": "Academic score = (correct answers / 9) × 5",
-    "note": "AfriCOIN is the game score. All nine academic questions are weighted equally for the formal 5% assessment, regardless of game difficulty."
+    "conversion_to_module_mark": "Academic score = (correct answers / 15) × 5",
+    "note": "AfriCOIN is the game score. All 15 academic questions are weighted equally for the formal 5% module contribution."
   },
-  "fiction_notice": "All names, organisations, events and decisions in this simulation are fictionalised for teaching purposes. Student-inspired first names and professional contexts may be used to create familiarity, while surnames, organisations and circumstances are altered.",
+  "fiction_notice": "All organisations, people and events in this simulation are fictionalised for teaching purposes. The scenarios are designed to reflect realistic African business and societal contexts without representing actual organisations or individuals.",
   "coverage": {
-    "primary": {
+    "primary_sections": {
       "section_6": "Blockchain, Cryptocurrency and Digital Trust",
       "section_7": "Immersive, Brain-Computer Interface and Frontier Technologies",
       "section_8": "Emerging Technology Strategy, Investment and Business Models",
       "section_9": "Responsible Technology, Society and the Future of Work",
       "section_10": "Technology Implementation, Innovation, Entrepreneurship and Commercialisation"
     },
-    "integration": "The final level requires students to combine concepts from Sections 1 to 10.",
-    "assessment_boundary": "Questions are designed only around concepts that should have been taught by the end of Section 10. No external regulatory detail or specialist technical knowledge is required."
+    "integration_rule": "Stage 3 integrates Sections 1 to 10 and requires students to combine problem framing, AI, data, infrastructure, intelligent systems, digital trust, frontier technology, strategy, ethics, implementation and commercialisation."
   },
   "core_case": {
     "organisation": "Ubuntu Horizon Group",
     "organisation_type": "Fictional pan-African diversified technology and services group",
     "headquarters": "Johannesburg, South Africa",
-    "operating_regions": [
+    "operating_markets": [
       "South Africa",
+      "Namibia",
       "Kenya",
       "Ghana",
-      "Rwanda",
-      "Namibia"
+      "Rwanda"
     ],
-    "context": "Ubuntu Horizon Group operates education, logistics, financial-services support, industrial training and digital-platform businesses across several African markets. The board wants to invest in emerging technologies, but it has limited capital, uneven infrastructure, different levels of digital maturity, workforce concerns, ethical risks and pressure to commercialise African intellectual property.",
-    "board_mandate": "Choose technologies that solve real problems, build trust, create measurable value, protect people, can be implemented responsibly and have a credible path to scale or commercialisation.",
-    "module_decision_spine": [
-      "Problem",
+    "business_areas": [
+      "Education and workforce development",
+      "Logistics and infrastructure services",
+      "Industrial training",
+      "Financial-services support",
+      "Digital platforms",
+      "Technology ventures"
+    ],
+    "context": "Ubuntu Horizon Group has grown rapidly across Africa and now faces pressure to invest in emerging technologies without chasing hype. Its board must manage uneven infrastructure, data gaps, workforce concerns, digital trust, different levels of organisational readiness, ethical risks, local innovation opportunities and pressure to commercialise successful pilots.",
+    "board_mandate": "Create responsible, scalable and commercially viable technology solutions that solve real African problems and generate measurable social and business value.",
+    "priority_sdgs": [
+      {
+        "code": "SDG 4",
+        "name": "Quality Education"
+      },
+      {
+        "code": "SDG 8",
+        "name": "Decent Work and Economic Growth"
+      },
+      {
+        "code": "SDG 9",
+        "name": "Industry, Innovation and Infrastructure"
+      },
+      {
+        "code": "SDG 10",
+        "name": "Reduced Inequalities"
+      },
+      {
+        "code": "SDG 12",
+        "name": "Responsible Consumption and Production"
+      }
+    ]
+  },
+  "game_rules": {
+    "answer_format": "Single best answer unless stated otherwise",
+    "feedback_mode": "Immediate detailed feedback",
+    "badge_unlock_rule": "At least 4 correct answers out of 5 in a stage",
+    "difficulty_progression": [
+      "Stage 1 tests technology fit, digital trust and frontier technology reasoning.",
+      "Stage 2 tests strategic investment, implementation, workforce and responsible technology decisions.",
+      "Stage 3 tests executive integration across Sections 1 to 10 under competing objectives and limited resources."
+    ],
+    "scoring": {
+      "stage_1_per_problem": 10,
+      "stage_2_per_problem": 20,
+      "stage_3_per_problem": 30
+    }
+  },
+  "stages": [
+    {
+      "stage_id": "STAGE_1",
+      "stage_name": "Trust Pathfinder",
+      "emoji": "🔐",
+      "difficulty": "Challenging",
+      "africoin_per_correct_answer": 10,
+      "stage_max_africoin": 50,
+      "badge": {
+        "name": "Digital Trust Keeper",
+        "emoji": "🏅",
+        "unlock_condition": "4 or more correct answers out of 5",
+        "tagline": "You can distinguish genuine digital trust from technology theatre."
+      },
+      "problems": [
+        {
+          "problem_id": "S1P1",
+          "title": "The Blockchain Temptation",
+          "section_focus": [
+            "Section 6"
+          ],
+          "location": "Walvis Bay, Namibia",
+          "scenario": "Ubuntu Horizon manages industrial equipment handovers involving manufacturers, transporters, port operators, insurers and buyers. Disputes frequently arise because each organisation keeps separate records and no single party is fully trusted by all others.",
+          "question": "Why could a permissioned blockchain be useful here?",
+          "options": {
+            "A": "Because blockchain makes every process faster by definition.",
+            "B": "Because multiple parties need a shared, tamper-evident record without relying entirely on one participant's database.",
+            "C": "Because blockchain automatically removes the need for governance.",
+            "D": "Because blockchain is a form of Generative AI."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. The strongest use case is multi-party trust, provenance and shared records where no single party should control the complete record.",
+            "A": "Incorrect. Blockchain can introduce overhead and is not automatically faster.",
+            "C": "Incorrect. Governance remains essential.",
+            "D": "Incorrect. Blockchain and Generative AI are different technologies."
+          },
+          "teaching_point": "Blockchain should solve a trust and coordination problem, not merely decorate a digital process.",
+          "ethics_flash": "If incorrect information is written permanently, who is responsible for correcting or contesting it?",
+          "fun_line": "If one trusted database can solve the problem, blockchain may just be an expensive group chat."
+        },
+        {
+          "problem_id": "S1P2",
+          "title": "The Blockchain That Should Not Exist",
+          "section_focus": [
+            "Section 6"
+          ],
+          "location": "Johannesburg, South Africa",
+          "scenario": "The Group's HR department proposes storing internal leave requests on blockchain. One HR system already controls the process, all users trust the same central authority and there is no multi-party verification problem.",
+          "question": "What is the strongest recommendation?",
+          "options": {
+            "A": "Use blockchain because all modern HR systems require it.",
+            "B": "Use a conventional secure database because the problem does not require distributed trust.",
+            "C": "Use cryptocurrency to approve leave.",
+            "D": "Use a public blockchain so employee records are transparent."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. A conventional database is more appropriate when one trusted authority controls the process.",
+            "A": "Incorrect. Blockchain is not a default requirement.",
+            "C": "Incorrect. Cryptocurrency is irrelevant to leave approval.",
+            "D": "Incorrect. Public exposure would create serious privacy concerns."
+          },
+          "teaching_point": "Knowing when not to use a technology is a strategic capability.",
+          "ethics_flash": "Employee records demand privacy and access control.",
+          "fun_line": "Not every spreadsheet needs to become a revolution."
+        },
+        {
+          "problem_id": "S1P3",
+          "title": "The VR Mine",
+          "section_focus": [
+            "Section 7"
+          ],
+          "location": "Northern Cape, South Africa",
+          "scenario": "A mining client needs workers to practise emergency evacuation and equipment shutdown procedures. Real drills are costly, disruptive and potentially dangerous.",
+          "question": "What is the strongest use of immersive technology?",
+          "options": {
+            "A": "VR simulation for repeatable high-risk training without exposing learners to real danger.",
+            "B": "Blockchain for worker immersion.",
+            "C": "Generative AI replacing all safety instructors.",
+            "D": "A public social-media livestream of emergencies."
+          },
+          "correct_answer": "A",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. VR is especially valuable for safe, repeatable simulation of dangerous or expensive environments.",
+            "B": "Incorrect. Blockchain does not create immersive training.",
+            "C": "Incorrect. AI may assist training but does not replace the core immersive use case.",
+            "D": "Incorrect. Watching is not the same as practising."
+          },
+          "teaching_point": "Immersive technology creates value when experience itself is part of the learning problem.",
+          "ethics_flash": "VR assessments should not penalise learners for motion sickness or accessibility limitations.",
+          "fun_line": "The best place to make a catastrophic training mistake is somewhere nobody gets hurt."
+        },
+        {
+          "problem_id": "S1P4",
+          "title": "The Brain Data Question",
+          "section_focus": [
+            "Section 7",
+            "Section 9"
+          ],
+          "location": "Nairobi, Kenya",
+          "scenario": "Ubuntu Horizon pilots a BCI-assisted learning tool that measures attention and cognitive load. HR proposes reusing the neural data to rank employees for promotion.",
+          "question": "What is the strongest governance response?",
+          "options": {
+            "A": "Allow reuse because the organisation already owns the device.",
+            "B": "Use neural data for any purpose once collected.",
+            "C": "Apply purpose limitation, informed consent, data minimisation and prohibit unrelated HR use without a new lawful and ethical basis.",
+            "D": "Publish the neural data so the system is transparent."
+          },
+          "correct_answer": "C",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. Neural data is highly sensitive. Collection for learning support does not justify unrelated employment decisions.",
+            "A": "Incorrect. Device ownership does not equal unrestricted rights over personal data.",
+            "B": "Incorrect. Purpose limitation matters.",
+            "D": "Incorrect. Public disclosure would worsen privacy risk."
+          },
+          "teaching_point": "Frontier technologies create new data categories that can demand stronger governance.",
+          "ethics_flash": "Neural data can expose information people may not consciously choose to communicate.",
+          "fun_line": "The brain is not a bonus data warehouse."
+        },
+        {
+          "problem_id": "S1P5",
+          "title": "The Digital Twin Decision",
+          "section_focus": [
+            "Section 7"
+          ],
+          "location": "Accra, Ghana",
+          "scenario": "The Group manages a large logistics hub. Management wants to test traffic flows, warehouse layouts, energy usage and emergency scenarios before changing the physical facility.",
+          "question": "Which technology best fits the problem?",
+          "options": {
+            "A": "Digital twin",
+            "B": "Cryptocurrency",
+            "C": "Rule-based chatbot",
+            "D": "Public blockchain"
+          },
+          "correct_answer": "A",
+          "academic_points": 1,
+          "reward_africoin": 10,
+          "detailed_feedback": {
+            "correct": "Correct. A digital twin can represent the physical facility and support scenario testing before real-world changes are made.",
+            "B": "Incorrect. Cryptocurrency does not model physical operations.",
+            "C": "Incorrect. A chatbot does not simulate the facility.",
+            "D": "Incorrect. Blockchain does not provide the core modelling capability."
+          },
+          "teaching_point": "Digital twins support experimentation where changing the real system is costly or risky.",
+          "ethics_flash": "A twin is only as representative as its data. Poorly modelled communities or users can disappear from the simulation.",
+          "fun_line": "It is cheaper to crash the virtual warehouse."
+        }
+      ]
+    },
+    {
+      "stage_id": "STAGE_2",
+      "stage_name": "Strategy Forge",
+      "emoji": "⚙️",
+      "difficulty": "Hard",
+      "africoin_per_correct_answer": 20,
+      "stage_max_africoin": 100,
+      "badge": {
+        "name": "Value Architect",
+        "emoji": "🎖️",
+        "unlock_condition": "4 or more correct answers out of 5",
+        "tagline": "You can move from technology excitement to disciplined investment and responsible implementation."
+      },
+      "problems": [
+        {
+          "problem_id": "S2P1",
+          "title": "The Shiny Proposal",
+          "section_focus": [
+            "Section 8"
+          ],
+          "location": "Johannesburg, South Africa",
+          "scenario": "Three proposals compete for funding. Proposal A uses predictive maintenance on industrial equipment with documented failure costs. Proposal B creates a metaverse showroom with no defined customer problem. Proposal C moves one trusted internal database to blockchain.",
+          "question": "Which proposal has the strongest strategic fit?",
+          "options": {
+            "A": "Proposal A",
+            "B": "Proposal B",
+            "C": "Proposal C",
+            "D": "All three are equally strong because they are emerging technologies."
+          },
+          "correct_answer": "A",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Proposal A is linked to a clear operational problem, measurable value and a plausible technology fit.",
+            "B": "Incorrect. There is no defined problem or value case.",
+            "C": "Incorrect. A trusted single-owner database does not require blockchain.",
+            "D": "Incorrect. Emerging status is not a business case."
+          },
+          "teaching_point": "Investment should follow problem, value, feasibility and evidence.",
+          "ethics_flash": "Opportunity cost matters when scarce capital is diverted from higher-impact needs.",
+          "fun_line": "A shiny demo is not a strategy."
+        },
+        {
+          "problem_id": "S2P2",
+          "title": "The Pilot That Worked",
+          "section_focus": [
+            "Section 8",
+            "Section 10"
+          ],
+          "location": "Windhoek, Namibia",
+          "scenario": "An IoT and predictive-maintenance pilot cuts refrigeration failures by 16% at one urban facility. The board wants immediate deployment across 40 sites, including remote locations with weaker connectivity and different equipment.",
+          "question": "What is the strongest next step?",
+          "options": {
+            "A": "Scale everywhere immediately because the pilot worked.",
+            "B": "Run staged scaling with readiness checks, local adaptation, training, connectivity assessment and measurable success criteria.",
+            "C": "Cancel the project because all pilots are unreliable.",
+            "D": "Replace the pilot with Generative AI."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. A successful pilot is evidence, not proof that every operating context is identical.",
+            "A": "Incorrect. Context differences can break the assumptions that made the pilot succeed.",
+            "C": "Incorrect. Pilots are useful when interpreted correctly.",
+            "D": "Incorrect. Generative AI does not solve the scaling challenge."
+          },
+          "teaching_point": "Pilot success must be translated into scalable operating conditions.",
+          "ethics_flash": "Scaling without local readiness can shift service failures onto less-resourced communities.",
+          "fun_line": "One successful pilot is not a magic passport."
+        },
+        {
+          "problem_id": "S2P3",
+          "title": "Automation Shock",
+          "section_focus": [
+            "Section 9"
+          ],
+          "location": "Johannesburg, South Africa",
+          "scenario": "AI document processing reduces manual administrative work. Analysis suggests that about 30% of tasks in one department will change, but very few entire jobs need to disappear.",
+          "question": "What is the most responsible management response?",
+          "options": {
+            "A": "Announce that 30% of employees are redundant.",
+            "B": "Redesign roles, identify changing tasks, reskill employees and create a transition plan.",
+            "C": "Hide the automation plan until deployment.",
+            "D": "Ban automation permanently."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Task change is not the same as job elimination. Responsible implementation includes role redesign and workforce transition.",
+            "A": "Incorrect. The scenario refers to tasks, not 30% of jobs.",
+            "C": "Incorrect. Secrecy undermines trust and transition planning.",
+            "D": "Too absolute. Automation can create value when implemented responsibly."
+          },
+          "teaching_point": "Future-of-work strategy should analyse tasks, not rely on dramatic job-loss assumptions.",
+          "ethics_flash": "Who captures productivity gains, and who carries the transition cost?",
+          "fun_line": "A job is a bundle of tasks, not one giant checkbox."
+        },
+        {
+          "problem_id": "S2P4",
+          "title": "The Fairness Dashboard",
+          "section_focus": [
+            "Section 9"
+          ],
+          "location": "Kigali, Rwanda",
+          "scenario": "A loan-support model has good overall accuracy, but approval recommendations are significantly less accurate for rural women-owned businesses because the training data contains fewer comparable historical cases.",
+          "question": "What should the board require before wider deployment?",
+          "options": {
+            "A": "Only overall accuracy because subgroup results complicate reporting.",
+            "B": "Subgroup performance testing, improved data representation, human review for uncertain cases and ongoing monitoring.",
+            "C": "Immediate national deployment because the average is strong.",
+            "D": "Remove all demographic analysis so the organisation cannot see differences."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Fairness requires examining whether performance differs across relevant populations and managing uncertainty explicitly.",
+            "A": "Incorrect. Overall averages can hide unequal harm.",
+            "C": "Incorrect. Strong average performance does not resolve subgroup weakness.",
+            "D": "Incorrect. Avoiding measurement can conceal rather than solve inequality."
+          },
+          "teaching_point": "Responsible AI requires performance analysis across the populations affected.",
+          "ethics_flash": "Fairness problems can become access-to-capital problems.",
+          "fun_line": "Averages are excellent hiding places."
+        },
+        {
+          "problem_id": "S2P5",
+          "title": "Commercialisation Fork",
+          "section_focus": [
+            "Section 10"
+          ],
+          "location": "Pan-African",
+          "scenario": "Ubuntu Horizon develops an African-language AI customer-support tool. A pilot works well with three organisations. The research team wants to release it immediately across 12 countries without validating demand, protecting IP or designing a revenue model.",
+          "question": "What is the strongest commercialisation pathway?",
+          "options": {
+            "A": "Scale immediately before competitors notice.",
+            "B": "Validate demand, clarify IP, define a business model, identify partners, test regulatory fit and scale using evidence.",
+            "C": "Publish the source code and abandon all business planning.",
+            "D": "Keep the tool permanently inside the lab."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 20,
+          "detailed_feedback": {
+            "correct": "Correct. Commercialisation connects technical capability to customers, IP, business model, regulation, partnerships and evidence-based scale.",
+            "A": "Incorrect. Speed without readiness can destroy value.",
+            "C": "Incorrect. Open source can be strategic, but it does not remove the need for a commercialisation model.",
+            "D": "Incorrect. Proven solutions can create broader value if a viable pathway exists."
+          },
+          "teaching_point": "Innovation becomes impact only when it can move beyond the prototype responsibly.",
+          "ethics_flash": "Commercial scale should not erase local languages or communities that were crucial to development.",
+          "fun_line": "A prototype is not yet a company."
+        }
+      ]
+    },
+    {
+      "stage_id": "STAGE_3",
+      "stage_name": "Continental Boardroom",
+      "emoji": "👑",
+      "difficulty": "Very Hard",
+      "africoin_per_correct_answer": 30,
+      "stage_max_africoin": 150,
+      "badge": {
+        "name": "Africa Tech Sovereign",
+        "emoji": "🏆",
+        "unlock_condition": "4 or more correct answers out of 5",
+        "tagline": "You can integrate technology, value, ethics, people and commercialisation under boardroom pressure."
+      },
+      "problems": [
+        {
+          "problem_id": "S3P1",
+          "title": "The 6.2 Million AfriCOIN Portfolio",
+          "section_focus": [
+            "Sections 1 to 10 integrated"
+          ],
+          "location": "Johannesburg, South Africa",
+          "scenario": "The board has 6.2 million AfriCOIN. Proposal A costs 1.8m: predictive maintenance for industrial assets. Proposal B costs 1.2m: VR safety-training platform. Proposal C costs 1.4m: data, cloud and cybersecurity foundation. Proposal D costs 2.6m: high-profile GenAI brand avatar. Proposal E costs 1.8m: permissioned blockchain for multi-party equipment provenance. Proposal F costs 1.0m: workforce reskilling and implementation support.",
+          "question": "Which portfolio best balances immediate value, enabling infrastructure, workforce readiness and strategic trust needs within budget?",
+          "options": {
+            "A": "A + B + C + F = 5.4m",
+            "B": "D + E + B = 5.6m",
+            "C": "D + A + F = 5.4m",
+            "D": "A + C + E + F = 6.0m"
+          },
+          "correct_answer": "D",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. This portfolio combines a proven operational use case, enabling infrastructure and cybersecurity, a justified digital-trust use case, and workforce implementation support. It uses 6.0m and directly addresses operational, governance and adoption needs.",
+            "A": "Plausible but weaker. It funds VR before addressing the documented multi-party provenance problem, while the selected VR use case is valuable but less strategically urgent.",
+            "B": "Incorrect. It overweights visibility and novelty without building the core data and implementation foundation.",
+            "C": "Incorrect. The GenAI avatar absorbs too much capital without solving a priority problem."
+          },
+          "teaching_point": "Board-level technology portfolios should combine value creation, enabling capability, governance and adoption.",
+          "ethics_flash": "Portfolio choices determine which employees, customers and communities receive benefits first.",
+          "facilitator_tip": "Ask students why the most exciting portfolio is not necessarily the strongest."
+        },
+        {
+          "problem_id": "S3P2",
+          "title": "The Rural Scale Trap",
+          "section_focus": [
+            "Sections 3, 4, 7, 8, 9, 10 integrated"
+          ],
+          "location": "Namibia and South Africa",
+          "scenario": "A VR and AI vocational-training platform performs strongly in Johannesburg. The company wants to expand to remote communities in Namibia and South Africa. Some target sites have limited bandwidth, shared devices, intermittent electricity and fewer instructors.",
+          "question": "What is the strongest scaling strategy?",
+          "options": {
+            "A": "Deploy the urban version unchanged so all learners receive the same technology.",
+            "B": "Adapt delivery for local infrastructure, enable offline or low-bandwidth modes, train facilitators, measure outcomes and scale in stages.",
+            "C": "Cancel the expansion because rural areas are too difficult.",
+            "D": "Replace VR with cryptocurrency."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. Equal technology is not the same as equitable access. Scaling requires adaptation to operating context.",
+            "A": "Incorrect. Identical delivery can create unequal outcomes when infrastructure differs.",
+            "C": "Incorrect. Constraints should inform design rather than automatically end the project.",
+            "D": "Incorrect. Cryptocurrency does not address training access."
+          },
+          "teaching_point": "Implementation quality depends on context, not only technology capability.",
+          "ethics_flash": "Digital inclusion must be designed, not assumed.",
+          "fun_line": "A solution is not scalable if it only works where everything already works."
+        },
+        {
+          "problem_id": "S3P3",
+          "title": "The Data-for-Equity Deal",
+          "section_focus": [
+            "Sections 3, 6, 9, 10 integrated"
+          ],
+          "location": "Pan-African",
+          "scenario": "A technology partner offers to fund expansion of Ubuntu Horizon's education platform in exchange for unrestricted access to learner behaviour data. The board argues that the deal could help millions of learners and finance rapid scale.",
+          "question": "What is the strongest board response?",
+          "options": {
+            "A": "Accept because social impact justifies unrestricted data use.",
+            "B": "Reject all partnerships involving data.",
+            "C": "Negotiate strict purpose limits, data minimisation, security, learner protections, governance rights and transparent benefit-sharing before proceeding.",
+            "D": "Publish the learner data to make the arrangement fair."
+          },
+          "correct_answer": "C",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. Social value does not remove privacy, governance and power concerns. The partnership should be structured around necessity, proportionality and accountability.",
+            "A": "Incorrect. Positive intentions do not justify unrestricted use.",
+            "B": "Too absolute. Data partnerships can be legitimate with appropriate controls.",
+            "D": "Incorrect. Publication would intensify privacy risk."
+          },
+          "teaching_point": "Commercialisation and social impact must be governed together.",
+          "ethics_flash": "Who owns the value created from African data?",
+          "fun_line": "Free money is often not free."
+        },
+        {
+          "problem_id": "S3P4",
+          "title": "The Employee Revolt",
+          "section_focus": [
+            "Sections 2, 8, 9, 10 integrated"
+          ],
+          "location": "Johannesburg, South Africa",
+          "scenario": "A new AI-enabled workflow could reduce processing time by 40%. Employees hear about the project from a vendor presentation and believe management intends mass layoffs. Productivity drops, unions demand consultation and several experienced employees begin leaving.",
+          "question": "What should leadership do first?",
+          "options": {
+            "A": "Accelerate deployment before opposition grows.",
+            "B": "Communicate the task-level impact, engage employees and unions, redesign roles, define transition support and involve users in implementation.",
+            "C": "Cancel the project immediately.",
+            "D": "Ask the AI system to write a memo explaining why employees are wrong."
+          },
+          "correct_answer": "B",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. Technology implementation is also organisational change. Trust, consultation, role design and transition support affect whether value is realised.",
+            "A": "Incorrect. Speed without adoption can increase resistance and destroy implementation value.",
+            "C": "Too absolute. The technology may still be valuable.",
+            "D": "Incorrect. A generated memo cannot substitute for genuine engagement."
+          },
+          "teaching_point": "Implementation failure is often a people problem disguised as a technology problem.",
+          "ethics_flash": "Workers should not be treated merely as costs to be automated away.",
+          "fun_line": "You cannot digitally transform people by surprising them."
+        },
+        {
+          "problem_id": "S3P5",
+          "title": "The Final Board Vote",
+          "section_focus": [
+            "Sections 1 to 10 integrated"
+          ],
+          "location": "Africa 2035 Board Meeting",
+          "scenario": "After several pilots, Ubuntu Horizon has evidence of value from AI, IoT, VR and blockchain projects. However, rural connectivity remains uneven, some datasets underrepresent vulnerable communities, employees fear job loss, a partner disputes benefit-sharing and several technologies require stronger governance before scale.",
+          "question": "What is the strongest final board decision?",
+          "options": {
+            "A": "Scale every successful pilot immediately because innovation leadership requires speed.",
+            "B": "Freeze all emerging technology until every risk disappears.",
+            "C": "Scale selectively, adapt to local readiness, strengthen data and cybersecurity, test fairness, support workforce transition, clarify partner rights, govern high-risk uses and measure impact continuously.",
+            "D": "Choose the technology with the most impressive demonstration."
+          },
+          "correct_answer": "C",
+          "academic_points": 1,
+          "reward_africoin": 30,
+          "detailed_feedback": {
+            "correct": "Correct. The strongest strategy combines evidence-based scaling with local adaptation, governance, inclusion, workforce planning, partner alignment and measurable impact.",
+            "A": "Incorrect. Pilot success does not erase context, ethics or implementation risk.",
+            "B": "Incorrect. Zero risk is unrealistic and would prevent responsible innovation.",
+            "D": "Incorrect. Demonstration quality is not a strategic criterion."
+          },
+          "teaching_point": "The mature technology leader does not ask only what can be built. The leader asks what should be built, for whom, under what conditions, how it will be governed and how value will be sustained.",
+          "ethics_flash": "Responsible innovation requires attention to who benefits, who carries risk and who has a voice in implementation.",
+          "facilitator_tip": "Close the simulation with the full framework: African Problem -> Technology -> Value -> Feasibility -> SDG -> Ethics -> Risk -> Implementation -> Commercialisation -> Impact.",
+          "fun_line": "Welcome to the boardroom. There is no 'deploy all' button."
+        }
+      ]
+    }
+  ],
+  "end_game": {
+    "maximum_africoin": 300,
+    "academic_maximum": 15,
+    "formal_weight_percent": 5,
+    "score_bands": [
+      {
+        "min_africoin": 0,
+        "max_africoin": 120,
+        "rank": "Frontier Observer",
+        "message": "You recognise emerging technologies, but strategic fit and governance still need strengthening."
+      },
+      {
+        "min_africoin": 130,
+        "max_africoin": 210,
+        "rank": "Innovation Navigator",
+        "message": "You can connect technology choice to strategy, ethics and implementation."
+      },
+      {
+        "min_africoin": 220,
+        "max_africoin": 270,
+        "rank": "Continental Strategist",
+        "message": "Strong work. You are making integrated decisions across technology, people, risk and value."
+      },
+      {
+        "min_africoin": 280,
+        "max_africoin": 300,
+        "rank": "Africa Tech Sovereign",
+        "message": "Excellent. You are operating at board level across the full technology-to-impact pathway."
+      }
+    ],
+    "final_framework": [
+      "African Problem",
       "Technology",
       "Value",
       "Feasibility",
@@ -54,539 +603,7 @@
       "Implementation",
       "Commercialisation",
       "Impact"
-    ]
-  },
-  "game_rules": {
-    "answer_format": "Single best answer",
-    "feedback": "Immediate detailed feedback after each answer",
-    "badge_unlock_rule": "At least 2 correct answers out of 3 in a level",
-    "difficulty_progression": [
-      "Level 1 tests whether the learner can identify appropriate use of digital trust and frontier technologies.",
-      "Level 2 tests strategic investment, responsible technology and implementation judgement.",
-      "Level 3 is a full boardroom integration challenge across the entire module."
-    ]
-  },
-  "levels_data": [
-    {
-      "level_id": "LEVEL_1",
-      "level_name": "Trust Pathfinder",
-      "emoji": "🔐",
-      "difficulty": "Foundation-Advanced",
-      "africoin_per_correct_answer": 10,
-      "level_max_africoin": 30,
-      "badge": {
-        "name": "Digital Trust Keeper",
-        "emoji": "🏅",
-        "unlock_condition": "2 or more correct answers out of 3",
-        "tagline": "You know when frontier technology solves a trust problem, and when it is just expensive decoration."
-      },
-      "problems": [
-        {
-          "problem_id": "L1P1",
-          "title": "The Blockchain Temptation",
-          "section_focus": [
-            "Section 6"
-          ],
-          "location": "Johannesburg, South Africa",
-          "character": {
-            "name": "Estenia Mokoena",
-            "role": "Strategic Sourcing Executive",
-            "organisation": "Ubuntu Horizon Group"
-          },
-          "scenario": "Ubuntu Horizon wants to track specialist medical equipment moving between suppliers, warehouses and hospitals. Multiple independent organisations need to verify handovers, and disputes about who changed a record have become common. A vendor proposes a permissioned blockchain. Another manager says a normal central database would be cheaper.",
-          "question": "What is the strongest reason to consider blockchain in this case?",
-          "options": [
-            {
-              "id": "A",
-              "text": "Blockchain is always better than a database."
-            },
-            {
-              "id": "B",
-              "text": "Several independent parties need a shared, tamper-evident record where trust is distributed rather than controlled by one participant."
-            },
-            {
-              "id": "C",
-              "text": "Blockchain will make the equipment move physically faster."
-            },
-            {
-              "id": "D",
-              "text": "Blockchain removes the need for governance and contracts."
-            }
-          ],
-          "correct_answer": "B",
-          "academic_points": 1,
-          "reward_africoin": 10,
-          "feedback": {
-            "correct": "Correct. Blockchain becomes more defensible when several parties need a shared record, no single participant should unilaterally control history, and tamper-evidence matters.",
-            "A": "Incorrect. A conventional database is often simpler and more efficient when one trusted authority can manage the records.",
-            "C": "Incorrect. Blockchain changes record-keeping and trust architecture, not physical transport speed.",
-            "D": "Incorrect. Technology does not eliminate governance, agreements or accountability."
-          },
-          "teaching_point": "Use blockchain for a trust problem, not because the word sounds disruptive.",
-          "sdg_link": "SDG 9",
-          "ethics_flash": "A tamper-evident record can preserve bad data just as effectively as good data. Who validates the original input?",
-          "facilitator_tip": "Ask what would make a normal database sufficient.",
-          "fun_line": "If there is no trust problem, blockchain may just be a very expensive spreadsheet wearing sunglasses."
-        },
-        {
-          "problem_id": "L1P2",
-          "title": "The VR Mine That Cannot Hurt You",
-          "section_focus": [
-            "Section 7"
-          ],
-          "location": "Rustenburg, North West",
-          "character": {
-            "name": "Jaquesco Botha",
-            "role": "Safety Technology Specialist",
-            "organisation": "Ubuntu Industrial Learning"
-          },
-          "scenario": "A mining client needs workers to practise emergency responses to underground fires, equipment failures and evacuation routes. Running live drills is expensive, disruptive and can expose trainees to danger. The team proposes an immersive VR simulation where workers can practise repeatedly and receive performance feedback.",
-          "question": "Why is VR particularly suitable here?",
-          "options": [
-            {
-              "id": "A",
-              "text": "It creates a controlled immersive environment for practising dangerous or costly scenarios repeatedly."
-            },
-            {
-              "id": "B",
-              "text": "VR guarantees that every trainee will behave perfectly in a real emergency."
-            },
-            {
-              "id": "C",
-              "text": "VR removes the need for any physical safety training."
-            },
-            {
-              "id": "D",
-              "text": "VR is suitable only because it looks futuristic."
-            }
-          ],
-          "correct_answer": "A",
-          "academic_points": 1,
-          "reward_africoin": 10,
-          "feedback": {
-            "correct": "Correct. Immersive simulation is valuable when real-world practice is dangerous, expensive, rare or difficult to reproduce consistently.",
-            "B": "Incorrect. Simulation can improve preparation but does not guarantee real-world behaviour.",
-            "C": "Incorrect. VR can complement, not automatically replace, physical training and procedures.",
-            "D": "Incorrect. The technology is justified by the training problem, not novelty."
-          },
-          "teaching_point": "Immersion is valuable when experience itself is part of the learning problem.",
-          "sdg_link": "SDG 8",
-          "ethics_flash": "Training data may reveal individual weaknesses. Should it be used for development, discipline, or both?",
-          "facilitator_tip": "Ask where VR creates value that a video cannot.",
-          "fun_line": "If the simulation catches fire, at least the classroom does not."
-        },
-        {
-          "problem_id": "L1P3",
-          "title": "The Brain Data Question",
-          "section_focus": [
-            "Section 7",
-            "Section 9"
-          ],
-          "location": "Cape Town, Western Cape",
-          "character": {
-            "name": "Amogelang Molefe",
-            "role": "Learning Innovation Lead",
-            "organisation": "Ubuntu Education Technologies"
-          },
-          "scenario": "A BCI pilot measures neural signals while adult learners complete training. The system estimates attention and cognitive load. Management wants to use the data to personalise learning, but HR also asks whether it can use the same scores in performance reviews.",
-          "question": "What is the strongest governance position?",
-          "options": [
-            {
-              "id": "A",
-              "text": "Use neural data for anything once the device has captured it."
-            },
-            {
-              "id": "B",
-              "text": "Define a narrow purpose, obtain meaningful consent, minimise data collection and prohibit unrelated HR use unless separately justified and governed."
-            },
-            {
-              "id": "C",
-              "text": "Send the raw neural data to all managers for transparency."
-            },
-            {
-              "id": "D",
-              "text": "Assume BCI data is ordinary workplace data with no special sensitivity."
-            }
-          ],
-          "correct_answer": "B",
-          "academic_points": 1,
-          "reward_africoin": 10,
-          "feedback": {
-            "correct": "Correct. Neural data can be highly sensitive. Purpose limitation, informed consent, minimisation and strict access controls are central to responsible use.",
-            "A": "Incorrect. Collection does not create unlimited permission.",
-            "C": "Incorrect. Broad access increases privacy and misuse risks.",
-            "D": "Incorrect. Neural and biometric-like data can reveal highly personal information."
-          },
-          "teaching_point": "Frontier capability increases the importance of governance, not the opposite.",
-          "sdg_link": "SDG 4 and SDG 8",
-          "ethics_flash": "Neural data can challenge conventional ideas of privacy because it concerns internal cognitive states.",
-          "facilitator_tip": "Ask students whether consent is meaningful when an employer controls participation.",
-          "fun_line": "Reading the room is one thing. Reading the brain is another."
-        }
-      ]
-    },
-    {
-      "level_id": "LEVEL_2",
-      "level_name": "Strategy Forge",
-      "emoji": "⚙️",
-      "difficulty": "Advanced",
-      "africoin_per_correct_answer": 20,
-      "level_max_africoin": 60,
-      "badge": {
-        "name": "Value Architect",
-        "emoji": "🎖️",
-        "unlock_condition": "2 or more correct answers out of 3",
-        "tagline": "You can connect technology ambition to investment discipline, people and implementation."
-      },
-      "problems": [
-        {
-          "problem_id": "L2P1",
-          "title": "The Shiny Proposal",
-          "section_focus": [
-            "Section 8"
-          ],
-          "location": "Sandton, Gauteng",
-          "character": {
-            "name": "Durand Jesse Govender",
-            "role": "Strategy and Analytics Executive",
-            "organisation": "Ubuntu Horizon Group"
-          },
-          "scenario": "The board receives three proposals. Proposal A is a fashionable metaverse showroom with no defined customer problem. Proposal B uses predictive maintenance to reduce recurring industrial downtime and has relevant operational data. Proposal C introduces blockchain to an internal process already controlled by one trusted system owner.",
-          "question": "Which proposal has the strongest strategic case?",
-          "options": [
-            {
-              "id": "A",
-              "text": "Proposal A because frontier technology creates publicity."
-            },
-            {
-              "id": "B",
-              "text": "Proposal B because it addresses a measurable problem, has enabling data and offers a credible value case."
-            },
-            {
-              "id": "C",
-              "text": "Proposal C because blockchain is inherently strategic."
-            },
-            {
-              "id": "D",
-              "text": "Approve all three so the organisation appears innovative."
-            }
-          ],
-          "correct_answer": "B",
-          "academic_points": 1,
-          "reward_africoin": 20,
-          "feedback": {
-            "correct": "Correct. Strategic technology investment begins with a meaningful problem, readiness, measurable value and a credible implementation path.",
-            "A": "Incorrect. Publicity without a defined value case is weak strategy.",
-            "C": "Incorrect. Technology should solve a relevant trust or process problem.",
-            "D": "Incorrect. Innovation activity is not the same thing as innovation value."
-          },
-          "teaching_point": "Technology strategy is disciplined choice under constraints.",
-          "sdg_link": "SDG 9",
-          "ethics_flash": "Investment decisions also determine who benefits from scarce organisational resources.",
-          "facilitator_tip": "Ask students what evidence a board should demand before approving a pilot.",
-          "fun_line": "The board is not a technology petting zoo."
-        },
-        {
-          "problem_id": "L2P2",
-          "title": "The Automation Shock",
-          "section_focus": [
-            "Section 9"
-          ],
-          "location": "Johannesburg and Pretoria",
-          "character": {
-            "name": "Gloria Thandiwe Molefe",
-            "role": "Operations Executive",
-            "organisation": "Ubuntu Shared Services"
-          },
-          "scenario": "Ubuntu Horizon introduces AI-assisted document processing. Routine work falls sharply, and management estimates that 30% of current tasks will change. The CFO proposes immediate job cuts. Gloria argues that many employees could be reskilled into exception handling, customer support, data quality and AI oversight.",
-          "question": "Which response best reflects responsible technology leadership?",
-          "options": [
-            {
-              "id": "A",
-              "text": "Cut jobs immediately because automation's purpose is always headcount reduction."
-            },
-            {
-              "id": "B",
-              "text": "Assess task changes, redesign roles, invest in reskilling and use workforce transition planning alongside productivity goals."
-            },
-            {
-              "id": "C",
-              "text": "Ban automation to protect every existing task permanently."
-            },
-            {
-              "id": "D",
-              "text": "Keep the system secret from employees until deployment is complete."
-            }
-          ],
-          "correct_answer": "B",
-          "academic_points": 1,
-          "reward_africoin": 20,
-          "feedback": {
-            "correct": "Correct. Responsible adoption considers productivity and human transition together. Jobs consist of tasks, and technology can remove, alter or create tasks.",
-            "A": "Too narrow. Immediate cuts can destroy skills, trust and organisational capability.",
-            "C": "Too absolute. Organisations still need to adapt and improve productivity.",
-            "D": "Incorrect. Secrecy undermines trust and change management."
-          },
-          "teaching_point": "The future of work is partly a job-design and capability problem.",
-          "sdg_link": "SDG 8",
-          "ethics_flash": "Who carries the cost of productivity improvement, and who receives the benefits?",
-          "facilitator_tip": "Ask students to distinguish task automation from whole-job elimination.",
-          "fun_line": "Before replacing a person, check whether you are actually replacing three repetitive tasks and keeping seven valuable ones."
-        },
-        {
-          "problem_id": "L2P3",
-          "title": "Pilot, Pray or Scale?",
-          "section_focus": [
-            "Section 10"
-          ],
-          "location": "Windhoek and Johannesburg",
-          "character": {
-            "name": "Shiraz Pillay",
-            "role": "Regional Transformation Lead",
-            "organisation": "Ubuntu Horizon Logistics"
-          },
-          "scenario": "A pilot using IoT sensors and predictive analytics has reduced refrigeration failures by 16% at one distribution centre. The CEO wants immediate deployment across five countries. However, connectivity, local skills, maintenance support and data quality differ significantly by market.",
-          "question": "What is the strongest implementation decision?",
-          "options": [
-            {
-              "id": "A",
-              "text": "Scale everywhere immediately because the first pilot succeeded."
-            },
-            {
-              "id": "B",
-              "text": "Use staged scaling with local readiness assessments, adaptation, training, metrics and feedback loops."
-            },
-            {
-              "id": "C",
-              "text": "Stop the project because every country is different."
-            },
-            {
-              "id": "D",
-              "text": "Copy the original site exactly and prohibit local adaptation."
-            }
-          ],
-          "correct_answer": "B",
-          "academic_points": 1,
-          "reward_africoin": 20,
-          "feedback": {
-            "correct": "Correct. A successful pilot demonstrates potential, not universal transferability. Scaling should preserve the core value proposition while adapting to local readiness and context.",
-            "A": "Incorrect. Scaling without readiness assessment can convert pilot success into programme failure.",
-            "C": "Too conservative. Variation calls for adaptation, not automatic abandonment.",
-            "D": "Incorrect. Local context matters for implementation."
-          },
-          "teaching_point": "Pilot success is evidence to learn from, not permission to stop thinking.",
-          "sdg_link": "SDG 9 and SDG 12",
-          "ethics_flash": "Scaling can widen inequality if only high-capacity locations can benefit from the technology.",
-          "facilitator_tip": "Ask what should remain standardised and what should be localised.",
-          "fun_line": "Copy-paste is not a continental implementation strategy."
-        }
-      ]
-    },
-    {
-      "level_id": "LEVEL_3",
-      "level_name": "Continental Boardroom",
-      "emoji": "👑",
-      "difficulty": "Executive Integration",
-      "africoin_per_correct_answer": 30,
-      "level_max_africoin": 90,
-      "badge": {
-        "name": "Africa Tech Sovereign",
-        "emoji": "🏆",
-        "unlock_condition": "2 or more correct answers out of 3",
-        "tagline": "You can govern a technology portfolio across value, ethics, implementation and African context."
-      },
-      "problems": [
-        {
-          "problem_id": "L3P1",
-          "title": "The 5 Million AfriCOIN Portfolio",
-          "section_focus": [
-            "Sections 1 to 10 integrated"
-          ],
-          "location": "Johannesburg Boardroom",
-          "character": {
-            "name": "The Ubuntu Horizon Executive Committee",
-            "role": "Board-level decision team",
-            "organisation": "Ubuntu Horizon Group"
-          },
-          "scenario": "The board has 5 million AfriCOIN for three years of innovation. Option A costs 2.0 million: predictive maintenance with existing sensor data and a documented downtime problem. Option B costs 1.4 million: a VR safety-training platform for high-risk industrial work. Option C costs 1.2 million: data governance, cybersecurity and cloud integration supporting multiple business units. Option D costs 2.5 million: a celebrity-style Generative AI brand avatar with no defined operational problem. Option E costs 1.6 million: a permissioned blockchain for multi-party equipment provenance where disputes are frequent.",
-          "question": "Which portfolio is strongest within the 5 million AfriCOIN budget?",
-          "options": [
-            {
-              "id": "A",
-              "text": "D + any remaining advertising spend, because visibility drives innovation."
-            },
-            {
-              "id": "B",
-              "text": "A + B + C, because it combines measurable operational value, safe immersive training and enabling digital foundations."
-            },
-            {
-              "id": "C",
-              "text": "C + D, because every organisation needs Generative AI branding."
-            },
-            {
-              "id": "D",
-              "text": "A + D, because the most expensive technologies are usually the most disruptive."
-            }
-          ],
-          "correct_answer": "B",
-          "academic_points": 1,
-          "reward_africoin": 30,
-          "feedback": {
-            "correct": "Correct. A + B + C totals 4.6 million AfriCOIN and balances direct operational value, workforce capability and enabling infrastructure. Option E may also be viable, but the available budget requires prioritisation.",
-            "A": "Incorrect. Visibility without a defined problem or value case is weak portfolio logic.",
-            "C": "Incorrect. Strong foundations are useful, but the brand avatar lacks a compelling problem.",
-            "D": "Incorrect. Price and novelty do not establish strategic value."
-          },
-          "teaching_point": "Portfolio strategy means saying no to attractive ideas so that the best-aligned ideas can succeed.",
-          "sdg_link": "SDG 8, SDG 9 and SDG 12",
-          "ethics_flash": "A portfolio should also consider who benefits, whose work changes and which groups carry implementation risk.",
-          "facilitator_tip": "Ask students which unselected option they would reconsider next year and what evidence would change the decision.",
-          "fun_line": "The hardest boardroom technology skill is sometimes saying, 'Not yet.'"
-        },
-        {
-          "problem_id": "L3P2",
-          "title": "The Commercialisation Fork",
-          "section_focus": [
-            "Section 8",
-            "Section 10",
-            "Sections 1 to 10 integrated"
-          ],
-          "location": "Johannesburg with expansion into Nairobi and Accra",
-          "character": {
-            "name": "Dewald Terence van Wyk",
-            "role": "Technology Venture Lead",
-            "organisation": "Ubuntu Horizon Ventures"
-          },
-          "scenario": "An internal team develops an African-language AI support tool that works well in a pilot. Three choices emerge: keep it as an internal tool only; licence the intellectual property to a foreign vendor for a once-off fee; or build a separate venture, validate demand in multiple African markets, protect appropriate IP and develop a scalable service model.",
-          "question": "Which option best represents a credible commercialisation pathway if market evidence is promising?",
-          "options": [
-            {
-              "id": "A",
-              "text": "Keep it internal forever because commercialisation always weakens academic or technical quality."
-            },
-            {
-              "id": "B",
-              "text": "Build a staged venture pathway: validate demand, protect relevant IP, test a business model, secure partners and scale based on evidence."
-            },
-            {
-              "id": "C",
-              "text": "Launch across Africa immediately without customer validation."
-            },
-            {
-              "id": "D",
-              "text": "Give the source code away before deciding who owns the IP."
-            }
-          ],
-          "correct_answer": "B",
-          "academic_points": 1,
-          "reward_africoin": 30,
-          "feedback": {
-            "correct": "Correct. Commercialisation requires more than a working prototype. It connects validated demand, IP strategy, a sustainable business model, partnerships, implementation capacity and evidence-based scaling.",
-            "A": "Incorrect. Internal use can be valid, but it is not automatically the strongest choice when external demand exists.",
-            "C": "Incorrect. Scaling before validation creates high market and implementation risk.",
-            "D": "Incorrect. IP and ownership should be clarified before uncontrolled disclosure."
-          },
-          "teaching_point": "Innovation creates potential; commercialisation creates a pathway for sustained adoption and value capture.",
-          "sdg_link": "SDG 8 and SDG 9",
-          "ethics_flash": "Commercial success should not depend on extracting African data or language resources without fair benefit-sharing.",
-          "facilitator_tip": "Ask what evidence would prove product-market fit.",
-          "fun_line": "A prototype is not yet a company. It is a very ambitious conversation."
-        },
-        {
-          "problem_id": "L3P3",
-          "title": "The Final Board Vote",
-          "section_focus": [
-            "Sections 1 to 10 integrated"
-          ],
-          "location": "Pan-African Board Meeting, Johannesburg",
-          "character": {
-            "name": "The MBA Technology Council",
-            "role": "Final decision authority",
-            "organisation": "Ubuntu Horizon Group"
-          },
-          "scenario": "After three years, Ubuntu Horizon has several successful pilots. The board must decide whether to scale a technology portfolio across Africa. The evidence shows measurable business value, but some regions have weaker connectivity, some datasets underrepresent rural communities, employees fear job displacement, and local partners want a greater share of intellectual-property and commercial benefits.",
-          "question": "What is the strongest final board position?",
-          "options": [
-            {
-              "id": "A",
-              "text": "Scale everything exactly as designed because the pilots were successful."
-            },
-            {
-              "id": "B",
-              "text": "Reject the entire portfolio because implementation is complicated."
-            },
-            {
-              "id": "C",
-              "text": "Scale selectively with local adaptation, infrastructure readiness, fairness testing, workforce transition, partner participation, governance and measurable impact targets."
-            },
-            {
-              "id": "D",
-              "text": "Scale only in wealthy urban markets and ignore the rest indefinitely."
-            }
-          ],
-          "correct_answer": "C",
-          "academic_points": 1,
-          "reward_africoin": 30,
-          "feedback": {
-            "correct": "Correct. Responsible scaling is not uniform replication. It requires contextual adaptation, readiness, ethics, workforce planning, shared value, governance and continuous measurement.",
-            "A": "Incorrect. Pilot success in one context does not guarantee transferability.",
-            "B": "Too extreme. Complexity should be managed, not used as a reason to abandon value.",
-            "D": "Incorrect. This may deepen digital and economic inequality."
-          },
-          "teaching_point": "The mature technology decision is not 'yes' or 'no'. It is often 'where, for whom, under what conditions, with what safeguards, and how will we know it worked?'",
-          "sdg_link": "SDG 8, SDG 9, SDG 10 and SDG 17",
-          "ethics_flash": "Responsible innovation includes distribution of benefits, not only avoidance of harm.",
-          "facilitator_tip": "End the simulation by asking students to speak the full decision spine aloud: Problem -> Technology -> Value -> Feasibility -> SDG -> Ethics -> Risk -> Implementation -> Commercialisation -> Impact.",
-          "fun_line": "You have reached the end of the module. The technology survived. More importantly, so did your judgement."
-        }
-      ]
-    }
-  ],
-  "end_game": {
-    "maximum_africoin": 180,
-    "academic_maximum": 9,
-    "formal_weight_percent": 5,
-    "score_bands": [
-      {
-        "min_africoin": 0,
-        "max_africoin": 60,
-        "rank": "Frontier Observer",
-        "message": "You can recognise the technologies. Keep strengthening your strategic and governance judgement."
-      },
-      {
-        "min_africoin": 70,
-        "max_africoin": 120,
-        "rank": "Innovation Navigator",
-        "message": "You are connecting technology choices to value, people and implementation."
-      },
-      {
-        "min_africoin": 130,
-        "max_africoin": 160,
-        "rank": "Continental Strategist",
-        "message": "Strong work. You are thinking across technology, ethics, strategy and African context."
-      },
-      {
-        "min_africoin": 170,
-        "max_africoin": 180,
-        "rank": "Africa Tech Sovereign",
-        "message": "Excellent. You are making board-level technology decisions that connect value, governance, implementation and impact."
-      }
     ],
-    "final_debrief": {
-      "question": "What separates technology enthusiasm from executive technology leadership?",
-      "answer": "Executive leadership begins with a real problem, selects appropriate technology, tests readiness and value, considers ethics and human impact, implements in context, protects trust, creates a viable path to scale or commercialisation and measures impact.",
-      "final_framework": [
-        "African Problem",
-        "Technology",
-        "Value",
-        "Feasibility",
-        "SDG",
-        "Ethics",
-        "Risk",
-        "Implementation",
-        "Commercialisation",
-        "Impact"
-      ]
-    }
+    "final_message": "The strongest technology decision is not the most futuristic one. It is the one that solves a real problem, fits the context, creates measurable value, protects people, can be implemented responsibly and has a credible path to sustainable impact."
   }
 }

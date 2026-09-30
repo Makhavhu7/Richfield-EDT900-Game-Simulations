@@ -30,7 +30,7 @@ const SLOTS = {
         file:
             "assets/data/" +
             "EDT900_Major_Simulation_2_Africa_2035_Boardroom.json",
-        group: "levels_data",
+        group: "stages",
         hint: /boardroom|africa[-_ ]?2035|simulation_2|sim_2/i
     }
 };

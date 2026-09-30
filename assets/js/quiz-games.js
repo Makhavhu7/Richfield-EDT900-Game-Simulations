@@ -167,10 +167,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "assets/data/" +
                 "EDT900_Major_Simulation_2_Africa_2035_Boardroom.json",
 
-            groupField: "levels_data",
-            groupKeyField: "level_id",
-            groupNameField: "level_name",
-            groupWord: "Level",
+            groupField: "stages",
+            groupKeyField: "stage_id",
+            groupNameField: "stage_name",
+            groupWord: "Stage",
             icon: "bi-globe-africa",
 
             buttonId: "openSim2Game",
